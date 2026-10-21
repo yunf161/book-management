@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>共享业务组件视觉测试（隔离样例）</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { createApp } from "vue";
+      import ElementPlus from "element-plus";
+      import zhCn from "element-plus/es/locale/lang/zh-cn";
+      import "element-plus/dist/index.css";
+      import "/src/styles.css";
+      import "/src/visual-theme.css";
+      import Preview from "./ResourcePreview.vue";
+      createApp(Preview).use(ElementPlus, { locale: zhCn }).mount("#app");
+    </script>
+  </body>
+</html>

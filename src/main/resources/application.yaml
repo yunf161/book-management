@@ -1,0 +1,120 @@
+spring:
+  config:
+    # IDEA 未继承系统环境变量时，从项目根目录读取被 Git 忽略的本地配置。
+    import: "optional:file:./local-secrets.properties"
+  application:
+    name: AI-library
+  servlet:
+    multipart:
+      # 传输上限略高于业务5MB限制，使封面服务能给出统一校验响应。
+      max-file-size: 10MB
+      max-request-size: 12MB
+  rabbitmq:
+    host: "${RABBITMQ_HOST:127.0.0.1}"
+    port: "${RABBITMQ_PORT:25673}"
+    username: "${RABBITMQ_USERNAME:itcast}"
+    password: "${RABBITMQ_PASSWORD:}"
+    virtual-host: "${RABBITMQ_VHOST:/ai-library}"
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        prefetch: 20
+  datasource:
+    url: "${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/library?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Hong_Kong}"
+    username: "${MYSQL_USERNAME:root}"
+    password: "${MYSQL_PASSWORD:}"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: "${REDIS_HOST:127.0.0.1}"
+      port: "${REDIS_PORT:6379}"
+      password: "${REDIS_PASSWORD:}"
+      database: "${REDIS_DATABASE:0}"
+      timeout: 3s
+  mail:
+    # 默认使用网易个人邮箱 SMTP；部署时仍可通过 MAIL_HOST 覆盖。
+    host: "${MAIL_HOST:smtp.163.com}"
+    port: "${MAIL_PORT:465}"
+    username: "${MAIL_USERNAME:}"
+    password: "${MAIL_PASSWORD:}"
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  sql:
+    init:
+      mode: never
+  ai:
+    # 未配置模型服务时关闭聊天模型，避免影响普通业务接口启动。
+    model:
+      chat: "${AI_CHAT_MODEL:none}"
+    deepseek:
+      api-key: "${DEEPSEEK_API_KEY:}"
+
+mybatis:
+  # 加载 resources/mapper 下按业务模块划分的 XML Mapper 文件。
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    # 将数据库的下划线字段自动映射为 Java 的驼峰属性。
+    map-underscore-to-camel-case: true
+
+jwt:
+  # 生产环境通过 JWT_SECRET 覆盖；密钥内容必须是 Base64 编码且解码后不少于 32 字节。
+  secret: "${JWT_SECRET:MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=}"
+  # 默认有效期为 2 小时，单位为毫秒。
+  expiration-millis: "${JWT_EXPIRATION_MILLIS:7200000}"
+  # JWT 剩余有效期不超过该值时进行轮换，默认 30 分钟。
+  refresh-threshold-millis: "${JWT_REFRESH_THRESHOLD_MILLIS:1800000}"
+  # 轮换后旧 jti 的 Redis 会话保留时间，默认 30 秒，用于兼容并发请求。
+  refresh-grace-millis: "${JWT_REFRESH_GRACE_MILLIS:30000}"
+  # 默认开启全局 JWT 拦截；仅测试特殊场景时通过环境变量关闭。
+  interceptor-enabled: "${JWT_INTERCEPTOR_ENABLED:true}"
+
+library:
+  ai:
+    url: "${LIBRARY_AI_URL:http://127.0.0.1:8001}"
+    read-timeout-millis: "${LIBRARY_AI_READ_TIMEOUT_MILLIS:90000}"
+  recommendation:
+    # 本地服务不可用时整批回退规则算法，不影响推荐接口使用。
+    ai-enabled: "${RECOMMENDATION_AI_ENABLED:true}"
+    ai-url: "${RECOMMENDATION_AI_URL:http://127.0.0.1:8001/internal/recommendations/rerank}"
+    ai-token: "${RECOMMENDATION_AI_TOKEN:}"
+    ai-timeout-seconds: "${RECOMMENDATION_AI_TIMEOUT_SECONDS:30}"
+    # 推荐缓存预热不是可靠业务事件，失败时查询回源数据库。
+    mq-enabled: "${RECOMMENDATION_MQ_ENABLED:true}"
+  member:
+    # 每分钟第25秒处理过期待审资料申请，每批最多100份。
+    change-application-expire-cron: "${MEMBER_CHANGE_APPLICATION_EXPIRE_CRON:25 * * * * *}"
+    # 默认每分钟清理到期临时额度；借阅校验直接检查时间，不等待任务执行。
+    temporary-quota-cleanup-cron: "${TEMPORARY_QUOTA_CLEANUP_CRON:0 * * * * *}"
+  communication:
+    # 本地MQ未启动时可关闭分发；HTTP仍可靠保存消息和待发布Outbox。
+    mq-enabled: "${COMMUNICATION_MQ_ENABLED:true}"
+    allowed-origins: "${COMMUNICATION_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:8080}"
+  cache:
+    delete-max-attempts: "${CACHE_DELETE_MAX_ATTEMPTS:3}"
+    delete-retry-delay-millis: "${CACHE_DELETE_RETRY_DELAY_MILLIS:50}"
+  distributed-lock:
+    # 等待同类业务写锁的最长时间；锁租期由 Redisson 看门狗自动续期。
+    wait-millis: "${DISTRIBUTED_LOCK_WAIT_MILLIS:3000}"
+  borrow:
+    overdue-sync-cron: "${BORROW_OVERDUE_SYNC_CRON:0 */5 * * * *}"
+
+# Bucket由部署方显式指定，本机资源保留在被忽略的配置中。
+aliyun:
+  oss:
+    region: "${OSS_REGION:cn-shenzhen}"
+    bucket: "${OSS_BUCKET:}"
+    endpoint: "${OSS_ENDPOINT:https://oss-cn-shenzhen.aliyuncs.com}"
+    max-cover-bytes: "${OSS_MAX_COVER_BYTES:5242880}"
+    signed-url-seconds: "${OSS_SIGNED_URL_SECONDS:300}"

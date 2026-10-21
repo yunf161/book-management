@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.audit.OperationLogMapper">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into member_operation_log(event_id, actor_kind, actor_member_id, actor_member_type,
+            actor_role_id, target_type, target_id, action_code, reason, before_data, after_data,
+            result_status, error_code, created_at)
+        values(#{eventId}, #{actorKind}, #{actorMemberId}, #{actorMemberType}, #{actorRoleId},
+            #{targetType}, #{targetId}, #{actionCode}, #{reason}, #{beforeData}, #{afterData},
+            #{resultStatus}, #{errorCode}, #{createdAt})
+    </insert>
+    <select id="find" resultType="com.yunfeil161.ailibrary.audit.OperationLog">
+        select id, event_id, actor_kind, actor_member_id, actor_member_type, actor_role_id,
+            target_type, target_id, action_code, reason,
+            before_data, after_data,
+            result_status, error_code, created_at
+        from member_operation_log
+        <where>
+            <if test="id != null">and id = #{id}</if>
+            <if test="actorMemberId != null">and actor_member_id = #{actorMemberId}</if>
+            <if test="actorRoleId != null">and actor_role_id = #{actorRoleId}</if>
+            <if test="actorKind != null">and actor_kind = #{actorKind}</if>
+            <if test="targetType != null">and target_type = #{targetType}</if>
+            <if test="targetId != null">and target_id = #{targetId}</if>
+            <if test="actionCode != null">and action_code = #{actionCode}</if>
+            <if test="resultStatus != null">and result_status = #{resultStatus}</if>
+            <if test="createdFrom != null">and created_at &gt;= #{createdFrom}</if>
+            <if test="createdTo != null">and created_at &lt;= #{createdTo}</if>
+        </where>
+        order by created_at desc, id desc
+    </select>
+</mapper>

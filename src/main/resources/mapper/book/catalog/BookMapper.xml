@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.book.catalog.mapper.BookMapper">
+    <resultMap id="BookMap" type="com.yunfeil161.ailibrary.book.catalog.entity.Book">
+        <id column="id" property="id"/><result column="category_id" property="categoryId"/><result column="title" property="title"/>
+        <result column="subtitle" property="subtitle"/><result column="author" property="author"/><result column="isbn" property="isbn"/>
+        <result column="publisher" property="publisher"/><result column="published_date" property="publishedDate"/><result column="edition" property="edition"/>
+        <result column="language" property="language"/><result column="description" property="description"/><result column="cover_object_key" property="coverObjectKey"/>
+        <result column="status" property="status"/><result column="version" property="version"/><result column="created_at" property="createdAt"/><result column="updated_at" property="updatedAt"/>
+    </resultMap>
+    <resultMap id="DetailMap" type="com.yunfeil161.ailibrary.book.catalog.entity.BookDetailVO" extends="BookMap">
+        <result column="category" property="category"/>
+        <result column="total_copies" property="totalCopies"/>
+        <result column="available_copies" property="availableCopies"/><result column="cover_url" property="coverUrl"/>
+    </resultMap>
+    <sql id="BookColumns">b.id, b.category_id, b.title, b.subtitle, b.author, b.isbn, b.publisher, b.published_date, b.edition, b.language, b.description, b.cover_object_key, b.status, b.version, b.created_at, b.updated_at</sql>
+    <sql id="DetailColumns">
+        <include refid="BookColumns"/>,
+        CASE
+            WHEN pc.id IS NULL THEN c.name
+            ELSE CONCAT(pc.name, '：', c.name)
+        END AS category,
+        (SELECT COUNT(*) FROM book_copy bc WHERE bc.book_id = b.id AND bc.status != 'DISCARDED') AS total_copies,
+        (SELECT COUNT(*) FROM book_copy bc WHERE bc.book_id = b.id AND bc.status = 'AVAILABLE') AS available_copies,
+        CASE WHEN b.cover_object_key IS NULL OR b.cover_object_key = '' THEN NULL
+             ELSE CONCAT('/books/', b.id, '/cover/content') END AS cover_url
+    </sql>
+    <select id="find" resultMap="DetailMap">
+        SELECT <include refid="DetailColumns"/>
+        FROM book b
+        JOIN book_category c ON c.id = b.category_id
+        LEFT JOIN book_category pc ON pc.id = c.parent_id
+        <where>
+            <if test="query.id != null">AND b.id = #{query.id}</if>
+            <if test="query.categoryId != null">AND b.category_id = #{query.categoryId}</if>
+            <if test="query.keyword != null and query.keyword != ''">AND (b.title LIKE CONCAT('%',#{query.keyword},'%') OR b.subtitle LIKE CONCAT('%',#{query.keyword},'%') OR b.author LIKE CONCAT('%',#{query.keyword},'%') OR b.isbn LIKE CONCAT('%',#{query.keyword},'%') OR b.publisher LIKE CONCAT('%',#{query.keyword},'%'))</if>
+            <if test="query.title != null and query.title != ''">AND b.title LIKE CONCAT('%',#{query.title},'%')</if>
+            <if test="query.subtitle != null and query.subtitle != ''">AND b.subtitle LIKE CONCAT('%',#{query.subtitle},'%')</if>
+            <if test="query.author != null and query.author != ''">AND b.author LIKE CONCAT('%',#{query.author},'%')</if>
+            <if test="query.isbn != null and query.isbn != ''">AND b.isbn LIKE CONCAT('%',#{query.isbn},'%')</if>
+            <if test="query.publisher != null and query.publisher != ''">AND b.publisher LIKE CONCAT('%',#{query.publisher},'%')</if>
+            <if test="query.publishedDate != null">AND b.published_date = #{query.publishedDate}</if>
+            <if test="query.edition != null and query.edition != ''">AND b.edition LIKE CONCAT('%',#{query.edition},'%')</if>
+            <if test="query.language != null and query.language != ''">AND b.language = #{query.language}</if>
+            <if test="query.description != null and query.description != ''">AND b.description LIKE CONCAT('%',#{query.description},'%')</if>
+            <if test="query.coverObjectKey != null and query.coverObjectKey != ''">AND b.cover_object_key = #{query.coverObjectKey}</if>
+            <if test="query.status != null">AND b.status = #{query.status}</if>
+            <if test="query.version != null">AND b.version = #{query.version}</if>
+            <if test="query.createdAt != null">AND b.created_at = #{query.createdAt}</if>
+            <if test="query.updatedAt != null">AND b.updated_at = #{query.updatedAt}</if>
+            <if test="query.availableOnly != null and query.availableOnly">AND EXISTS (SELECT 1 FROM book_copy ba WHERE ba.book_id = b.id AND ba.status = 'AVAILABLE')</if>
+        </where> ORDER BY b.id DESC
+    </select>
+    <select id="findById" resultMap="BookMap">SELECT <include refid="BookColumns"/> FROM book b WHERE b.id = #{id}</select>
+    <select id="findDetailById" resultMap="DetailMap">
+        SELECT <include refid="DetailColumns"/>
+        FROM book b
+        JOIN book_category c ON c.id = b.category_id
+        LEFT JOIN book_category pc ON pc.id = c.parent_id
+        WHERE b.id = #{id}
+    </select>
+    <select id="countByIsbn" resultType="int">SELECT COUNT(*) FROM book WHERE isbn=#{isbn}<if test="excludeId != null"> AND id != #{excludeId}</if></select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (category_id,title,subtitle,author,isbn,publisher,published_date,edition,language,description,cover_object_key,status,version)
+        VALUES (#{categoryId},#{title},#{subtitle},#{author},#{isbn},#{publisher},#{publishedDate},#{edition},#{language},#{description},#{coverObjectKey},#{status},#{version})
+    </insert>
+    <update id="update">UPDATE book <set>
+        <if test="request.categoryId != null">category_id=#{request.categoryId},</if>
+            <if test="request.title != null">title=#{request.title},</if>
+        <if test="request.subtitleProvided">subtitle=#{request.subtitle},</if>
+            <if test="request.author != null">author=#{request.author},</if>
+        <if test="request.isbnProvided">isbn=#{request.isbn},</if>
+            <if test="request.publisherProvided">publisher=#{request.publisher},</if>
+        <if test="request.publishedDateProvided">published_date=#{request.publishedDate},</if>
+            <if test="request.editionProvided">edition=#{request.edition},</if>
+        <if test="request.language != null">language=#{request.language},</if>
+            <if test="request.descriptionProvided">description=#{request.description},</if>
+        <if test="request.coverObjectKeyProvided">cover_object_key=#{request.coverObjectKey},</if>
+            <if test="request.status != null">status=#{request.status},</if>
+        version=version+1, updated_at=CURRENT_TIMESTAMP(3)</set> WHERE id=#{id} AND version=#{request.expectedVersion}
+    </update>
+    <select id="countCopies" resultType="int">
+        SELECT COUNT(*) FROM book_copy
+        WHERE book_id=#{id} AND status!='DISCARDED'
+    </select>
+    <update id="disable">
+        UPDATE book
+        SET status='DISABLED', version=version+1, updated_at=CURRENT_TIMESTAMP(3)
+        WHERE id=#{id} AND version=#{expectedVersion} AND status!='DISABLED'
+    </update>
+</mapper>
+

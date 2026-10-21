@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.communication.conversation.mapper.ConversationMapper">
+    <select id="find" resultType="com.yunfeil161.ailibrary.communication.conversation.entity.Conversation">
+        select * from conversation where id = #{id}
+    </select>
+    <select id="lock" resultType="com.yunfeil161.ailibrary.communication.conversation.entity.Conversation">
+        select * from conversation where id = #{id} for update
+    </select>
+    <select id="findPair" resultType="com.yunfeil161.ailibrary.communication.conversation.entity.Conversation">
+        select * from conversation where participant_one_id = #{one} and participant_two_id = #{two}
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert ignore into conversation(initiator_member_id,participant_one_id,participant_two_id,subject)
+        values(#{initiatorMemberId},#{participantOneId},#{participantTwoId},#{subject})
+    </insert>
+    <update id="update">
+        update conversation
+        <set>
+            <if test="q.subject != null">subject = #{q.subject},</if>
+            <if test="q.status != null">status = #{q.status},</if>
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        </set>
+        where id = #{id} and version = #{q.expectedVersion}
+    </update>
+    <update id="advance">
+        update conversation
+        set last_sequence = #{sequence}, last_message_id = #{messageId},
+            last_message_at = current_timestamp(3), updated_at = current_timestamp(3)
+        where id = #{id} and last_sequence = #{sequence} - 1
+    </update>
+    <select id="query" resultType="com.yunfeil161.ailibrary.communication.conversation.entity.Conversation">
+        select c.*,
+            case when c.participant_one_id = #{memberId} then c.participant_two_id else c.participant_one_id end as target_member_id,
+            target.name as target_name,
+            substring(last_message.body,1,100) as last_message_preview,
+            (select count(*) from message m join message_recipient mr on mr.message_id = m.id
+             where m.conversation_id = c.id and mr.recipient_member_id = #{memberId} and mr.read_at is null) as unread_count
+        from conversation c
+        join member target on target.id = case when c.participant_one_id = #{memberId} then c.participant_two_id else c.participant_one_id end
+        left join message last_message on last_message.id = c.last_message_id
+        where (c.participant_one_id = #{memberId} or c.participant_two_id = #{memberId})
+        <if test="q.id != null">and c.id = #{q.id}</if>
+        <if test="q.targetMemberId != null">and target.id = #{q.targetMemberId}</if>
+        <if test="q.subject != null">and c.subject like concat('%',#{q.subject},'%')</if>
+        <if test="q.status != null">and c.status = #{q.status}</if>
+        <if test="q.createdFrom != null">and c.created_at &gt;= #{q.createdFrom}</if>
+        <if test="q.createdTo != null">and c.created_at &lt;= #{q.createdTo}</if>
+        <if test="q.unreadOnly == true">
+            and exists(select 1 from message m join message_recipient mr on mr.message_id=m.id
+                       where m.conversation_id=c.id and mr.recipient_member_id=#{memberId} and mr.read_at is null)
+        </if>
+        order by coalesce(c.last_message_at,c.created_at) desc, c.id desc
+    </select>
+</mapper>
+

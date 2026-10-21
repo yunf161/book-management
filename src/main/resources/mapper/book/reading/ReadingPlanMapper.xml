@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.book.reading.mapper.ReadingPlanMapper">
+
+    <resultMap id="P" type="com.yunfeil161.ailibrary.book.reading.entity.ReadingPlan">
+        <id column="id" property="id"/>
+        <result column="member_id" property="memberId"/>
+        <result column="member_name" property="memberName"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="target_books" property="targetBooks"/>
+        <result column="start_date" property="startDate"/>
+        <result column="end_date" property="endDate"/>
+        <result column="status" property="status"/>
+        <result column="version" property="version"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="cols">
+        p.id,p.member_id,p.name,p.description,p.target_books,p.start_date,p.end_date,p.status,p.version,p.created_at,p.updated_at
+    </sql>
+
+    <select id="findByMemberId" resultMap="P">
+        select <include refid="cols"/>, m.name member_name
+        from reading_plan p
+        join member m on m.id = p.member_id
+        where p.member_id = #{memberId}
+    </select>
+
+    <select id="findByMemberIdForUpdate" resultMap="P">
+        select <include refid="cols"/>, m.name member_name
+        from reading_plan p
+        join member m on m.id = p.member_id
+        where p.member_id = #{memberId} for update
+    </select>
+
+    <select id="find" resultMap="P">
+        select <include refid="cols"/>, m.name member_name
+        from reading_plan p
+        join member m on m.id = p.member_id
+        <where>
+            <if test="scopeMemberId != null"> and p.member_id = #{scopeMemberId}</if>
+            <if test="q.memberId != null"> and p.member_id = #{q.memberId}</if>
+            <if test="q.memberKeyword != null and q.memberKeyword != ''">
+                and (m.name like concat('%', #{q.memberKeyword}, '%')
+                or m.phone like concat('%', #{q.memberKeyword}, '%')
+                or m.email like concat('%', #{q.memberKeyword}, '%'))
+            </if>
+            <if test="q.planName != null and q.planName != ''"> and p.name like concat('%', #{q.planName}, '%')</if>
+            <if test="q.status != null"> and p.status = #{q.status}</if>
+            <if test="q.startDateFrom != null"> and p.start_date &gt;= #{q.startDateFrom}</if>
+            <if test="q.startDateTo != null"> and p.start_date &lt;= #{q.startDateTo}</if>
+        </where>
+        order by p.updated_at desc
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into reading_plan(member_id, name, description, target_books, start_date, end_date, status, version)
+        values(#{memberId}, #{name}, #{description}, #{targetBooks}, #{startDate}, #{endDate}, #{status}, 0)
+    </insert>
+
+    <update id="update">
+        update reading_plan
+        set name = #{r.name},
+            description = #{r.description},
+            target_books = #{r.targetBooks},
+            start_date = #{r.startDate},
+            end_date = #{r.endDate},
+            status = #{r.status},
+            version = version + 1,
+            updated_at = now()
+        where member_id = #{memberId} and version = #{r.version}
+    </update>
+
+    <update id="touch">
+        update reading_plan
+        set version = version + 1, updated_at = now()
+        where id = #{id} and version = #{version}
+    </update>
+
+    <delete id="delete">
+        delete from reading_plan where member_id = #{memberId} and version = #{version}
+    </delete>
+
+</mapper>

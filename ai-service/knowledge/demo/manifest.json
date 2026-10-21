@@ -1,0 +1,60 @@
+{
+  "current_policies": {
+    "borrow-rules": "v2"
+  },
+  "documents": [
+    {
+      "id": "borrowing-v1",
+      "file": "borrowing-v1.md",
+      "title": "借阅规则测试旧版",
+      "source": "demo://borrowing-v1",
+      "kind": "policy",
+      "version": "v1",
+      "status": "ACTIVE",
+      "demo": true,
+      "policy_id": "borrow-rules"
+    },
+    {
+      "id": "borrowing-v2",
+      "file": "borrowing-v2.md",
+      "title": "借阅规则测试当前版",
+      "source": "demo://borrowing-v2",
+      "kind": "policy",
+      "version": "v2",
+      "status": "ACTIVE",
+      "demo": true,
+      "policy_id": "borrow-rules"
+    },
+    {
+      "id": "borrowing-draft",
+      "file": "borrowing-draft.md",
+      "title": "借阅规则测试草稿",
+      "source": "demo://borrowing-draft",
+      "kind": "policy",
+      "version": "v3",
+      "status": "DRAFT",
+      "demo": true,
+      "policy_id": "borrow-rules"
+    },
+    {
+      "id": "opening",
+      "file": "opening.md",
+      "title": "开放时间测试说明",
+      "source": "demo://opening",
+      "kind": "general",
+      "version": "v1",
+      "status": "ACTIVE",
+      "demo": true
+    },
+    {
+      "id": "java",
+      "file": "java.md",
+      "title": "Java主题测试介绍",
+      "source": "demo://java",
+      "kind": "book_intro",
+      "version": "v1",
+      "status": "ACTIVE",
+      "demo": true
+    }
+  ]
+}

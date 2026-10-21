@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.identity.application.mapper.MemberChangeApplicationMapper">
+
+    <resultMap id="ApplicationMap"
+               type="com.yunfeil161.ailibrary.identity.application.entity.MemberChangeApplication">
+        <id property="id" column="id"/>
+        <result property="applicationNo" column="application_no"/>
+        <result property="applicantMemberId" column="applicant_member_id"/>
+        <result property="targetMemberId" column="target_member_id"/>
+        <result property="applicantMemberType" column="applicant_member_type"/>
+        <result property="applicantRoleId" column="applicant_role_id"/>
+        <result property="applicationType" column="application_type"/>
+        <result property="admissionPolicyId" column="admission_policy_id"/>
+        <result property="admissionPolicyVersion" column="admission_policy_version"/>
+        <result property="borrowingPolicyId" column="borrowing_policy_id"/>
+        <result property="borrowingPolicyVersion" column="borrowing_policy_version"/>
+        <result property="status" column="status"/>
+        <result property="reason" column="reason"/>
+        <result property="expectedMemberVersion" column="expected_member_version"/>
+        <result property="expectedProfileVersion" column="expected_profile_version"/>
+        <result property="reviewerMemberId" column="reviewer_member_id"/>
+        <result property="reviewerRoleId" column="reviewer_role_id"/>
+        <result property="decision" column="decision"/>
+        <result property="decisionReason" column="decision_reason"/>
+        <result property="decidedAt" column="decided_at"/>
+        <result property="cancelledAt" column="cancelled_at"/>
+        <result property="expiresAt" column="expires_at"/>
+        <result property="version" column="version"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+
+        <result property="currentQualificationStatus" column="current_qualification_status"/>
+        <result property="currentAcceptedRuleVersion" column="current_accepted_rule_version"/>
+        <result property="acceptedRuleVersion" column="accepted_rule_version"/>
+        <result property="currentMaxBorrowCount" column="current_max_borrow_count"/>
+        <result property="requestedMaxBorrowCount" column="requested_max_borrow_count"/>
+        <result property="quotaDurationDays" column="quota_duration_days"/>
+        <result property="currentAccountStatus" column="current_account_status"/>
+        <result property="requestedAccountAction" column="requested_account_action"/>
+
+        <result property="currentDepartmentId" column="current_department_id"/>
+        <result property="requestedDepartmentId" column="requested_department_id"/>
+        <result property="currentPositionName" column="current_position_name"/>
+        <result property="requestedPositionName" column="requested_position_name"/>
+        <result property="currentEmploymentStatus" column="current_employment_status"/>
+        <result property="requestedEmploymentAction" column="requested_employment_action"/>
+        <result property="currentRoleId" column="current_role_id"/>
+        <result property="requestedRoleId" column="requested_role_id"/>
+        <result property="currentHiredOn" column="current_hired_on"/>
+        <result property="currentLeftOn" column="current_left_on"/>
+    </resultMap>
+
+    <sql id="ApplicationColumns">
+        a.admission_policy_id, a.admission_policy_version, a.borrowing_policy_id, a.borrowing_policy_version,
+        a.id, a.application_no, a.applicant_member_id, a.target_member_id,
+        a.applicant_member_type, a.applicant_role_id, a.application_type,
+        a.status, a.reason, a.expected_member_version, a.expected_profile_version,
+        a.reviewer_member_id, a.reviewer_role_id, a.decision, a.decision_reason,
+        a.decided_at, a.cancelled_at, a.expires_at, a.version,
+        a.created_at, a.updated_at,
+        r.current_qualification_status, r.current_accepted_rule_version,
+        r.accepted_rule_version,
+        r.current_max_borrow_count, r.requested_max_borrow_count,
+        r.quota_duration_days,
+        e.current_department_id, e.requested_department_id,
+        e.current_position_name, e.requested_position_name,
+        e.current_employment_status, e.requested_employment_action,
+        e.current_role_id, e.requested_role_id,
+        coalesce(r.current_account_status, e.current_account_status) as current_account_status,
+        coalesce(r.requested_account_action, e.requested_account_action) as requested_account_action,
+        e.current_hired_on, e.current_left_on
+    </sql>
+
+    <insert id="insertApplication" useGeneratedKeys="true" keyProperty="application.id">
+        insert into member_change_application
+        (admission_policy_id, admission_policy_version, borrowing_policy_id, borrowing_policy_version,
+         application_no, applicant_member_id, target_member_id,
+         applicant_member_type, applicant_role_id, application_type,
+         status, reason, expected_member_version, expected_profile_version,
+         expires_at, version, created_at, updated_at)
+        values
+        (#{application.admissionPolicyId}, #{application.admissionPolicyVersion}, #{application.borrowingPolicyId}, #{application.borrowingPolicyVersion},
+         #{application.applicationNo}, #{application.applicantMemberId},
+         #{application.targetMemberId}, #{application.applicantMemberType},
+         #{application.applicantRoleId}, #{application.applicationType},
+         #{application.status}, #{application.reason},
+         #{application.expectedMemberVersion}, #{application.expectedProfileVersion},
+         #{application.expiresAt}, 0, current_timestamp, current_timestamp)
+    </insert>
+
+    <insert id="insertReaderDetail">
+        insert into reader_change_application
+        (application_id, current_qualification_status, current_accepted_rule_version,
+         accepted_rule_version,
+         current_max_borrow_count, requested_max_borrow_count, quota_duration_days,
+         current_account_status, requested_account_action)
+        values
+        (#{application.id}, #{application.currentQualificationStatus},
+         #{application.currentAcceptedRuleVersion}, #{application.acceptedRuleVersion},
+         #{application.currentMaxBorrowCount},
+         #{application.requestedMaxBorrowCount}, #{application.quotaDurationDays},
+         #{application.currentAccountStatus}, #{application.requestedAccountAction})
+    </insert>
+
+    <insert id="insertEmployeeDetail">
+        insert into employee_change_application
+        (application_id, current_department_id, requested_department_id,
+         current_position_name, requested_position_name,
+         current_employment_status, requested_employment_action,
+         current_role_id, requested_role_id, current_account_status,
+         requested_account_action, current_hired_on, current_left_on)
+        values
+        (#{application.id}, #{application.currentDepartmentId},
+         #{application.requestedDepartmentId}, #{application.currentPositionName},
+         #{application.requestedPositionName}, #{application.currentEmploymentStatus},
+         #{application.requestedEmploymentAction}, #{application.currentRoleId},
+         #{application.requestedRoleId}, #{application.currentAccountStatus},
+         #{application.requestedAccountAction}, #{application.currentHiredOn},
+         #{application.currentLeftOn})
+    </insert>
+
+    <select id="lockMember" resultType="long">
+        select id
+        from member
+        where id = #{memberId}
+        for update
+    </select>
+
+    <select id="findById" resultMap="ApplicationMap">
+        select <include refid="ApplicationColumns"/>
+        from member_change_application a
+        left join reader_change_application r on r.application_id = a.id
+        left join employee_change_application e on e.application_id = a.id
+        where a.id = #{id}
+    </select>
+
+    <select id="findByIdForUpdate" resultMap="ApplicationMap">
+        select <include refid="ApplicationColumns"/>
+        from member_change_application a
+        left join reader_change_application r on r.application_id = a.id
+        left join employee_change_application e on e.application_id = a.id
+        where a.id = #{id}
+        for update
+    </select>
+
+    <select id="query" resultMap="ApplicationMap">
+        select <include refid="ApplicationColumns"/>
+        from member_change_application a
+        left join reader_change_application r on r.application_id = a.id
+        left join employee_change_application e on e.application_id = a.id
+        <where>
+            <if test="readerOnly">and a.application_type in
+                ('READER_QUALIFICATION','READER_QUALIFICATION_RESTORE','BORROW_QUOTA_CHANGE')
+            </if>
+            <if test="query.id != null">and a.id = #{query.id}</if>
+            <if test="query.applicationNo != null and query.applicationNo != ''">
+                and a.application_no = #{query.applicationNo}
+            </if>
+            <if test="query.applicantMemberId != null">
+                and a.applicant_member_id = #{query.applicantMemberId}
+            </if>
+            <if test="query.targetMemberId != null">
+                and a.target_member_id = #{query.targetMemberId}
+            </if>
+            <if test="query.applicantMemberType != null">
+                and a.applicant_member_type = #{query.applicantMemberType}
+            </if>
+            <if test="query.applicationType != null">
+                and a.application_type = #{query.applicationType}
+            </if>
+            <if test="query.status != null">and a.status = #{query.status}</if>
+            <if test="query.reviewerMemberId != null">
+                and a.reviewer_member_id = #{query.reviewerMemberId}
+            </if>
+            <if test="query.createdFrom != null">and a.created_at &gt;= #{query.createdFrom}</if>
+            <if test="query.createdTo != null">and a.created_at &lt;= #{query.createdTo}</if>
+        </where>
+        order by a.id desc
+    </select>
+
+    <select id="countPending" resultType="int">
+        select count(*) from member_change_application
+        where target_member_id = #{targetMemberId}
+          and application_type = #{applicationType}
+          and status = 'PENDING'
+    </select>
+
+    <select id="findExpiredIds" resultType="long">
+        select id
+        from member_change_application
+        where status = 'PENDING'
+          and expires_at &lt;= #{now}
+        order by expires_at, id
+        limit #{limit}
+    </select>
+
+    <update id="expire">
+        update member_change_application
+        set status = 'EXPIRED',
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status = 'PENDING'
+          and version = #{expectedVersion}
+          and expires_at &lt;= #{now}
+    </update>
+
+    <select id="countOtherPendingQualifications" resultType="int">
+        select count(*)
+        from member_change_application
+        where target_member_id = #{memberId}
+          and id &lt;&gt; #{excludeId}
+          and status = 'PENDING'
+          and application_type in ('READER_QUALIFICATION', 'READER_QUALIFICATION_RESTORE')
+    </select>
+
+    <update id="restoreExpiredQualification">
+        update member
+        set qualification_status = #{status},
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        where id = #{memberId}
+          and qualification_status = 'PENDING'
+          and version = #{expectedVersion}
+    </update>
+
+    <update id="cancel">
+        update member_change_application
+        set status = 'CANCELLED', cancelled_at = current_timestamp,
+            version = version + 1, updated_at = current_timestamp
+        where id = #{id} and applicant_member_id = #{applicantMemberId}
+          and status = 'PENDING' and version = #{expectedVersion}
+          and (expires_at is null or expires_at &gt; #{now})
+    </update>
+
+    <update id="decide">
+        update member_change_application
+        set status = #{status}, decision = #{decision}, decision_reason = #{reason},
+            reviewer_member_id = #{reviewerMemberId}, reviewer_role_id = #{reviewerRoleId},
+            decided_at = current_timestamp, version = version + 1,
+            updated_at = current_timestamp
+        where id = #{id} and status = 'PENDING' and version = #{expectedVersion}
+          and (expires_at is null or expires_at &gt; #{now})
+    </update>
+
+    <update id="updateQualification">
+        update member
+        set qualification_status = #{toStatus},
+            accepted_rule_version = #{acceptedRuleVersion},
+            version = version + 1, updated_at = current_timestamp
+        where id = #{memberId} and qualification_status = #{fromStatus}
+          and version = #{expectedVersion}
+    </update>
+
+    <update id="updateQuota">
+        update member
+        <choose>
+            <when test="expiresAt != null">
+                set temporary_borrow_limit = #{borrowLimit},
+                    temporary_quota_expires_at = #{expiresAt},
+            </when>
+            <otherwise>
+                set permanent_borrow_limit = #{borrowLimit},
+                    temporary_borrow_limit = null, temporary_quota_expires_at = null,
+            </otherwise>
+        </choose>
+            version = version + 1, updated_at = current_timestamp
+        where id = #{memberId} and version = #{expectedVersion}
+          and borrowed_book_count &lt;= #{borrowLimit}
+    </update>
+
+    <update id="updateAccountStatus">
+        update member
+        set account_status = #{toStatus}, version = version + 1,
+            updated_at = current_timestamp
+        where id = #{memberId} and account_status = #{fromStatus}
+          and version = #{expectedVersion}
+    </update>
+
+    <update id="updateEmployeeProfile">
+        update employee_profile
+        <set>
+            <if test="departmentId != null">department_id = #{departmentId},</if>
+            <if test="positionName != null">position_name = #{positionName},</if>
+            version = version + 1
+        </set>
+        where member_id = #{memberId} and version = #{expectedVersion}
+    </update>
+
+    <update id="updateEmployment">
+        update employee_profile
+        set employment_status = #{toStatus}, left_on = #{leftOn},
+            version = version + 1
+        where member_id = #{memberId} and employment_status = #{fromStatus}
+          and version = #{expectedVersion}
+    </update>
+
+    <update id="updateRole">
+        update member
+        set role_id = #{roleId}, version = version + 1,
+            updated_at = current_timestamp
+        where id = #{memberId} and member_type = 'EMPLOYEE'
+          and version = #{expectedVersion}
+    </update>
+
+    <select id="countDepartment" resultType="int">
+        select count(*) from department where id = #{departmentId} and status = 'ACTIVE'
+    </select>
+
+    <select id="countEmployeeProfile" resultType="int">
+        select count(*) from employee_profile where member_id = #{memberId}
+    </select>
+
+    <select id="findEmployeeProfileVersion" resultType="long">
+        select version from employee_profile where member_id = #{memberId}
+    </select>
+</mapper>

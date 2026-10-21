@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.communication.message.mapper.MessageMapper">
+    <select id="find" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select m.*, coalesce(s.name, '系统通知') as sender_name from message m left join member s on s.id=m.sender_member_id where m.id=#{id}
+    </select>
+    <select id="findClient" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select * from message where sender_member_id=#{sender} and client_message_id=#{client}
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into message(conversation_id,sequence,sender_member_id,send_type,subject,body,client_message_id,request_hash,recipient_count,message_type,business_type,business_id,notification_key)
+        values(#{conversationId},#{sequence},#{senderMemberId},#{sendType},#{subject},#{body},#{clientMessageId},#{requestHash},#{recipientCount},coalesce(#{messageType},'CHAT'),#{businessType},#{businessId},#{notificationKey})
+    </insert>
+    <insert id="insertRecipient">
+        insert into message_recipient(message_id,recipient_member_id,created_at)
+        select id,#{recipient},created_at from message where id=#{messageId}
+    </insert>
+    <select id="recipients" resultType="com.yunfeil161.ailibrary.communication.message.entity.MessageRecipient">
+        select mr.*, m.name as recipient_name from message_recipient mr
+        join member m on m.id=mr.recipient_member_id where mr.message_id=#{messageId}
+    </select>
+    <select id="recipient" resultType="com.yunfeil161.ailibrary.communication.message.entity.MessageRecipient">
+        select * from message_recipient where message_id=#{messageId} and recipient_member_id=#{memberId}
+    </select>
+    <update id="markRead">
+        update message_recipient set read_at=current_timestamp(3)
+        where message_id=#{messageId} and recipient_member_id=#{memberId} and read_at is null
+    </update>
+    <select id="query" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select m.*, coalesce(sender.name, '系统通知') as sender_name, mine.read_at
+        from message m
+        left join member sender on sender.id=m.sender_member_id
+        left join message_recipient mine on mine.message_id=m.id and mine.recipient_member_id=#{memberId}
+        where
+        <choose>
+            <when test="q.box == 'INBOX'">mine.id is not null</when>
+            <when test="q.box == 'OUTBOX'">m.sender_member_id=#{memberId}</when>
+            <otherwise>(m.sender_member_id=#{memberId} or mine.id is not null)</otherwise>
+        </choose>
+        <if test="q.messageType != null">and m.message_type = #{q.messageType}</if>
+        <if test="q.businessType != null">and m.business_type = #{q.businessType}</if>
+        <if test="q.businessId != null">and m.business_id = #{q.businessId}</if>
+        <if test="q.id != null">and m.id=#{q.id}</if>
+        <if test="q.conversationId != null">and m.conversation_id=#{q.conversationId}</if>
+        <if test="q.senderMemberId != null">and m.sender_member_id=#{q.senderMemberId}</if>
+        <if test="q.recipientMemberId != null">and exists(select 1 from message_recipient r where r.message_id=m.id and r.recipient_member_id=#{q.recipientMemberId})</if>
+        <if test="q.sendType != null">and m.send_type=#{q.sendType}</if>
+        <if test="q.subject != null">and m.subject like concat('%',#{q.subject},'%')</if>
+        <if test="q.read != null">
+            and mine.id is not null
+            <choose><when test="q.read">and mine.read_at is not null</when><otherwise>and mine.read_at is null</otherwise></choose>
+        </if>
+        <if test="q.createdFrom != null">and m.created_at &gt;= #{q.createdFrom}</if>
+        <if test="q.createdTo != null">and m.created_at &lt;= #{q.createdTo}</if>
+        <if test="q.afterSequence != null">and m.sequence &gt; #{q.afterSequence}</if>
+        <choose><when test="q.afterSequence != null">order by m.sequence asc</when><otherwise>order by m.created_at desc,m.id desc</otherwise></choose>
+    </select>
+    <select id="unread" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select m.*, coalesce(s.name, '系统通知') as sender_name
+        from message m
+        left join member s on s.id=m.sender_member_id
+        join message_recipient r on r.message_id=m.id
+        where r.recipient_member_id=#{memberId} and r.read_at is null
+        order by m.created_at desc,m.id desc
+        limit 501
+    </select>
+    <select id="unreadIds" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select m.*, coalesce(s.name, '系统通知') as sender_name
+        from message m
+        left join member s on s.id=m.sender_member_id
+        join message_recipient r on r.message_id=m.id
+        where r.recipient_member_id=#{memberId} and r.read_at is null
+          and m.id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">#{id}</foreach>
+        order by m.created_at desc,m.id desc
+    </select>
+    <select id="unreadCount" resultType="long">
+        select count(*) from message_recipient where recipient_member_id=#{memberId} and read_at is null
+    </select>
+    <select id="findNotification" resultType="com.yunfeil161.ailibrary.communication.message.entity.CommunicationMessage">
+        select * from message where notification_key = #{key}
+    </select>
+</mapper>

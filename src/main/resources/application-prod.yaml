@@ -1,0 +1,16 @@
+# 正式部署必须显式启用prod；不回退到开发密钥或数据库root账户。
+spring:
+  datasource:
+    username: "${MYSQL_USERNAME}"
+    password: "${MYSQL_PASSWORD}"
+  data:
+    redis:
+      password: "${REDIS_PASSWORD}"
+jwt:
+  secret: "${JWT_SECRET}"
+  interceptor-enabled: true
+server:
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never

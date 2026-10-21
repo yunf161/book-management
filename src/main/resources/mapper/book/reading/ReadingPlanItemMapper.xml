@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.book.reading.mapper.ReadingPlanItemMapper">
+
+    <resultMap id="I" type="com.yunfeil161.ailibrary.book.reading.entity.ReadingPlanItem">
+        <id column="id" property="id"/>
+        <result column="plan_id" property="planId"/>
+        <result column="member_id" property="memberId"/>
+        <result column="member_name" property="memberName"/>
+        <result column="book_id" property="bookId"/>
+        <result column="book_name" property="bookName"/>
+        <result column="author" property="author"/>
+        <result column="isbn" property="isbn"/>
+        <result column="cover_object_key" property="coverObjectKey"/>
+        <result column="sequence_no" property="sequenceNo"/>
+        <result column="priority" property="priority"/>
+        <result column="status" property="status"/>
+        <result column="progress_percent" property="progressPercent"/>
+        <result column="source" property="source"/>
+        <result column="planned_start_date" property="plannedStartDate"/>
+        <result column="planned_finish_date" property="plannedFinishDate"/>
+        <result column="started_at" property="startedAt"/>
+        <result column="finished_at" property="finishedAt"/>
+        <result column="note" property="note"/>
+        <result column="version" property="version"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="cols">
+        i.id,i.plan_id,p.member_id,m.name member_name,i.book_id,b.title book_name,b.author,b.isbn,b.cover_object_key,i.sequence_no,i.priority,i.status,i.progress_percent,i.source,i.planned_start_date,i.planned_finish_date,i.started_at,i.finished_at,i.note,i.version,i.created_at,i.updated_at
+    </sql>
+
+    <select id="findOne" resultMap="I">
+        select <include refid="cols"/>
+        from reading_plan_item i
+        join reading_plan p on p.id = i.plan_id
+        join member m on m.id = p.member_id
+        join book b on b.id = i.book_id
+        where i.plan_id = #{planId} and i.book_id = #{bookId}
+    </select>
+
+    <select id="find" resultMap="I">
+        select <include refid="cols"/>
+        from reading_plan_item i
+        join reading_plan p on p.id = i.plan_id
+        join member m on m.id = p.member_id
+        join book b on b.id = i.book_id
+        <where>
+            <if test="planId != null"> and i.plan_id = #{planId}</if>
+            <if test="scopeMemberId != null"> and p.member_id = #{scopeMemberId}</if>
+            <if test="q.memberId != null"> and p.member_id = #{q.memberId}</if>
+            <if test="q.memberKeyword != null and q.memberKeyword != ''">
+                and (m.name like concat('%', #{q.memberKeyword}, '%')
+                or m.phone like concat('%', #{q.memberKeyword}, '%')
+                or m.email like concat('%', #{q.memberKeyword}, '%'))
+            </if>
+            <if test="q.bookId != null"> and i.book_id = #{q.bookId}</if>
+            <if test="q.bookKeyword != null and q.bookKeyword != ''">
+                and (b.title like concat('%', #{q.bookKeyword}, '%')
+                or b.author like concat('%', #{q.bookKeyword}, '%')
+                or b.isbn like concat('%', #{q.bookKeyword}, '%'))
+            </if>
+            <if test="q.status != null"> and i.status = #{q.status}</if>
+            <if test="q.source != null"> and i.source = #{q.source}</if>
+        </where>
+        order by
+        <choose>
+            <when test="q.sortColumn == 'priority'">i.priority</when>
+            <when test="q.sortColumn == 'created_at'">i.created_at</when>
+            <otherwise>
+                <if test="planId == null">p.member_id,</if> i.sequence_no
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="q.sortDirection == 'DESC'">desc</when>
+            <otherwise>asc</otherwise>
+        </choose>
+    </select>
+
+    <select id="findByPlanForUpdate" resultMap="I">
+        select <include refid="cols"/>
+        from reading_plan_item i
+        join reading_plan p on p.id = i.plan_id
+        join member m on m.id = p.member_id
+        join book b on b.id = i.book_id
+        where i.plan_id = #{planId}
+        order by i.sequence_no for update
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into reading_plan_item(plan_id, book_id, sequence_no, priority, status, progress_percent, source, planned_start_date, planned_finish_date, note, version)
+        values(#{planId}, #{bookId}, #{sequenceNo}, #{priority}, #{status}, #{progressPercent}, #{source}, #{plannedStartDate}, #{plannedFinishDate}, #{note}, 0)
+    </insert>
+
+    <update id="moveToOffset">
+        update reading_plan_item set sequence_no = sequence_no + #{offset} where id = #{id}
+    </update>
+
+    <update id="writeSequence">
+        update reading_plan_item
+        set sequence_no = #{sequenceNo}, version = version + 1, updated_at = now()
+        where id = #{id}
+    </update>
+
+    <update id="updateFields">
+        update reading_plan_item
+        set sequence_no = #{sequenceNo},
+            priority = #{priority},
+            status = #{status},
+            progress_percent = #{progressPercent},
+            planned_start_date = #{plannedStartDate},
+            planned_finish_date = #{plannedFinishDate},
+            started_at = #{startedAt},
+            finished_at = #{finishedAt},
+            note = #{note},
+            version = version + 1,
+            updated_at = now()
+        where id = #{id} and version = #{version}
+    </update>
+
+    <delete id="deleteOne">
+        delete from reading_plan_item where id = #{id} and version = #{version}
+    </delete>
+
+    <delete id="deleteByPlan">
+        delete from reading_plan_item where plan_id = #{planId}
+    </delete>
+
+    <select id="countStatus" resultType="int">
+        select count(*) from reading_plan_item where plan_id = #{planId} and status = #{status}
+    </select>
+
+</mapper>

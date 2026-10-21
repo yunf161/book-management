@@ -1,0 +1,3055 @@
+{
+  "source": "current working tree; no Git history",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 38,
+      "sha256": "5775a77ad2f6d12dde053a3fb0cca4309189163f0888f4e7e984cd0ab327028b"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 823,
+      "sha256": "c292cac90e758f1ac932beec5a008ab838ece4009cb4dbd2e4b760457f96b22f"
+    },
+    {
+      "path": ".mvn/wrapper/maven-wrapper.properties",
+      "bytes": 168,
+      "sha256": "488e1b3f2e641779d4636abf9390845f901e64607261bc3c0b0bfe4fe96e6706"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5080,
+      "sha256": "9af7eedbb3c092787a3388614d8915308d5910d42b59d42abb428470fb3cfff9"
+    },
+    {
+      "path": "ai-service/.gitignore",
+      "bytes": 34,
+      "sha256": "29da9a49b155fb1143062796d482ffc5c1f178b77eb13ff5ea8c25ca086df709"
+    },
+    {
+      "path": "ai-service/agents/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/agents/business.py",
+      "bytes": 5744,
+      "sha256": "09e48c025cad755f29111e4bbb0b9acb0bcefda7d8cb600eed7b2e131d9a826a"
+    },
+    {
+      "path": "ai-service/agents/consultation.py",
+      "bytes": 9914,
+      "sha256": "7dc43f37412b633db4caa7a6db6449e29c8f370d1fa5660bdfe09a8c86ae10d3"
+    },
+    {
+      "path": "ai-service/agents/dialogue.py",
+      "bytes": 4131,
+      "sha256": "36518efdf0e01b4fdd2c42b502cad279ca4b816eb0735a2c73995e05e20f8e62"
+    },
+    {
+      "path": "ai-service/agents/read_assistant.py",
+      "bytes": 6283,
+      "sha256": "eb9578f2590f23e4c8c62d4658a80f3993390ae2b7ce64ae36d4d9d9f8cce844"
+    },
+    {
+      "path": "ai-service/ai_server.py",
+      "bytes": 14482,
+      "sha256": "0be55455d5737f4057248514d91c1b2ff9cd1e84ac81e7486b3b70ab0e9a008e"
+    },
+    {
+      "path": "ai-service/assistant_cli.py",
+      "bytes": 3986,
+      "sha256": "e9390c265710d3c32231e84c283617be5980e563ede4514a675998a4fe0c5e31"
+    },
+    {
+      "path": "ai-service/clients/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/clients/aliyun_client.py",
+      "bytes": 7828,
+      "sha256": "112519ee35c7accc75cedfc84d49e50137874efd75d3896af9b948c50b8053aa"
+    },
+    {
+      "path": "ai-service/clients/model_client.py",
+      "bytes": 2229,
+      "sha256": "3ae48def9c27e140212d1b0dffb8aeb58bfca87d94f5569dcf9c13222740f4d4"
+    },
+    {
+      "path": "ai-service/clients/ollama_client.py",
+      "bytes": 3794,
+      "sha256": "2bafcde20985d9200d686d7316166e41728e6e1bdf34f4c5c665640695776658"
+    },
+    {
+      "path": "ai-service/clients/tool_client.py",
+      "bytes": 2443,
+      "sha256": "af054b491a1fdb35985242e71fb82e6bb1a1c9e3d017f47287b8c93d777ec668"
+    },
+    {
+      "path": "ai-service/clients/usage.py",
+      "bytes": 574,
+      "sha256": "20ee3532e04c338622ae0b007a8d5cf10a4f0b0d63639905dae0d944dac16d56"
+    },
+    {
+      "path": "ai-service/config/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/config/backend_settings.py",
+      "bytes": 998,
+      "sha256": "877545fd6b7a4efd1f8fcb44fbbd34a8bb9a465868a1d00aa8d675d12501c2e7"
+    },
+    {
+      "path": "ai-service/config/cloud_settings.py",
+      "bytes": 1688,
+      "sha256": "02bdea2f3dd4161a4bcdb5bd2a00aeb1ef780a048a8eb35a3f7714570eb8c2d4"
+    },
+    {
+      "path": "ai-service/config/rag_settings.py",
+      "bytes": 1758,
+      "sha256": "d2acb27f21077a19ad9a7053b0ac439bb82d847fdf23648de2f2047d0b847265"
+    },
+    {
+      "path": "ai-service/config/settings.py",
+      "bytes": 2615,
+      "sha256": "98f376f91a668930f7dbffc3885c6cf69fa45702303b05e108c1a7902eae1f2e"
+    },
+    {
+      "path": "ai-service/consult_cli.py",
+      "bytes": 4062,
+      "sha256": "ed359b049328c6203feed1f2a79d879c2e5b453ba969cd901faa424087ba0de5"
+    },
+    {
+      "path": "ai-service/knowledge/demo/borrowing-draft.md",
+      "bytes": 117,
+      "sha256": "4663cba21fe3063c123d2d1148c90b9edffa4c9dd6a948e65003907dc8d844e0"
+    },
+    {
+      "path": "ai-service/knowledge/demo/borrowing-v1.md",
+      "bytes": 145,
+      "sha256": "957e7a92f6a776f4223249b41c9af1556bcf98a88ac4e774477c846be461d954"
+    },
+    {
+      "path": "ai-service/knowledge/demo/borrowing-v2.md",
+      "bytes": 296,
+      "sha256": "63f95a181e606160014b0adfb6da1655c4c9f24c835b06a3062d8f5d790abd5a"
+    },
+    {
+      "path": "ai-service/knowledge/demo/java.md",
+      "bytes": 190,
+      "sha256": "6a36842d5174826520db3fb93d0692070802dfbc194f257f7ad42473ddaee0ae"
+    },
+    {
+      "path": "ai-service/knowledge/demo/manifest.json",
+      "bytes": 1456,
+      "sha256": "0e176cdd7d792158731895cdba12960daa986c7e84c7e2ded2d85bde47bbae93"
+    },
+    {
+      "path": "ai-service/knowledge/demo/opening.md",
+      "bytes": 118,
+      "sha256": "779acfd4a09b84e80b8a32e265ce513d3c9e1e195d542a03692685f72d6e01c2"
+    },
+    {
+      "path": "ai-service/knowledge/library-guide/ai-consultation.md",
+      "bytes": 1380,
+      "sha256": "ef18f759be818bae25951309a62e7731edcd33ffbb7ff99ea964a4e777d68cb0"
+    },
+    {
+      "path": "ai-service/knowledge/library-guide/manifest.json",
+      "bytes": 338,
+      "sha256": "a31e8cf79011df9bbd508a12ac703f7a8876f22532eda287ca8937f91b649fd3"
+    },
+    {
+      "path": "ai-service/preflight.py",
+      "bytes": 406,
+      "sha256": "af3a93cd6350d2696c1aee569c6491b1b4b2e5b79c1e840a87dd4154a69a7a6e"
+    },
+    {
+      "path": "ai-service/prompts/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/prompts/business.md",
+      "bytes": 3211,
+      "sha256": "c56bb6764c0a932379fc45cd503de1ae25c3e2561517f2219bfca99c9206d448"
+    },
+    {
+      "path": "ai-service/prompts/consultation.md",
+      "bytes": 2776,
+      "sha256": "26ed914bf3f68ff4e137bd47f72387c8917a6f31185f620a7bcbc8fc3e149407"
+    },
+    {
+      "path": "ai-service/prompts/read_tools.md",
+      "bytes": 4725,
+      "sha256": "2d433d82f35607720f4d5fe54935205f0dc03b8340d19b1a62d95c4d3e20e90d"
+    },
+    {
+      "path": "ai-service/rag/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/rag/documents.py",
+      "bytes": 7553,
+      "sha256": "a8d47e86a2d1675f0c7d655fb63ef68eccc81b55568c1bf96f8a3b930e1ce460"
+    },
+    {
+      "path": "ai-service/rag/embedding.py",
+      "bytes": 3587,
+      "sha256": "2deec7d5b228c5f0841bdbf429dbc1fbd5d4bed377b5cf072b3f63f9b46170aa"
+    },
+    {
+      "path": "ai-service/rag/http_management.py",
+      "bytes": 2924,
+      "sha256": "0741fcca98e6be2eec757958369bb34a51c833d3c3e3ac24258e1d09067c6e6a"
+    },
+    {
+      "path": "ai-service/rag/import_worker.py",
+      "bytes": 2594,
+      "sha256": "3fc268b61b065ad5c3cbe94f2e77d7c085a05e3cce22890a5398e3afc3be068c"
+    },
+    {
+      "path": "ai-service/rag/importing.py",
+      "bytes": 11259,
+      "sha256": "3f9ae8aa54763909d4251d96efb9b64bdbd0323d8aadc7ef75848d889ef78f08"
+    },
+    {
+      "path": "ai-service/rag/management.py",
+      "bytes": 12096,
+      "sha256": "4a95c9584c81c71768162cd3c1fea13fe97b17ab015f78aee9fc51076670718b"
+    },
+    {
+      "path": "ai-service/rag/service.py",
+      "bytes": 1098,
+      "sha256": "4c702731f7a229a1634b6c4ae1804a590263165a1ec437a5173025802968869c"
+    },
+    {
+      "path": "ai-service/rag/store.py",
+      "bytes": 8375,
+      "sha256": "33769e6505ccec5bd13f3754fbdfca7cb53310bdd3bff6754bc809cd4925733b"
+    },
+    {
+      "path": "ai-service/rag_cli.py",
+      "bytes": 3268,
+      "sha256": "79c69db9d2d6c00f1fc5d4b3450734af37ac15fcf4960d50eab9a544f44f43eb"
+    },
+    {
+      "path": "ai-service/recommendation_rerank.py",
+      "bytes": 8433,
+      "sha256": "7d43841731c50e70fef6719adf45305fc2271026d11b0d8453d18919ec297796"
+    },
+    {
+      "path": "ai-service/requirements.txt",
+      "bytes": 146,
+      "sha256": "2254e1d6d2f9df7f5874d09493caf84f0711b22a4cc031fbae48a7ed2f104316"
+    },
+    {
+      "path": "ai-service/rerank_server.py",
+      "bytes": 4523,
+      "sha256": "36a52705fabde796b00e2a3c0230067ffae3326d7549ff47b8b9210b1e8d73b2"
+    },
+    {
+      "path": "ai-service/start-ai.ps1",
+      "bytes": 594,
+      "sha256": "91d08d7b1adb3d1addf609a3b1a140526df6b639c9151afa38dc4eb3283f3870"
+    },
+    {
+      "path": "ai-service/start-ollama-igpu.ps1",
+      "bytes": 665,
+      "sha256": "389b32cf5bc5ac2523853ef2bb7ba158f0b4f75589d0e899e2881057e564fe96"
+    },
+    {
+      "path": "ai-service/tests/test_business_agent.py",
+      "bytes": 7554,
+      "sha256": "95c009cd98a48ba38f0240de629c80b38ca52add98225323a64a4eff77ff86e2"
+    },
+    {
+      "path": "ai-service/tests/test_business_http.py",
+      "bytes": 2745,
+      "sha256": "ba01ded93341383bcac4e76da6207a1c6ac9debff1dfc4e5e45c1bd88397e8b8"
+    },
+    {
+      "path": "ai-service/tests/test_cloud_fallback.py",
+      "bytes": 12417,
+      "sha256": "faf3530c3739668bf865a7d8d41d7be1262806d00ce49ae11acea445399d842f"
+    },
+    {
+      "path": "ai-service/tests/test_delivery_limits.py",
+      "bytes": 4051,
+      "sha256": "271d4779a336fc31b99c497664abf6b7779486d3e4cfe562b53a62e4d56cf5cf"
+    },
+    {
+      "path": "ai-service/tests/test_device_options.py",
+      "bytes": 1697,
+      "sha256": "8b6b2fa1daec982cf9593a9e4215a41cee5f94f6d0a6389fb8c716bf9e6a91b2"
+    },
+    {
+      "path": "ai-service/tests/test_dialogue.py",
+      "bytes": 5159,
+      "sha256": "ace164c7622eebefb78fbd691ee5532ce01cff7d6c218a55aabf651eafd40536"
+    },
+    {
+      "path": "ai-service/tests/test_importing.py",
+      "bytes": 10364,
+      "sha256": "f612c4f7094cd1345b0818069b61fe29df1eb1c1831c9c248ab39336d12f2810"
+    },
+    {
+      "path": "ai-service/tests/test_knowledge_management.py",
+      "bytes": 4361,
+      "sha256": "e973b2255081467315f24f9a2d210ba520d7698037ca1a66d31d13148364547c"
+    },
+    {
+      "path": "ai-service/tests/test_migration.py",
+      "bytes": 3134,
+      "sha256": "bb68d4d2c1a425d8c0b541fe35a94c265e00c6ffa99b6ff472e4696f2cb74f83"
+    },
+    {
+      "path": "ai-service/tests/test_stage1.py",
+      "bytes": 3570,
+      "sha256": "e7dc592312c572d1a1c50296516c43d94aa2ea0823fcf94ca42b4112951cde15"
+    },
+    {
+      "path": "ai-service/tests/test_stage2.py",
+      "bytes": 982,
+      "sha256": "83557d3778bc387d45b1b87243f535e9dcf8bf037751c0c56c6c861e0a3bbfec"
+    },
+    {
+      "path": "ai-service/tests/test_stage3.py",
+      "bytes": 15645,
+      "sha256": "77203e077f9c1bda8b1d8e80b2ae9aaa3c66dbd355d0314d777e5648700e4d78"
+    },
+    {
+      "path": "ai-service/tests/test_stage4.py",
+      "bytes": 8868,
+      "sha256": "938447dd0a3ff5d7121a54fb30fe1a1880a1080b29e7d1d64c420ded43761fd0"
+    },
+    {
+      "path": "ai-service/tests/test_stage5.py",
+      "bytes": 11293,
+      "sha256": "0f1d5ee7b3f48031cc888ffb222d2f2fceb8fa2db17102f4d27e269df37f8bb1"
+    },
+    {
+      "path": "ai-service/tests/test_stage6.py",
+      "bytes": 7579,
+      "sha256": "94e8cae97ec5781d8088baa0e49264d1da504bf912db600eb21172aac2fdb7b9"
+    },
+    {
+      "path": "ai-service/tests/test_stage7.py",
+      "bytes": 7233,
+      "sha256": "d4b9bedf1e9da4cef8f771eb826f2599d77c4fc5fb87b8818568d8c545e34a1e"
+    },
+    {
+      "path": "ai-service/tools/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ai-service/tools/backend.py",
+      "bytes": 10302,
+      "sha256": "aec8013e61d3af3516d1f391bbceb542821206c9540d7c034ee0d32e603d69b6"
+    },
+    {
+      "path": "ai-service/tools/registry.py",
+      "bytes": 7025,
+      "sha256": "e7a54e8d242fbce28b5578182b197274c5253eda77f416904e3e1b569f227189"
+    },
+    {
+      "path": "database/00-release/000-schema.sql",
+      "bytes": 42564,
+      "sha256": "04d970dce06a1ce11f16f74af98844c31290203f231ecee40d9d0d5816bd80d6"
+    },
+    {
+      "path": "database/00-release/001-seed.sql",
+      "bytes": 19465,
+      "sha256": "afc012990c8fcdc2748efb76e445e1a99b0c164c8d29b67e7d634ef7d31f6fad"
+    },
+    {
+      "path": "database/01-personnel/012-member-change-application.sql",
+      "bytes": 9137,
+      "sha256": "dcd1c0d75ee59229060bbaa2b58e9666bada0296e727932953dae24c58c363db"
+    },
+    {
+      "path": "database/02-book/020-book-schema.sql",
+      "bytes": 4204,
+      "sha256": "8002091fcced6f46f65db606f414c0ac5244fcece45f92d9ba3d02c876ac32e0"
+    },
+    {
+      "path": "database/02-book/021-book-demo-data.sql",
+      "bytes": 2406,
+      "sha256": "abaca2d62a907fc954333aa5d350e99354c66894dcda167d83e53f5e49469b57"
+    },
+    {
+      "path": "database/03-borrow/20260929_add_borrow_record_status_due_index.sql",
+      "bytes": 593,
+      "sha256": "2f6b50c2b171bf820841b82f9be4a950933c3bbbe837601a7b5308af7cdaf13f"
+    },
+    {
+      "path": "database/03-borrow/20260929_add_member_borrow_quota_checks.sql",
+      "bytes": 417,
+      "sha256": "448b2dd4d92248d0af0f5d251af86a61241d1cd86ec0b20c1b1dae2bea706370"
+    },
+    {
+      "path": "database/03-borrow/20261004_borrow_renewal_v1.sql",
+      "bytes": 977,
+      "sha256": "61e1118eb96a3cba63157e17c91cb8138d0457fdb5d1301b672aabf40de6ae59"
+    },
+    {
+      "path": "database/03-borrow/20261018_borrow_return_outcome.sql",
+      "bytes": 973,
+      "sha256": "9debf10dd8a60c9c1d6d74dded1bcbeee8e38161c8b1c5451ccef672b6b61eeb"
+    },
+    {
+      "path": "database/04-reading/040-reading-plan-schema.sql",
+      "bytes": 4069,
+      "sha256": "f1a04335dd4a052b275f1ca85107a0a8156928b280bb54f7bc02b92dec5e1f17"
+    },
+    {
+      "path": "database/04-reading/041-reading-plan-nullable-dates.sql",
+      "bytes": 288,
+      "sha256": "48369ce4e3245ef6fc2af36842b4173cb513db502525b438a597eb267594b9f7"
+    },
+    {
+      "path": "database/05-security/050-book-role-permissions.sql",
+      "bytes": 1972,
+      "sha256": "0af7cef71729a20a2ce1b580dd2abb65244c05b5a5f951435cabc014f48fbb29"
+    },
+    {
+      "path": "database/06-communication/060-communication-v1.sql",
+      "bytes": 5551,
+      "sha256": "230dc95152faa40cb0943c4a12ace1d8b1d0796b828418ba8b50259b0e87dbcc"
+    },
+    {
+      "path": "database/06-communication/061-business-notification.sql",
+      "bytes": 1412,
+      "sha256": "10d01956b8894cb6e4852c1f7429627ed0fd9b74e73bc512720824880088d668"
+    },
+    {
+      "path": "database/07-policy/20261011_policy_v1.sql",
+      "bytes": 4757,
+      "sha256": "71dc3a6515b60395051462654f30ec37667f09827df9ead48607c0df5f300831"
+    },
+    {
+      "path": "database/08-quota/20261011_temporary_borrow_quota.sql",
+      "bytes": 1070,
+      "sha256": "fdf3d779c4f8881362748acf8dbec0ba18d40c4337d4626f0515767c01e98be2"
+    },
+    {
+      "path": "database/09-recommendation/090-rule-recommendation.sql",
+      "bytes": 4783,
+      "sha256": "152cf6d0dfd754293977db670ce6c56e9693039b7c374f5da4ac3a9c373d7f35"
+    },
+    {
+      "path": "database/10-ai/100-ai-chat-permission.sql",
+      "bytes": 621,
+      "sha256": "9897f9fa5cd22f3bec77bc4170be2e74e51abbb21ab4673cb91aa89fa0559508"
+    },
+    {
+      "path": "database/10-ai/101-ai-business.sql",
+      "bytes": 1729,
+      "sha256": "37932bbd3710349426a213767a20c97d5923fcff545b6ef93300e5789c70ac2e"
+    },
+    {
+      "path": "database/11-delivery/110-pending-employee-role.sql",
+      "bytes": 678,
+      "sha256": "ca0420f00cdd1b448c9b2bd0575205829e1cd5a5470308f19be6332e710971e2"
+    },
+    {
+      "path": "database/12-member-change/120-member-change-expiration-index.sql",
+      "bytes": 659,
+      "sha256": "0909214132b3953883d8a79ee8cf836708fd74f1d3ce7a5edd30892804e74cdb"
+    },
+    {
+      "path": "database/13-audit/130-operation-audit.sql",
+      "bytes": 6299,
+      "sha256": "c09f84ee1147bb5c862899cc188745b3f0010f6a8c7ca3fa9a8ff54785bcf209"
+    },
+    {
+      "path": "database/14-ai-management/140-knowledge-permissions.sql",
+      "bytes": 1087,
+      "sha256": "04b7f795f18e15b5f605acaa9795d085a1acabbb99354dafd2cf645c7fcf1441"
+    },
+    {
+      "path": "database/14-ai-management/141-ai-runtime.sql",
+      "bytes": 2754,
+      "sha256": "5c545138ebdea26445ac3efca5720a3c9f97efec152c0aa16beaf4f55c66ac25"
+    },
+    {
+      "path": "database/14-ai-management/142-ai-handoff.sql",
+      "bytes": 1784,
+      "sha256": "f9bb0c97d3bc3e526a984d57e9eb98feffd7f718775c2b1efd07f44f230e60b8"
+    },
+    {
+      "path": "database/14-ai-management/143-ai-usage.sql",
+      "bytes": 612,
+      "sha256": "95167181c391f1529e669e16ccdd9b0391abe7ce0f5dc6d8d84d8085da33774e"
+    },
+    {
+      "path": "database/15-operations/150-operations.sql",
+      "bytes": 1796,
+      "sha256": "eb013967c36c0a5f23fa1de87ab23f158c3394f7f35ce6f88d67ef4607d6202e"
+    },
+    {
+      "path": "database/16-retire-ai-member/160-drop-empty-legacy-tables.sql",
+      "bytes": 2178,
+      "sha256": "8b24881420d85d88960e7c457120575ea4d3f8ec0aca3ccfad054efda5458c22"
+    },
+    {
+      "path": "database/README.md",
+      "bytes": 870,
+      "sha256": "c33f7e8a283665e8f4417c2a65e6e6be6eddc36f7be954e4d206f444a19267bd"
+    },
+    {
+      "path": "deploy/environment.example",
+      "bytes": 1597,
+      "sha256": "71bc439090d04733fc139b18cbe927f856fdd56b94320de3441d3f31045a5dfb"
+    },
+    {
+      "path": "deploy/nginx.conf",
+      "bytes": 2729,
+      "sha256": "3a8da608d0c43b70b20020a8c12db24d7644958ad93b7fc54b3750b23967d30b"
+    },
+    {
+      "path": "docx/project/README.md",
+      "bytes": 1738,
+      "sha256": "29d8f1c6b126dafb09c1dcda2702fb26ff53738343d585072532dd71e0fbd70f"
+    },
+    {
+      "path": "docx/project/api-conventions.md",
+      "bytes": 6848,
+      "sha256": "d8f5d036a0931944c4d34c62ac32ab63d59673becca14965671351a777a52032"
+    },
+    {
+      "path": "docx/project/api-reference.md",
+      "bytes": 87771,
+      "sha256": "3b1872b8d2678375fc204d9e30ad3f2285dd5aa70e0b1a0bc8b65916e6b5429d"
+    },
+    {
+      "path": "docx/project/database-reference.md",
+      "bytes": 29520,
+      "sha256": "79594dc5f0de793e8668c70f280faa78cd12148aa9d2c713630d4b8cbb22a68c"
+    },
+    {
+      "path": "docx/project/demo.md",
+      "bytes": 4316,
+      "sha256": "aafb6ad3745a5ad9855d5d3cbc95b70bc13f7093c6f10930b127ed1c3f16dc7c"
+    },
+    {
+      "path": "docx/project/features.md",
+      "bytes": 5157,
+      "sha256": "0bbf8bd0d2a111f6f51557ac586e14362f77dc35460da49bf36232e8eb326cf4"
+    },
+    {
+      "path": "docx/project/local-run-20261021.md",
+      "bytes": 2186,
+      "sha256": "1e292d66a328156cc89b2d17af60ed0f856e49efdf9ed0828c0598093f406155"
+    },
+    {
+      "path": "docx/project/openapi.json",
+      "bytes": 634641,
+      "sha256": "2161c165c85c9e9a274d8f603d16d060c7fa88bb28c79cf065d086b4f22c8d9a"
+    },
+    {
+      "path": "docx/project/release.md",
+      "bytes": 3022,
+      "sha256": "67d383cbe63e1cb35316f8a106ea5485c44f7b9b4f9f30a7c2de78c531d71da1"
+    },
+    {
+      "path": "docx/project/resume.md",
+      "bytes": 4791,
+      "sha256": "dc5d55c911871733c7687cc95b0845ab99c98ac7153766e28800b3d2e7c2d8c1"
+    },
+    {
+      "path": "docx/project/runbook.md",
+      "bytes": 5538,
+      "sha256": "68a6734fb3935ec7c15df1a2168c2254c2b7b4ee23ebbdef9f6b6d9e24d6fcaa"
+    },
+    {
+      "path": "docx/project/system-design.md",
+      "bytes": 5414,
+      "sha256": "df64f4e200a7ef5628210a6dba66cf4c16c1528dc814bbf5734c7ad688e86529"
+    },
+    {
+      "path": "docx/project/technical-design.md",
+      "bytes": 5265,
+      "sha256": "40521b651bf2342b982ff7605bf8c2be4b1971254927902a943aa16e8c934ca7"
+    },
+    {
+      "path": "docx/project/verification.md",
+      "bytes": 2931,
+      "sha256": "ab61dee05bd6cb3e48d55e0b0949e5458549d4f766ae773f59bc2173406f31f0"
+    },
+    {
+      "path": "frontend/.gitignore",
+      "bytes": 31,
+      "sha256": "dcd950aaca733cad4372d29c3314faff65b4c51103e24df518ce00aebf2e522e"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 363,
+      "sha256": "59f84fbc184b2ae4113906b1e2c7692f2d6269ad728ceffe25f8e120cb625a44"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "bytes": 68662,
+      "sha256": "56945b4a565ff298a1d8aa0217c89a82b4f277ad1bd9c9916e143c2879309601"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 962,
+      "sha256": "224084cac6d750470775fec4d592dd6b436e6b09e6be1cb46678cb7f12a62330"
+    },
+    {
+      "path": "frontend/src/App.vue",
+      "bytes": 3293,
+      "sha256": "a7f24f2d4a70bdf8a1d189f8c84e606c2ffc543c3f3b369484b62b0fe73d7c95"
+    },
+    {
+      "path": "frontend/src/api/ai.js",
+      "bytes": 2924,
+      "sha256": "0178bc587a78ace1778245c8ff23a80d4cb1a9cfd46a4a1dc56ce7991fd40d36"
+    },
+    {
+      "path": "frontend/src/api/aiHandoff.js",
+      "bytes": 242,
+      "sha256": "30486c18e45226535665192b574868bff9b4445160fa00f78ed25dbe43db0510"
+    },
+    {
+      "path": "frontend/src/api/aiRuntime.js",
+      "bytes": 551,
+      "sha256": "9fec5c52fd1d3419f4991758a79cabd055b08bbf2ff65618ce17812e346d5453"
+    },
+    {
+      "path": "frontend/src/api/http.js",
+      "bytes": 2549,
+      "sha256": "55407cd378d483b13b53afe20e1129ef9c6ee013db8b12a88b83edd73ffc4c63"
+    },
+    {
+      "path": "frontend/src/api/knowledge.js",
+      "bytes": 784,
+      "sha256": "3ddb84507f83cac81ba2f4b162c9c229ff39d58802aefb4cc47628a85c3f7c58"
+    },
+    {
+      "path": "frontend/src/api/library.js",
+      "bytes": 7967,
+      "sha256": "3a84b112dcaa6575a595182ddebd073beec92f0f39dfde108a60b45848535b2c"
+    },
+    {
+      "path": "frontend/src/api/operations.js",
+      "bytes": 821,
+      "sha256": "70c7c515b0e1ec6b23b17101eb2c1a4031a5744d3afd0c83fc481c6d0214c909"
+    },
+    {
+      "path": "frontend/src/components/AppShell.vue",
+      "bytes": 6988,
+      "sha256": "a63d16777b931de11121c890281d805357ede12924f83d52e975bd61e6978f28"
+    },
+    {
+      "path": "frontend/src/components/BorrowingRulesDialog.vue",
+      "bytes": 2723,
+      "sha256": "b68293046a89989d4efe8c73c159e795a7c950188ef4083d8fb0c3d2bcdf4c87"
+    },
+    {
+      "path": "frontend/src/components/DtoFields.vue",
+      "bytes": 2149,
+      "sha256": "c92e077c652ceacac6887bbf97b3a7bcf22650dfa8d12f9606abd80538cf4e66"
+    },
+    {
+      "path": "frontend/src/components/PageHeader.vue",
+      "bytes": 288,
+      "sha256": "5eb8648246da6a105403d7edc4b6903914c3975ac6c1d651137df3c94e40944d"
+    },
+    {
+      "path": "frontend/src/components/PageSummary.vue",
+      "bytes": 516,
+      "sha256": "3492841ff53486572e9859f7bf07853dedb7bf4c82665f5912c17079c4789174"
+    },
+    {
+      "path": "frontend/src/components/ResourceDesk.vue",
+      "bytes": 14055,
+      "sha256": "e7aeae67c15a608b90dcaf3262c3eb7e8c0e2a8c8f806747691286585f580266"
+    },
+    {
+      "path": "frontend/src/main.js",
+      "bytes": 355,
+      "sha256": "f79c7617769dd853256840a5bbd0f99661ef7cd051b7703a862a3dac4e2bb81f"
+    },
+    {
+      "path": "frontend/src/modules/aiStream.js",
+      "bytes": 2753,
+      "sha256": "faa5e00545276f90a5b5d01b625cfefc735f56cf26a0e340c7ee4fb0c636c27c"
+    },
+    {
+      "path": "frontend/src/modules/bookCover.js",
+      "bytes": 266,
+      "sha256": "daa027bfe79295c6c79248c2653beb2f4ce1ddd8d88fbdfa5296a105b170d090"
+    },
+    {
+      "path": "frontend/src/modules/borrowQuota.js",
+      "bytes": 425,
+      "sha256": "98e2177b47f04b99ce6466abe6a4140708d9aa93cf38c097b10a39c1643f630d"
+    },
+    {
+      "path": "frontend/src/modules/display.js",
+      "bytes": 4270,
+      "sha256": "8684735a2df187e9f7327ff916dfe4897f9f6adc3f89cf4209f6c2021ca8aa42"
+    },
+    {
+      "path": "frontend/src/modules/dtoFields.js",
+      "bytes": 18194,
+      "sha256": "7ad4797722da5a33149622eb721ea5ef0c293e6dd579f959b59995e55e4b904d"
+    },
+    {
+      "path": "frontend/src/modules/knowledgeImport.js",
+      "bytes": 569,
+      "sha256": "6ad551b5d471a8024ec3c52a6118598b3db3cc28dde3000917f1c28483374577"
+    },
+    {
+      "path": "frontend/src/modules/memberMaintenance.js",
+      "bytes": 851,
+      "sha256": "a33786b5afdaa02dcebdd534df2ed18c7d509111c104d827f2a888b120ef28b9"
+    },
+    {
+      "path": "frontend/src/modules/navigationRecovery.js",
+      "bytes": 1219,
+      "sha256": "47847f652826f39ee53b5a240b5e7f67ada773ab4e26046ed0a03e531f9b7fc7"
+    },
+    {
+      "path": "frontend/src/modules/recommendationPresentation.js",
+      "bytes": 642,
+      "sha256": "57bdc93548ee34419c41db9813f726a74b80ef867452654aee014de37a84c4ce"
+    },
+    {
+      "path": "frontend/src/modules/recordVersions.js",
+      "bytes": 1199,
+      "sha256": "205cddc6def1ee15fce7c16a87f542ac7ff01fc860e43075c93c07cdacaa8079"
+    },
+    {
+      "path": "frontend/src/router/index.js",
+      "bytes": 6279,
+      "sha256": "1cedd01c4a1d7af619b4fe2f64dbaa37fdb9a596d3430c5c3a285fef65ea1544"
+    },
+    {
+      "path": "frontend/src/stores/communication.js",
+      "bytes": 5555,
+      "sha256": "e0b63568b75f992264d5a36c428ee72a0a04c0cb47799949d4089099c95c00c4"
+    },
+    {
+      "path": "frontend/src/stores/permissions.js",
+      "bytes": 3966,
+      "sha256": "858cb8b1ffee02b9fd457a8e782f9e04ff659243eb44c470d98079ee9688f12a"
+    },
+    {
+      "path": "frontend/src/stores/rules.js",
+      "bytes": 1840,
+      "sha256": "809d82b879e33d92ff912fc7c7b255706fa23f33fffe4902f771c983ead302b4"
+    },
+    {
+      "path": "frontend/src/stores/session.js",
+      "bytes": 1930,
+      "sha256": "47d14a4e7de058371902360f2ce1b56d0c6bd859717c1e5e3398db574e27e064"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "bytes": 13447,
+      "sha256": "dcb9d7fbaa0752d684a53e33900b6160912debe536785f5fc5d06143496a3ac8"
+    },
+    {
+      "path": "frontend/src/views/AdminBooksPage.vue",
+      "bytes": 28086,
+      "sha256": "7007e77e9815b98cac574d23ee28401329a115348bcc443b32b8ff476f9d1c04"
+    },
+    {
+      "path": "frontend/src/views/AdminBorrowPage.vue",
+      "bytes": 200,
+      "sha256": "7e98fbbb7170e59cbe5321d62e32551964a38685b0fecbd1532aa05be23c7b67"
+    },
+    {
+      "path": "frontend/src/views/AdminPlansPage.vue",
+      "bytes": 203,
+      "sha256": "ee8e496b43b9a5fe36258230b034cd8e96d6c4b3ffcd50ec6e0dcfd64c077cc5"
+    },
+    {
+      "path": "frontend/src/views/AdminPoliciesPage.vue",
+      "bytes": 8106,
+      "sha256": "f3c9ab999b4bd8f13b0b509e17b142f03dde0461bbafd2f89db551e532d311cd"
+    },
+    {
+      "path": "frontend/src/views/AdminResourcesPage.vue",
+      "bytes": 7484,
+      "sha256": "317d64e766977b6d01405fa30c17de497a38561193a5d728b535eedc7c481576"
+    },
+    {
+      "path": "frontend/src/views/AiChatPage.vue",
+      "bytes": 15896,
+      "sha256": "dc29ec4bba9fe51fe4cdfcba73d419d6b614671f959d7da386d254dd2d204f3a"
+    },
+    {
+      "path": "frontend/src/views/AiControlsPage.vue",
+      "bytes": 2091,
+      "sha256": "869f73326be5d886c63c8bb9685715a677674ecad475f80f882360ba440933aa"
+    },
+    {
+      "path": "frontend/src/views/AiHandoffsPage.vue",
+      "bytes": 3953,
+      "sha256": "e611f5af2b0a5b7951e4c408b3f913d2672ae36e0e079daeec990bc0a1e18500"
+    },
+    {
+      "path": "frontend/src/views/AiTasksPage.vue",
+      "bytes": 9157,
+      "sha256": "dc7ac359b2e4b5b55fa056ad5577447dc9a1685732c059a6a9db37871b0c175f"
+    },
+    {
+      "path": "frontend/src/views/BorrowPage.vue",
+      "bytes": 200,
+      "sha256": "7e98fbbb7170e59cbe5321d62e32551964a38685b0fecbd1532aa05be23c7b67"
+    },
+    {
+      "path": "frontend/src/views/BorrowWorkspace.vue",
+      "bytes": 10547,
+      "sha256": "b3af3d67ceeea099376949847318ad1ba093449765e6da57d152722bb0c4cef6"
+    },
+    {
+      "path": "frontend/src/views/CatalogPage.vue",
+      "bytes": 5677,
+      "sha256": "34c828d785dcb68babca5bfadc64bec81013fa43ae8255f4d28f2f212c1bc945"
+    },
+    {
+      "path": "frontend/src/views/HomePage.vue",
+      "bytes": 8087,
+      "sha256": "32f0c8ef52a77f81f8538c430daa2f784ee07d0e5de8dc901a5eb797f56fd3d4"
+    },
+    {
+      "path": "frontend/src/views/KnowledgePage.vue",
+      "bytes": 13889,
+      "sha256": "f2ddb7b56bcb3e065af309bda10b13da34cb4f61ca6c8f4cdc07bf5c66ec7bd1"
+    },
+    {
+      "path": "frontend/src/views/LoginPage.vue",
+      "bytes": 7817,
+      "sha256": "0d29c48d47b20d7bf559f3952c94f8f83e15d31a8ae304d922960de8aa5e2804"
+    },
+    {
+      "path": "frontend/src/views/MemberChangesPage.vue",
+      "bytes": 7286,
+      "sha256": "3e37df3ec82a262647d11fb2d0254a729ae70bc1d4aa7e7232b654ecfc8e3c7a"
+    },
+    {
+      "path": "frontend/src/views/MessagesPage.vue",
+      "bytes": 36656,
+      "sha256": "dea6c27f6cc725e966d19687e945350282bb3696ed767e96d9302ad20d2fbae0"
+    },
+    {
+      "path": "frontend/src/views/OperationLogsPage.vue",
+      "bytes": 2545,
+      "sha256": "baaf5a3ba84b8d68ff2c62a6f4e476f0446bf6ed82fff712ae8d8e8b9b4c172d"
+    },
+    {
+      "path": "frontend/src/views/OperationsPage.vue",
+      "bytes": 10008,
+      "sha256": "aa2c97f65229ded02de1b610b23359e3132853b20352990d7d659257dad1212d"
+    },
+    {
+      "path": "frontend/src/views/PortalPage.vue",
+      "bytes": 5337,
+      "sha256": "41beb45b213ff273c20b411458841fed78983ea76ae3d9fd22ccaa9fc7c2ffe6"
+    },
+    {
+      "path": "frontend/src/views/ProfilePage.vue",
+      "bytes": 10509,
+      "sha256": "5eb3dbb925fe4fcb4cd56e7d23f217da191909fb4f20e2a48b62b136d63271d7"
+    },
+    {
+      "path": "frontend/src/views/ReadingPlanPage.vue",
+      "bytes": 203,
+      "sha256": "ee8e496b43b9a5fe36258230b034cd8e96d6c4b3ffcd50ec6e0dcfd64c077cc5"
+    },
+    {
+      "path": "frontend/src/views/ReadingWorkspace.vue",
+      "bytes": 7315,
+      "sha256": "e60e0a1bb49da92449bfd39936e9367f60f43597f2ba2d74284a3766846935ad"
+    },
+    {
+      "path": "frontend/src/visual-theme.css",
+      "bytes": 18892,
+      "sha256": "4cfde41d63394528b8ba4458ca46116836d1ee34f14caed3441ba597eb721fc4"
+    },
+    {
+      "path": "frontend/tests/ai.test.mjs",
+      "bytes": 3503,
+      "sha256": "db10feb509328b4bd1988d01c6111711251fd9153f47c0c2111d61f2980759ea"
+    },
+    {
+      "path": "frontend/tests/book-cover.test.mjs",
+      "bytes": 566,
+      "sha256": "a2efced832c2185148b720cd11144f8202576b23ca52b636baba48e7333dc24e"
+    },
+    {
+      "path": "frontend/tests/communication.test.mjs",
+      "bytes": 8436,
+      "sha256": "8c66e51c54ead424d053ad2ccfed75fe6cf0b80949f26c4b0e9b8a6bf53a695f"
+    },
+    {
+      "path": "frontend/tests/http-session.test.mjs",
+      "bytes": 5980,
+      "sha256": "21d46c491071675ed1a3c20d736130a29784080ee39d5033aa21d28542786dbc"
+    },
+    {
+      "path": "frontend/tests/knowledge-import.test.mjs",
+      "bytes": 4974,
+      "sha256": "9f3fd7a2a7390a640118145289f6b55016d94fa213a3ee4bef2641291795e3ed"
+    },
+    {
+      "path": "frontend/tests/permissions.test.mjs",
+      "bytes": 8276,
+      "sha256": "c35e7e57e5f06014b79fa76d6a9380d853efb6fb5f8e8a0f4090bbb442f97fc3"
+    },
+    {
+      "path": "frontend/tests/quota.test.mjs",
+      "bytes": 1303,
+      "sha256": "173a2f1d1608091aed83779642c9a4b97701296feb98d9dd74477fdd0e43a5e1"
+    },
+    {
+      "path": "frontend/tests/recommendation.test.mjs",
+      "bytes": 2829,
+      "sha256": "2fd40f68b326863590b7c89413e2e7bf374ef9a215d8358c6d94f06dd57228bf"
+    },
+    {
+      "path": "frontend/tests/resource-desk.test.mjs",
+      "bytes": 12158,
+      "sha256": "125c394950455f82a45009b1b9cd26ed9989b6b5c6270389f18c358de1e58f6f"
+    },
+    {
+      "path": "frontend/tests/rules.test.mjs",
+      "bytes": 3033,
+      "sha256": "0bdc34d35bdb4a4cea314ffa3089cf948c8c3438d7c48d53ef1cd63f4377a5e5"
+    },
+    {
+      "path": "frontend/tests/visual/ResourcePreview.vue",
+      "bytes": 2352,
+      "sha256": "1ad0f02186603de179ea326862cae12ed5b82d66898d529c80313bf90253d592"
+    },
+    {
+      "path": "frontend/tests/visual/resource-preview.html",
+      "bytes": 707,
+      "sha256": "458864c2dc12f3d995f61f233f2827f78f08ec77cfbae59f37d6a5ce6443894e"
+    },
+    {
+      "path": "frontend/vite.config.js",
+      "bytes": 795,
+      "sha256": "08df265e41c6933ac3f9ce21bda65e0a7aa0beb8007332ee7f0ada9867f79c1a"
+    },
+    {
+      "path": "mvnw",
+      "bytes": 11790,
+      "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02"
+    },
+    {
+      "path": "mvnw.cmd",
+      "bytes": 8292,
+      "sha256": "4a361e1374a3e5ad6d03e18e9adc0cf181ac5058ac6203b76f0ba3b456b56481"
+    },
+    {
+      "path": "pom.xml",
+      "bytes": 9926,
+      "sha256": "4c65d133438f6d4d214e0a701cb920a77f0488b8bb854b13ac38bfae7870a00b"
+    },
+    {
+      "path": "scripts/export-project-source.py",
+      "bytes": 7219,
+      "sha256": "67582cb16fec474d7608b57ec5345d0396003dbbbe4d5610c0bc5455b7daca08"
+    },
+    {
+      "path": "scripts/generate-api-docs.py",
+      "bytes": 9435,
+      "sha256": "5e862015972b4b8fe1a1a35f44fc2907eaa12a1a65a10414be0515ffe742702f"
+    },
+    {
+      "path": "scripts/generate-database-docs.py",
+      "bytes": 1612,
+      "sha256": "63ef84e5b842dd0b05cdf7b834ec066f4333c48da97c9e5abfd8196fab61817c"
+    },
+    {
+      "path": "scripts/package-delivery.py",
+      "bytes": 5187,
+      "sha256": "167e9d79400b29bfe0fbaec336439041f2690f03a796c0df4266601a766e4d92"
+    },
+    {
+      "path": "scripts/start-local.ps1",
+      "bytes": 19069,
+      "sha256": "41234d0a96e3b5c24473f8e4e9e8973da79f9370c64e24fb8437ac5c823d57cc"
+    },
+    {
+      "path": "scripts/verify-project-docs.py",
+      "bytes": 2838,
+      "sha256": "7e2c7db0bbd97d4698b4cfbee97626940af55dbdfb06ff17a7c2b052a11a19f2"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/AiLibraryApplication.java",
+      "bytes": 334,
+      "sha256": "25e85cbfe0d5452468b4f3fbef8ce39ccc99156f44706e02664de1c09e16c4f7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessAction.java",
+      "bytes": 622,
+      "sha256": "d250508ee3c46b512a325ce8fc711ec713d264d3b690fdb858413e531a142076"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessActionController.java",
+      "bytes": 2619,
+      "sha256": "eccc567d82cebf08c8bb15ec0fe9d85ad7ffd1f3e02e0502fa93e0a6cc7b28da"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessActionMapper.java",
+      "bytes": 3081,
+      "sha256": "cbaf03827c01f6e963fa77d416e720dfc8596f13f03bd8e1863b46888fbd8dfe"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessActionService.java",
+      "bytes": 9926,
+      "sha256": "a57e9a0b7c5ae604ea3cd8ca0ea63e6eb2f8151b1493b313ec69efd926d4f282"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessActionStore.java",
+      "bytes": 3446,
+      "sha256": "f91de8d045f134982b26091b7341fa40662c45e9b248a4525a36f336376fd256"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessHttpClient.java",
+      "bytes": 3189,
+      "sha256": "b673d032d63573d890809c221700923ba29fdf45182460c7fbe84a93dc873d82"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/business/BusinessSkillRegistry.java",
+      "bytes": 13820,
+      "sha256": "bb7ea1e5a85365c7d019c67f82d59e4e7d6e3fe82e7730edf66a41194651d825"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/controller/AiChatController.java",
+      "bytes": 7336,
+      "sha256": "338e531be10e58f0822b22adf8b6cfab7622891ce253cb93920eef264ed7e779"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/dto/AiChatRequest.java",
+      "bytes": 350,
+      "sha256": "61e0a848ad5b44fec24451474add470986645e366b2a65c13c5e9273d9f387e6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoff.java",
+      "bytes": 543,
+      "sha256": "b64968b4a80e443b675022d08dbac1db92b046a683e92ba342c34b761d4110f4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoffController.java",
+      "bytes": 942,
+      "sha256": "14351e779f5439e4c90b40d267a6a4919017e0840b4efcea264c98d38607d76d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoffMapper.java",
+      "bytes": 1868,
+      "sha256": "77b7d898503c3543a6523bc1cb1180971c4d0563cb925e95a87f74029f579a36"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoffQuery.java",
+      "bytes": 425,
+      "sha256": "93c568d3babcaed8d8d195a95d245d7614ad8109cb0334877d1c6d14cd0587b3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoffService.java",
+      "bytes": 5447,
+      "sha256": "70c88c9930a9d41e835bf67b2657b63bc0163d58d2e5aa72f31907610d3d4b00"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/handoff/AiHandoffWriter.java",
+      "bytes": 2198,
+      "sha256": "e79343477b8864ef37e7f37a2efeb16367f646895581c37ab686390747bc7d11"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/knowledge/KnowledgeController.java",
+      "bytes": 1984,
+      "sha256": "704f54a852efede9f7fafa094d44dc49bc4e0024313ab1c6d81f8bc74d19c089"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/knowledge/KnowledgeGateway.java",
+      "bytes": 2741,
+      "sha256": "d9f97f4ca1c43862914bcffba768c06c19c3f7937b89a3ef72a5a3b82039eb4f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/knowledge/KnowledgeService.java",
+      "bytes": 3859,
+      "sha256": "85a2c9c72724cc060df5e0c13d0f5807c03e02d8a845a516596f25f39eb64a62"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiActionCorrelation.java",
+      "bytes": 2687,
+      "sha256": "86cdd6f4f53ddada9d6209db2d320d32155f5a2126bcb99c2e3295d84a31d8ba"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiActionReconciler.java",
+      "bytes": 2992,
+      "sha256": "4ac17a857f69307a900953adb323d8d04ad3c36ce9b3711c871e80296c1a495e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiRuntimeControl.java",
+      "bytes": 3102,
+      "sha256": "d9a87bd5b227b2c64d71f4e8caaa409fe10aacd0c190a781c47daf4008246cbc"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiRuntimeController.java",
+      "bytes": 2574,
+      "sha256": "cca85adc77358398d29a7e22546856ca664461694e06f4bebf4d2fe5936af7be"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiTask.java",
+      "bytes": 714,
+      "sha256": "13dc6cb3d9b56f1f93e6dc59f9f44a1eb00243186f99261f44cdac614de30ea5"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiTaskMapper.java",
+      "bytes": 2183,
+      "sha256": "76e81f5aaf8e7949a44a32a12c97a81246b8f1d259448b1e331cd38f972e1a5b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiTaskQuery.java",
+      "bytes": 434,
+      "sha256": "1fe93189017cb8919943a113b301141eb2f2382e8e6a1c6d7000140c420df5ca"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiTaskService.java",
+      "bytes": 13125,
+      "sha256": "8a36c59f4c78804b2886f0a9125a2d231472dcf8dc8e4e9916b70866372e1d3e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/runtime/AiUsageService.java",
+      "bytes": 4398,
+      "sha256": "0e4dc530bf01bea37928cd2cb5453c6968673e09c944b1068142ea195df6c64e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/service/AiChatService.java",
+      "bytes": 3535,
+      "sha256": "238348fd7039756c81483bd58741d84bc82a0ca44565585d4a28c5c408a18d4e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/ai/service/AiGatewayClient.java",
+      "bytes": 5255,
+      "sha256": "1b89d58c7196d8cd781b332b257702b8717486934d579c2a14212d4828c9c210"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditConfiguration.java",
+      "bytes": 453,
+      "sha256": "aee6e1f58ef48d678dba46d67c0c47b0444a72e009bfa3164eb34180e49c4575"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditHttpFailureFilter.java",
+      "bytes": 2130,
+      "sha256": "24d72af93a8d9bae63b73ea98e6715c8a7e271d828c8a05e7f881b784ecacf4b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditRecorder.java",
+      "bytes": 1082,
+      "sha256": "06b6d038e00204ab22f05f62e928aca524dab04ce1c223d400c3de0d18a51310"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditRedactor.java",
+      "bytes": 7070,
+      "sha256": "702a5ddf94237264e13a298d14f2e5d92b3ed6c8206708ac2271f88a98cfc755"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditResource.java",
+      "bytes": 624,
+      "sha256": "11449d62fe674a664c585b2c7afad08fbacd90178ed1020fccb1c73c0cf58b86"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/AuditSnapshots.java",
+      "bytes": 4077,
+      "sha256": "efa072ceb4f9b159633b44b70cc9c7f2425b5d9d099b07072ca132c103bbd467"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/Audited.java",
+      "bytes": 448,
+      "sha256": "b05a1ef177d3b19f65b8f616aa7f440215cc962f8b9c367a0dc70049485513cf"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationAuditAspect.java",
+      "bytes": 6439,
+      "sha256": "a80a646d938f76da43c2776a34aa33ec4ec8f5b390a48c02acd2e19a710f2f54"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLog.java",
+      "bytes": 631,
+      "sha256": "83f34ef88f63cf7fa793aa88ea7c220e8ab824d1ad6ab3c9872634bfa843c151"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLogController.java",
+      "bytes": 691,
+      "sha256": "2fcd4e7f653cc20da1be039795c9ffd5069ccefcbef64c0dc92d3f974eab7d02"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLogMapper.java",
+      "bytes": 292,
+      "sha256": "3f38fbab4c34c8bf1ef3fad664b0fc7a709299d68521791300d85065d94ffe83"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLogQuery.java",
+      "bytes": 637,
+      "sha256": "626baa6d42644104f587ebc478aa96e7e395fb6226547fab2141c5b90e7a7c83"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLogQueryService.java",
+      "bytes": 2525,
+      "sha256": "8b4c0f8ea42b9fa9231e8fd48a5ccb00ba9f30238769cdfe4964176598cf8426"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/audit/OperationLogWriter.java",
+      "bytes": 2429,
+      "sha256": "035c0033b28f02b693be18cb2c3f8bd4870bd699455dbdbf69d390889ff4567b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/controller/LoginController.java",
+      "bytes": 2629,
+      "sha256": "da8131ae8cc93bf74aa5b1915c74600807821ec3c7025e9a00d0bcd5873c22e0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/dto/LoginInfo.java",
+      "bytes": 691,
+      "sha256": "5475611ee522d9f80e3b751ea690d43d020282e15457e9ffd6d4319b2989f5e7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/dto/LoginParam.java",
+      "bytes": 277,
+      "sha256": "edd011b458843c4c5eda650d2d52c538527e70725402603af1acbc621ccd06e0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/dto/RegisterParam.java",
+      "bytes": 634,
+      "sha256": "be8651329c5a8721b8200d28b297e3df2b91cfe676588af166fb366a0f9c04c1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/mapper/LoginMapper.java",
+      "bytes": 480,
+      "sha256": "95ba78fddd56f1372ad5da7138d0515bf34762b3383ee7aef36840b86eabcbcf"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/LoginAttemptLimiter.java",
+      "bytes": 2093,
+      "sha256": "7cb97c168607b99f586e1b997d9fda8915aeb88780d9d6f255bd5ef3bbd93341"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/LoginService.java",
+      "bytes": 563,
+      "sha256": "b9a1c27376fb9f7cbe281752ba802c04ad8bf7e390dd8650b0d73d4632348b55"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/LoginSessionService.java",
+      "bytes": 1177,
+      "sha256": "873a819576a202ae919eb91c0dde6cf18490efbfadfdb14cf5d268389d5d7aaf"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/VerificationCodeStore.java",
+      "bytes": 3511,
+      "sha256": "350f567e57d6d975138d4d67ca62b7f6ba05ecdd3ce7bbb9134d30aa202a2504"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/impl/LoginServiceImpl.java",
+      "bytes": 15554,
+      "sha256": "0251e9bc83e0e1d9598956da232dcde06ca64efdbfbfe1478d418bb0d7a6b85a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/service/impl/LoginSessionServiceImpl.java",
+      "bytes": 7459,
+      "sha256": "7a2ab90debe2ab90100a01257b222b18298c08cf828ce968cbc95386fec4c6f6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/session/LoginSession.java",
+      "bytes": 689,
+      "sha256": "464d9f1e14110b39af2530a3126bd2349fffe1aff2bc7daeac201cf00a5edb5d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/auth/session/LoginUserContext.java",
+      "bytes": 912,
+      "sha256": "69261f994eebd6618b494b0b69a68f24874fec7523b327d66dc619907ddcc262"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/config/BorrowSchedulingConfig.java",
+      "bytes": 306,
+      "sha256": "7e8b1475e44dd0ca0f871f899ba73b58f5451476475d41fa588e7d329efe46b1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/controller/BorrowApplicationController.java",
+      "bytes": 2857,
+      "sha256": "168b78fe2efb457b28cd005db0dbd49c6141b463a4bc2e2c987a8251d13dbf78"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/controller/BorrowRecordController.java",
+      "bytes": 2194,
+      "sha256": "2b99c3ab7f09ac73051d5c03b78a84efa5a83da72ab95e54af5a6c93a4942582"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowApplicationApproveRequest.java",
+      "bytes": 527,
+      "sha256": "5fe4496a5f8e61b851914f92df43372dacb9477c0ebe8537cb85c9d9bce99182"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowApplicationCancelRequest.java",
+      "bytes": 286,
+      "sha256": "7840f8468d16ae7e73c08bd730e80d2d17167a1a1d8d202af04ce0ae55d9585b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowApplicationCreateRequest.java",
+      "bytes": 656,
+      "sha256": "f8dcabc7dbb3af51735c629666a332f2030c3cc14651a5de1c4831c05df5a781"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowApplicationQueryRequest.java",
+      "bytes": 1390,
+      "sha256": "dc206ba8ff550a53accc43e87d195dc3b37248632ebc9649f5f9f8ccbecff202"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowApplicationRejectRequest.java",
+      "bytes": 363,
+      "sha256": "5eaef5350f00cde6269f89c265dc59578e72b5db4f0c0765f168d906b8b05fd6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowRecordQueryRequest.java",
+      "bytes": 1586,
+      "sha256": "841a90fad1b89426162828e2dca960abf1bf9fbd4cfc9c7a4eb31b1d5706e70c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/dto/BorrowReturnRequest.java",
+      "bytes": 552,
+      "sha256": "df81b32cc6e5826985a56c0cef296087c621a35dbdb4dc49f5efdbfe31c0bd25"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/entity/BorrowApplication.java",
+      "bytes": 1865,
+      "sha256": "090056c7ff4aae91886b416a38af0b295152e3d9e32473b703fbfd2ab3e31920"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/entity/BorrowApplicationDetailVO.java",
+      "bytes": 683,
+      "sha256": "a498bb6f0ef1281f41ae3fbc0d401135eb038a1c9547c770c050ff3c2434ba75"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/entity/BorrowRecord.java",
+      "bytes": 1594,
+      "sha256": "db01f9c4353c92777d7c9b1ae36a7a81580c17b8065678c3c1a1727bfab123b0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/entity/BorrowRecordDetailVO.java",
+      "bytes": 842,
+      "sha256": "76fee3c7073e6fe512ecf9eee2fd6fa290ff1f5b313d57f3c61016c1b4ca29cb"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/enums/BorrowApplicationStatus.java",
+      "bytes": 351,
+      "sha256": "1913471e8e9ef49deb8f086c3eb9a5f02107d404cdfd4bc8b89f8ab682fe6d77"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/enums/BorrowApplicationType.java",
+      "bytes": 180,
+      "sha256": "1a7c1b5a9e7e878c4a7e487f305af1a455f15e1ddc5ff5a3c5c9361dcdf6bb66"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/enums/BorrowRecordStatus.java",
+      "bytes": 306,
+      "sha256": "13fa37fbd0a742f53cb3bd13a61a6da0c7445ab42c80c592bcd58dc54f782567"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/enums/BorrowReturnOutcome.java",
+      "bytes": 360,
+      "sha256": "2581670435ca9f8bc511cf4536d7a593b72c3af7574dd532c39cb073fcef2c1d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/mapper/BorrowApplicationMapper.java",
+      "bytes": 2025,
+      "sha256": "1f95f43c260ac10b21594a36dc3a8551dbc093da6e9b015d03eafceafd84375c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/mapper/BorrowMemberMapper.java",
+      "bytes": 703,
+      "sha256": "a64d123a07320381f06fe79795495f9306414e5bea7e718545b6c6252e71d4aa"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/mapper/BorrowRecordMapper.java",
+      "bytes": 2442,
+      "sha256": "449f3e13bf5500588ae683ed0f37e75ce8cbd56c1668b769edb5539126cedbbf"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/BorrowApplicationService.java",
+      "bytes": 902,
+      "sha256": "1f60d795ce313b7a2e5ac2765e0cfded93b1ed191fc23b78b6d1eeda355e1ec1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/BorrowOverdueService.java",
+      "bytes": 234,
+      "sha256": "620dd2d19271016d4df8df96f187ae7f11c0323b5a86c9c6a4a53a68077dbc2b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/BorrowRecordService.java",
+      "bytes": 683,
+      "sha256": "bb02946cd37abb3abdbd3bb91ff1dea1a22090de11e2b28a5cf4a6fe1e37aaa8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowAccess.java",
+      "bytes": 771,
+      "sha256": "1c4a055a99410964460d0431d8877d72daf602134bf479b9d6066dceeec469c9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowApplicationExpirationScheduler.java",
+      "bytes": 1054,
+      "sha256": "2e93f08d9f2da1e69dd651083f40dbe7341a6dd593362a86aa54b5bb36ba3331"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowApplicationExpirationService.java",
+      "bytes": 2255,
+      "sha256": "2cc8074a4ce64d61bedb918bb2c72a6cb59090cc80dd95cb328f575dcfe30dba"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowApplicationServiceImpl.java",
+      "bytes": 23215,
+      "sha256": "22d73559b945adb79066a9d6e0a0007fa1f476a0bf75f407e8f9af244ba55d9b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowOverdueCalculator.java",
+      "bytes": 707,
+      "sha256": "7597faac28acbae84793c211d0e66383f59ac4c8e6449d952f1109cc765a167b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowOverdueScheduler.java",
+      "bytes": 859,
+      "sha256": "f7df8d926455853fdeb222c54b5feaef1f816899c8163b9682147035ce7c036b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowOverdueServiceImpl.java",
+      "bytes": 2405,
+      "sha256": "0f9df0a27d446a2da1e456b342a33f12eab54192bd4544c9e3acee5019e782b7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowRecordServiceImpl.java",
+      "bytes": 10983,
+      "sha256": "0312c82fae1c95ff45f84becb60182228478b9023496e1a997f546748718fba9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowResourceLockKeys.java",
+      "bytes": 5332,
+      "sha256": "907b3fc4faba1f99b017e6b44f47cc013b019ef2d1190b16b97b04865b0758f8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/PendingBorrowApplicationGuard.java",
+      "bytes": 8271,
+      "sha256": "8e66881764b9a329b0e6d47fbb5f81b3d5ea67dfed323e36b81b4bc6376d7499"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/borrow/service/impl/PendingBorrowApplicationIndexInitializer.java",
+      "bytes": 1080,
+      "sha256": "1ebd8aed162f67c5b324efd5fbf856cbea60ddac4ed4d100f656941fbd01ab9c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/controller/BookController.java",
+      "bytes": 1672,
+      "sha256": "72864f8fbeb0071ae3f96d464fd34c540a948f36fa74ad65bf8bb216a6f157b7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/dto/BookCreateRequest.java",
+      "bytes": 603,
+      "sha256": "9a67027d802f83c1255d7f4c81f497d521c6f59acba1064ef12f40bb4d12f1c8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/dto/BookQueryRequest.java",
+      "bytes": 976,
+      "sha256": "b916131128c740d67e7e829f3df4eae8eaa1e65b4f22a32244d877056b7083cd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/dto/BookUpdateRequest.java",
+      "bytes": 1855,
+      "sha256": "ad9a3557e187a6e2aee2446d74673affc2b24dd187db09927ab11266d5ebde4b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/entity/Book.java",
+      "bytes": 762,
+      "sha256": "81d667368b193bb32701ccee27c0985e6c23636e1e6eee82d8aa4d7b59b3fb7c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/entity/BookDetailVO.java",
+      "bytes": 623,
+      "sha256": "25198968233dd6447e1f7a68dda8d87387f30f6911b404c4f1099e3eab4235d7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/mapper/BookMapper.java",
+      "bytes": 958,
+      "sha256": "5d0854f5ff416e971b2d370f30934a2b5b178c19b9e01a5366fd2f55a73df940"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/service/BookService.java",
+      "bytes": 630,
+      "sha256": "2da1a7b2c60571e4b0b2e948e5acc3297a6524ad98537ff6a0e2c69d38e8d388"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/catalog/service/impl/BookServiceImpl.java",
+      "bytes": 11235,
+      "sha256": "7ae46c19eb991312400bd85638a768b0eeae5dc164fa711b5ae224569ff21c9f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/controller/BookCategoryController.java",
+      "bytes": 1855,
+      "sha256": "6764a3499a01f6ea85ea7e4f53c4df3d221e519ed0f3cca851f08e5414a7b946"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/dto/BookCategoryCreateRequest.java",
+      "bytes": 267,
+      "sha256": "0e7fa5f81eb0db870184ed3026d639bc654db544166cd45e508fb75f5a9004b8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/dto/BookCategoryQueryRequest.java",
+      "bytes": 706,
+      "sha256": "ccdb78918fc60d39116817a9cb0442acfe9b763ddebbc3cc1709759332ac68e1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/dto/BookCategoryUpdateRequest.java",
+      "bytes": 757,
+      "sha256": "bd4ec770424a35ac6816b8ed68a73f47d4b7f3cd6e673fc1bf4749478f41a951"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/entity/BookCategory.java",
+      "bytes": 510,
+      "sha256": "883317a3812300600766c736f995164976959d4b477380e7713f3d7e8b8c80a2"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/mapper/BookCategoryMapper.java",
+      "bytes": 1066,
+      "sha256": "0b03aaf59aca1fe5dc25f9e9d72932b6d42af656fdf6fec0522e96450779e0fd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/service/BookCategoryService.java",
+      "bytes": 724,
+      "sha256": "3c094d0f5da7bd72b9672f87fc80ffa91722c8e369731039edf2eec94b9f32b3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/category/service/impl/BookCategoryServiceImpl.java",
+      "bytes": 9486,
+      "sha256": "d81c6e61ddb01db019b1d56cb73c87ccbdc09f5036660c29b3ffb863c6715aa1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/common/cache/BookCacheKeys.java",
+      "bytes": 1616,
+      "sha256": "a0c83fef01a75e0f699bddd427fec69a401b839937945933588c94c4c0bb5b43"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/common/enums/CatalogStatus.java",
+      "bytes": 155,
+      "sha256": "9e21edc61f2f5b4ed885e95671ffd0634a7c04afed451b28ffdf01cfc9e95b42"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/controller/BookCopyController.java",
+      "bytes": 1873,
+      "sha256": "13bf45ff700cda3d3a881a25629ebb2c04617787e1700d48ccf39c6f27065cc4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/dto/BookCopyCreateRequest.java",
+      "bytes": 415,
+      "sha256": "f85a4e0e570e712960bca07954d5eeab97a9d286f342550e97aafe2a7fdceb59"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/dto/BookCopyQueryRequest.java",
+      "bytes": 827,
+      "sha256": "a9896b9e756a97af0ba4137ca03788bcbf43613b04fe2af1e04e32bb093e93d6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/dto/BookCopyUpdateRequest.java",
+      "bytes": 1153,
+      "sha256": "4a1a88489c32228a6c555b6ccc730ba88c0b3420d25ad9c693e583e4d90105fa"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/entity/BookCopy.java",
+      "bytes": 786,
+      "sha256": "8c4fa357bcbc58867216b3fe57521910b03eb05200a562018b597c11bb6fd872"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/enums/BookCopyStatus.java",
+      "bytes": 201,
+      "sha256": "ba6c2d2f28f0f08ad8bebb8f130bc7a0ee1c02c2130efeb352dec74ef30d5c53"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/mapper/BookCopyMapper.java",
+      "bytes": 1404,
+      "sha256": "504ab85166e790c7387373aa22ca2d532afcf8eec00682a0f8ce83a1d1a266d3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/service/BookCopyService.java",
+      "bytes": 657,
+      "sha256": "21e65260335be5ab908e799365a14495e0935460db5b62e7f103be76d1413216"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/service/impl/BookCopyResourceLockKeys.java",
+      "bytes": 1600,
+      "sha256": "d321c741189b8d88002e55cd5952d341b772af23ac3e3bf46a99583bf5f18df9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/copy/service/impl/BookCopyServiceImpl.java",
+      "bytes": 10327,
+      "sha256": "073856b6b9a97f82350a498c5ba766d249df1ed66df33f2eb4b45069dca41fa7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/config/OssConfig.java",
+      "bytes": 1236,
+      "sha256": "0062f3e0b69a991db3d3650aa0e603fba1c5a19de9e9c3ee602f2ebb2ca6f3cc"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/config/OssProperties.java",
+      "bytes": 629,
+      "sha256": "a3ebf13d047b3ec502f3da4ef02ebe04e1b32e5b1d94afa65fdf9039bdfb52a1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/controller/BookCoverController.java",
+      "bytes": 2088,
+      "sha256": "647a6e7dc387900ce520c88d72ac155f537829d0d146b07c151ead5fc1849271"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/controller/BookCoverExceptionHandler.java",
+      "bytes": 1328,
+      "sha256": "b311e1f65276562800f7d00fba5354df23767024667e8f6115dda5aac34cc5e4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/dto/BookCoverResponse.java",
+      "bytes": 253,
+      "sha256": "34f8d59764bc8904f4fac4dd10ae1f29a601271b4603d802b20614182f56677c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/service/BookCoverService.java",
+      "bytes": 9114,
+      "sha256": "d84c8ecb6fd2a01b53b1dc998b0426f643937d1a9759cdde4193ec6eebde7b5e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/service/CoverStorage.java",
+      "bytes": 292,
+      "sha256": "e4b4d9e42dee5b9ab20d92567f5655908ca9122e54a63a1d8d18acd8840d2674"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/cover/service/impl/OssCoverStorage.java",
+      "bytes": 2895,
+      "sha256": "4f8ad921cc7919d1547c2915841f707e665f8961c34bd2fbc5727f0e9bbbc2b1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/controller/AdminReadingPlanController.java",
+      "bytes": 2999,
+      "sha256": "e5c06375cb8b6c95db9c22e10a8c6185555cfc497d2317a84a4a834bc5b8dc00"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/controller/ReadingPlanController.java",
+      "bytes": 2811,
+      "sha256": "eaed993e405d62321b0e80463d2a8826c95654d7e33c58090de3f203effff6ad"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingItemCreateRequest.java",
+      "bytes": 528,
+      "sha256": "a5674f382d2834bb624adb6a7a641799d6055862aeca06c20cc0fe567dd8c152"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingItemQueryRequest.java",
+      "bytes": 612,
+      "sha256": "0e6a56b34d50be1f3a9b32f1a23419c307761876703d72ea69f919e6a8c0f505"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingItemUpdateRequest.java",
+      "bytes": 580,
+      "sha256": "9bcb02d188efa547dbdbfa50ec913ba177616d818ed429a9a2e55327f05e7547"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingPlanCreateRequest.java",
+      "bytes": 490,
+      "sha256": "9a08ae10b1020d05002b2b31ee20b1a42e3e4ad6c1385733a74d35b6eb72513e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingPlanQueryRequest.java",
+      "bytes": 512,
+      "sha256": "08157056cdbac315f9bd527b59034010b3dc12b89bc0aceaa40fe1243a11c07c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/dto/ReadingPlanUpdateRequest.java",
+      "bytes": 459,
+      "sha256": "bc1b645a7d4c68873254f5dce71a1a2b75920489936861771531f025deb4c37f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/entity/ReadingPlan.java",
+      "bytes": 690,
+      "sha256": "6ab9ec8e6757ddc9c2d8ed133d24af8b518e3f4766ac2a8470a2cacb04e796fd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/entity/ReadingPlanItem.java",
+      "bytes": 930,
+      "sha256": "0b42b2d43facac2691bb71ca274a720b76a118307d0e6a86a042a196e3cbf66e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/enums/ReadingItemSource.java",
+      "bytes": 144,
+      "sha256": "efae4defc750d6abc78ee6e5f2b81350a8aaadf31b05681e3b8e97b9fb2d768f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/enums/ReadingItemStatus.java",
+      "bytes": 165,
+      "sha256": "d159bb3864f3400a0377ce5a8ae901b712358245949304a9e62f30d5559364e5"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/enums/ReadingPlanStatus.java",
+      "bytes": 159,
+      "sha256": "891f8763dcef8320a2b6d558dbe52007b2ad760fd095157e1340525a2601e2a2"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/mapper/ReadingPlanItemMapper.java",
+      "bytes": 1764,
+      "sha256": "97b9236a1bd7a5a7d7c935365cf01cee8de920a63464b8ee46b75095c65ab969"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/mapper/ReadingPlanMapper.java",
+      "bytes": 1375,
+      "sha256": "78749834da93ac62648cc6cc9920b9b838a2c4d2f535995a7448257280d2626a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/service/ReadingPlanService.java",
+      "bytes": 2323,
+      "sha256": "96b8b563d962d80e680a11ae11ee98cce2a20fefd354fac0714975a69e9d2322"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/service/impl/ReadingPlanAccess.java",
+      "bytes": 3391,
+      "sha256": "5a94f337675083ed969178f8d1c331bfa0f08be3ed5799afbb86124cba82507f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/book/reading/service/impl/ReadingPlanServiceImpl.java",
+      "bytes": 30136,
+      "sha256": "9db1f4142ed4d1fd345559bc259395c0fe715501688eca45de29a22b45c05f4b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/bootstrap/AdminBootstrap.java",
+      "bytes": 4507,
+      "sha256": "bb3424b1e2a95739105afd1bd178deb1585503844fb20d59dae22c25485b6abf"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/api/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/api/PageQuery.java",
+      "bytes": 170,
+      "sha256": "ab87c02976a81c032329ac95bf8fe722ecb7f653fe8b8c98a773c31e1ee4d5a0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/api/PageResult.java",
+      "bytes": 371,
+      "sha256": "492e521a25be61317859734e9c317b279e3ae54f4da0e1c88b98cb0de2b0b50b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/api/Result.java",
+      "bytes": 1938,
+      "sha256": "99696611fc333cedbdacbcd686971a8250c092d9ff828a4013562472b930726e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/enums/AccountStatus.java",
+      "bytes": 251,
+      "sha256": "da754fc4df9423301ecb808dda373a4d5a5e213bfde28a9e4e1c5c075a17b272"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/enums/DepartmentStatus.java",
+      "bytes": 259,
+      "sha256": "7433989e5543062e62d67913b417bc5690a23cf607bfd0a629e71f7080e0d113"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/enums/EmploymentStatus.java",
+      "bytes": 260,
+      "sha256": "3232d0f5efe138a7b2e7690b3fe5966d9326edba66d49cd63da0f394a92f7a44"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/enums/MemberType.java",
+      "bytes": 478,
+      "sha256": "1de32b1734ef2ab3b5cdac7c2738446e7e36aa1e3429d083c80e80b250a0c7fb"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/enums/QualificationStatus.java",
+      "bytes": 485,
+      "sha256": "f1f907143406189f2bc9c6a04a2f9f7dceaf6803e7e034ddd70d2ba7d5cc91bd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/ConflictException.java",
+      "bytes": 476,
+      "sha256": "04c7502f6524af316cc4539f561139c984c1a35dd29a60b7ab039d2a09ea6296"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/ForbiddenException.java",
+      "bytes": 384,
+      "sha256": "50ec09f8d57b583d4f876a4cb338976572de66ecf709b1ceb9d485168658eb43"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/GlobalExceptionHandler.java",
+      "bytes": 7707,
+      "sha256": "fb91ceee61b0eef2eabf75f301e189e8abb17e915aee093bef7ae71b36a13435"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/NotFoundException.java",
+      "bytes": 400,
+      "sha256": "a16dad0723aebf7de00d716a263bc263db9ace92310d097202811b5553c1d09c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/ServiceUnavailableException.java",
+      "bytes": 797,
+      "sha256": "4ed9066885268b6ebcf1448539272ce0767d74137c49472de039833182eeb8fc"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/TooManyRequestsException.java",
+      "bytes": 454,
+      "sha256": "d9dd7397bc87a8e2b2cb9ad4d888650258bfcd4d81b24418546b3d19179af829"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/UnauthorizedException.java",
+      "bytes": 664,
+      "sha256": "1e870ec46b483e6c140af61d03e145c65505574ebf9f9fc4493d993010550e60"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/UnprocessableEntityException.java",
+      "bytes": 504,
+      "sha256": "6e5ff887f2d4c6040195e608a1a77ec4efdb15c2efce638c168249eaec63e727"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/exception/WrongFormatException.java",
+      "bytes": 487,
+      "sha256": "9df29df95b4d20c8b047e6a688b0dfb1a1aeb0c568e812fc0f2ee115ac5443f0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/api/redisExpire.java",
+      "bytes": 216,
+      "sha256": "1f89ee9a7204f089d077b84b3b8a544b681bcf47d02fef1a474c590e52907a27"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/lock/BusinessLockKeys.java",
+      "bytes": 1764,
+      "sha256": "18de02e569823d62af95e37b7aa717fcc1b3da1c6d47d8f6e65c94a2df353147"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/lock/DistributedLock.java",
+      "bytes": 895,
+      "sha256": "e446ec15b81c0590f602f9588607a538d4af355c5a7387c0f14c3cb511fa8c64"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/lock/DistributedLockAspect.java",
+      "bytes": 7151,
+      "sha256": "1b6cfc22bb5859266b091f962927baa56c09ad02e8a0d556b73660bb16175e74"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/lock/LockMode.java",
+      "bytes": 144,
+      "sha256": "e3a8ce86109506e3dbcf251103b79e8824d3bbfbe5b4ab38c731b80198262ab1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/redis/method/CacheClient.java",
+      "bytes": 8436,
+      "sha256": "eb613ad04a9c3de4899f6b1772404fbf6cbbf8cb9b268b2fdeaa55dd5325ee54"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/util/BoundedBodyHandler.java",
+      "bytes": 1970,
+      "sha256": "008448fcfefbbedc0df754295d4cdf043522abcc40f379da16bed3fd57aefe53"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/common/util/JsonUtils.java",
+      "bytes": 3349,
+      "sha256": "71b71b6fd7c312bcd1567ec51400dbfba5b42a5abcf176ac7803c53b3e942d44"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/common/CommunicationKeys.java",
+      "bytes": 792,
+      "sha256": "dea599d4034363c9dd1aaa738e3d924f983b91b0c397cb2e3425223ef270cc47"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/common/CommunicationValidation.java",
+      "bytes": 1729,
+      "sha256": "e237b0b52180475c7f310f5ec03c50bd4fd87b81219a22c04a57dae34079d59b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/common/cache/UnreadIndex.java",
+      "bytes": 7097,
+      "sha256": "3c6edac2d5f3ef5a16a40072628e01a66cc26715ed4deade12e973b3a55f825f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/common/security/CommunicationAccess.java",
+      "bytes": 1899,
+      "sha256": "2a1091d0c7aeb03cd0c05ce58c31ef160b61d96d907f8a7707552d2c1278fd13"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/contact/dto/ContactBrief.java",
+      "bytes": 366,
+      "sha256": "ed4e3a2b0932537ca3015a04a46250a0c5190dc7dbfdd76aae555fb10dbef1da"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/contact/service/ContactService.java",
+      "bytes": 3555,
+      "sha256": "54e5d6993f04153acd0fbde4cab3ffa427778f2a693627e4f4a48051d0b34bdd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/controller/ConversationController.java",
+      "bytes": 1027,
+      "sha256": "643299328babcae19664d1a06f1a96b312d4b3c90335be4394a024b26de01dff"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/dto/ConversationCreateRequest.java",
+      "bytes": 330,
+      "sha256": "192275f2ce6453f74eeef4cea05d8d505bbd832dbff4efe6e8deecfd522bc87c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/dto/ConversationQueryRequest.java",
+      "bytes": 885,
+      "sha256": "43d6eb4c96c9d0feea9031f89223cc2ed051bc6d2e631b45a84a5020805bd114"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/dto/ConversationUpdateRequest.java",
+      "bytes": 440,
+      "sha256": "7fda24f3775418432641c975897a433f02a3fa9a6966d485ff1e7c93f41c21d5"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/entity/Conversation.java",
+      "bytes": 1361,
+      "sha256": "e21aec729a124a3d2aade160f99038a97faa8dd5b0fad56b6b18f2f533a348b3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/mapper/ConversationMapper.java",
+      "bytes": 922,
+      "sha256": "c198a099525150b3c67db49fd17f93e41b28b2ea1a63f25fb382966d3f7c86de"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/conversation/service/ConversationService.java",
+      "bytes": 3518,
+      "sha256": "d89dfedd5464e7359e0d4d08484a3b22aa0554f3d9f11b2397664c382f4dd8ec"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/event/entity/MessageCreatedEvent.java",
+      "bytes": 704,
+      "sha256": "2a6c51a85f6c81fa641a8df4ff8f19ddd526db56f1c97228b149c17727e4da6b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/event/entity/OutboxEvent.java",
+      "bytes": 964,
+      "sha256": "40deb9aedf1972a12e86180163fd9698b4eaa47c3062dc974e6bbc648908bc52"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/event/mapper/OutboxMapper.java",
+      "bytes": 679,
+      "sha256": "ccb38bd33ec49f913691f3feedea78ecce1140cec180ad64e1b088c18411a774"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/event/service/CommunicationMessaging.java",
+      "bytes": 7144,
+      "sha256": "d1e84b44c5a29c4a50bb77490ae70ab9e0e9668fcba1063ebf2703e67df8e536"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/controller/MessageController.java",
+      "bytes": 959,
+      "sha256": "36d7e22b7707956d526f4e7086031ede6a5646e396bbc24c3ec65663bfd171d8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/dto/MessageQueryRequest.java",
+      "bytes": 1446,
+      "sha256": "6c0a5082efaf02d1821175c8cbe5b08a831759851fb830855c9b0fd903660c38"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/dto/MessageSendRequest.java",
+      "bytes": 674,
+      "sha256": "20f539f0d2c68776ffc1c9b5b0c216cf6af78a6ee42993685518849d81bf8999"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/entity/CommunicationMessage.java",
+      "bytes": 1858,
+      "sha256": "0fce7f219e4481a2f90d3af0ccf013198f7aefdd38a27f08d087216df83ee23d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/entity/MessageRecipient.java",
+      "bytes": 656,
+      "sha256": "15bb7aa312dde4b3f297ea5587114d1f28afe77fa768ddd75fbbbee29ad9dcda"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/mapper/MessageMapper.java",
+      "bytes": 1386,
+      "sha256": "83730f972af55e11e5af2d0cec59a8dc140be6ce7c07c4b3a49efae686e9aebd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/service/MessageService.java",
+      "bytes": 7188,
+      "sha256": "8798f6bd5ca4563d313f3dd7a9a50218865a128ac888ad2788fdce2e37c17e02"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/message/service/MessageWriter.java",
+      "bytes": 2731,
+      "sha256": "753d1688346120957d56a626d8944342da84ffb498ce5cf6d64a4acd7984af20"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/notification/service/BusinessNotifications.java",
+      "bytes": 4840,
+      "sha256": "726b58d329166e8432d77419d0c29eb2f00bb816261230cc67321f6352f83908"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/websocket/NotificationSocket.java",
+      "bytes": 6359,
+      "sha256": "44938c2b31d6116174f3fe8221311825b7f9a5718a8233e57cd6d9aa140d3fc3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/communication/websocket/SocketConfiguration.java",
+      "bytes": 4247,
+      "sha256": "6ee9e96243b2c912c07bf980c1094ae511f6807e034b3e961b9dbabfd69f4293"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/redis/RedissonConfig.java",
+      "bytes": 1300,
+      "sha256": "ef3ddbc1e7bfe920935888e03b12119d49b7ff5bc86ff7e3665614369f0ba7b0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/ProductionSafetyChecks.java",
+      "bytes": 2145,
+      "sha256": "c1d9f8d6b70e0da63305f4dd7d4135c9a20d04a449ae6e1d9ec0694588da4e5a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/SecurityConfig.java",
+      "bytes": 2117,
+      "sha256": "0fceac62445022c3532867a5f236f9b8f1f121607b8c58f0f2f799dfea907931"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/VerificationCodeUtils.java",
+      "bytes": 511,
+      "sha256": "2573394ef81db0080b8873a0b06aa3ece568b394cd09f2b71ae682a261edcbbb"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/jwt/JwtInterceptor.java",
+      "bytes": 2539,
+      "sha256": "560c49185076569bf1b60ed917ae7a7c15dbcec3bec56a97ea4e4d1161e3e613"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/jwt/JwtUtils.java",
+      "bytes": 5108,
+      "sha256": "046557b4fd7fefbe83565d887dd6bca51d9a5244d9ba004115ba8436c50338d7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/jwt/TokenRefreshInterceptor.java",
+      "bytes": 8940,
+      "sha256": "7f306e9d679fb5c8521caec72dafff56637f97ba35b38fcae09219253071cb43"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/jwt/WebConfig.java",
+      "bytes": 1561,
+      "sha256": "47d5da087d597c36fae6b3fe0d453faa596d544ce4c14d2403521e8e13c11709"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/PermissionAccess.java",
+      "bytes": 3028,
+      "sha256": "40ce72e3dc2c6f5ba2fb750f19ca1bc576aa2bf9763d46f1d8a9a8357e50c1b6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/PermissionCodes.java",
+      "bytes": 5185,
+      "sha256": "3f27a3e514ab2f798dc4be4e8e1bf8f9c830c63d59c132fa242d7f3efaa39032"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/controller/CurrentPermissionController.java",
+      "bytes": 879,
+      "sha256": "8a7b1cd7e6d07ed20ff7c65369398a658f714406af3022f16cb20e86f915ccf8"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/controller/PermissionController.java",
+      "bytes": 3391,
+      "sha256": "241d43467f31994a30c7156d6bd940346ca13591ca0b9384a1cd880ef4b31b08"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/dto/CurrentPermissionsResponse.java",
+      "bytes": 300,
+      "sha256": "2c610b476b3420946e34b6bf5ac9edbe7ef90f04c7dff433a77f1d991ae6bc47"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/dto/PermissionFindParam.java",
+      "bytes": 350,
+      "sha256": "943d3e5d1880f773f57110dfc9387c1f5ab62b39d73a746fac5ecf29d6c21594"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/dto/PermissionGrant.java",
+      "bytes": 361,
+      "sha256": "b2fd02e9a81fe2a0ebc88649dc00baad206e9e9d3eb89bf9a46e789765d640e9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/dto/PermissionUpdateRequest.java",
+      "bytes": 317,
+      "sha256": "a8df5057b96d06eec30fb32da53a4d226039559a4bca14bd9fafcc8c90d4f4a4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/entity/Permission.java",
+      "bytes": 514,
+      "sha256": "aead8733de3c8631ce691651e24082049421b25160c308b3ae80e58ea62bbe85"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/mapper/PermissionMapper.java",
+      "bytes": 987,
+      "sha256": "6bcaa218334274cd96e47728df2cf61f5bb3731a482ea0bbeda0b82e79017276"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/service/CurrentPermissionService.java",
+      "bytes": 1144,
+      "sha256": "46cf4782a61c428259d3e5ad3b408b26804a8993709216e8a17c2d650aff37d7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/service/PermissionQueryService.java",
+      "bytes": 599,
+      "sha256": "c3478bfd090360a8f62551991b1585643cb2ae3ee2e61a83cdf248be2baadc45"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/service/PermissionService.java",
+      "bytes": 725,
+      "sha256": "477ea9a86085da212f37da1a782e9ca7e2981cf64623d94ea00fe7820de336e2"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/service/impl/PermissionQueryServiceImpl.java",
+      "bytes": 1327,
+      "sha256": "863409a649fa1603e4f27e3b7b5209b0478138ed932db00ca9f2a8e5ac15a16c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/permission/service/impl/PermissionServiceImpl.java",
+      "bytes": 5895,
+      "sha256": "0261204edbe81f498a5d68737cc8c26c66162e4a6d170a35b4ed790a928ab4d4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/entity/Role.java",
+      "bytes": 491,
+      "sha256": "c84422580af430e8073e34720447a8f6bd27d51a835b8f4d5320d3349c370eb9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/entity/RolePermission.java",
+      "bytes": 517,
+      "sha256": "85da1d9939cda853afe9a206c5e076b0ab60be7f279a9769a2902539e32f777a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/enums/DataScope.java",
+      "bytes": 329,
+      "sha256": "80e26d35320fe34618b102aca821f6b5198dcb81dfe844591ff80fae120a8cb9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/enums/RoleStatus.java",
+      "bytes": 239,
+      "sha256": "1fbb48c3ec0ca7a855846b7f739107ea2f9e82188a96d31ea4ae30396b184756"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/mapper/RoleMapper.java",
+      "bytes": 396,
+      "sha256": "3caffbcbcac825f9a049974a3d9a71a74c13ca59a63342f615ced015baafaabe"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/mapper/RolePermissionMapper.java",
+      "bytes": 849,
+      "sha256": "fe1384dfcdde4aa52a3c1f15e7e22e6bfee307f39cd5cf0d26b1abdf3d537d9a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/service/RoleQueryService.java",
+      "bytes": 351,
+      "sha256": "b3950c763743093f6319fd21c5cacca9df6f81b32f6f8628eda787516c7edd67"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/config/security/role/service/impl/RoleQueryServiceImpl.java",
+      "bytes": 1732,
+      "sha256": "a01d8d83ef922fbdae3eb494e9c62c47662fa88e5144ea580d2c607b1cd53a65"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/controller/MemberChangeApplicationController.java",
+      "bytes": 2849,
+      "sha256": "7350a9429743880ee0a1a0cf29d0e9a135bc8b3f9f22ae1d8005788fb2df82d0"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/dto/MemberChangeCancelRequest.java",
+      "bytes": 224,
+      "sha256": "a5c8d715ae7924453919737531dbb3464b78d9f8758a135b04395dbdd495862a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/dto/MemberChangeCreateRequest.java",
+      "bytes": 1319,
+      "sha256": "8a6e4754795d3e58f4c555ce78151a32af835c1367a74c4e733fe77c42a27863"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/dto/MemberChangeDecisionRequest.java",
+      "bytes": 376,
+      "sha256": "af9639804e2ec3fb47ddc6c2fbdfa3d90b5c567d104ab50b7ebd5ba8fdf76386"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/dto/MemberChangeQueryRequest.java",
+      "bytes": 925,
+      "sha256": "a79dcd90f7852eccc9187341de05f2faf82037ef34e5aceef7b951882960c7ae"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/entity/MemberChangeApplication.java",
+      "bytes": 3128,
+      "sha256": "09358b59c40261bdddf9a8e03a9449698d7878c1426e2e70c8cedfc020c10475"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/enums/AccountChangeAction.java",
+      "bytes": 182,
+      "sha256": "a5ee41883a7167da76cf29166b342d0915112cf94cad4614222fb6ced9b2f564"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/enums/EmploymentChangeAction.java",
+      "bytes": 223,
+      "sha256": "250ec7df335bfa2d199214354f8d78ece95c96aae51265053180e191df6c50c6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/enums/MemberChangeDecision.java",
+      "bytes": 142,
+      "sha256": "79a511747ef06cfcf6ac6f8b96370010b6c3e03c23cefba48491916c3fdb7c2f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/enums/MemberChangeStatus.java",
+      "bytes": 190,
+      "sha256": "74e997c8c35689287812ce604600b1b66af27beff5bf33daddd1c2e68284058f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/enums/MemberChangeType.java",
+      "bytes": 1043,
+      "sha256": "626790effae0135306534c30f4112675e715fa0268b33ac258bdd7b328258cec"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/mapper/MemberChangeApplicationMapper.java",
+      "bytes": 4632,
+      "sha256": "ec280a924bb448d7e3f6fd96e8ebeb2278a5e099304532463205d7b23266060f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/service/MemberChangeApplicationService.java",
+      "bytes": 895,
+      "sha256": "8b5fdc26bd702b2d4d7887375c4d47e5508c8a60f197bce38b7c0bd9da3b447f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/service/impl/MemberChangeApplicationServiceImpl.java",
+      "bytes": 39608,
+      "sha256": "6db1eda7bfd8e704f30a4d4613820ad2c5e816075f062b6e2f902be5b5a02d7d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/service/impl/MemberChangeExpirationScheduler.java",
+      "bytes": 1322,
+      "sha256": "1239350bb265ed74fe61381cd35261c63a2156e34b801263945a00c263e6607c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/service/impl/MemberChangeExpirationService.java",
+      "bytes": 4276,
+      "sha256": "8edaace86733ca2de0848c0796fb833c661ed2378b0643e15dbc55bc8857a4e5"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/application/service/impl/MemberChangeLockKeys.java",
+      "bytes": 931,
+      "sha256": "2807e8b8028c6d636e910e1e77e21b95f058325f70bd0ce3a22440352e9bbd1f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/controller/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/controller/DeptController.java",
+      "bytes": 3080,
+      "sha256": "39493f5ed50ca8f45db6d920b8875c4186e287ebd88e5d7a4d9c0e02f6a7a190"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/controller/MemberController.java",
+      "bytes": 7304,
+      "sha256": "b17f799cbf4be4a916332f48b4716797c1afbea0878cb54445d65bb319cadc9a"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/dto/DepartmentQueryRequest.java",
+      "bytes": 429,
+      "sha256": "87fc6bf36cfbd65723f961aa4bf6902ca85a33033f18b0bab271bc24af041098"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/dto/DepartmentUpdateRequest.java",
+      "bytes": 1055,
+      "sha256": "0fed9103ee5f492fcfd4926e93fc8fecf4ef5f17fcb1fcd119a36b8519759e77"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/dto/MemberQueryRequest.java",
+      "bytes": 2534,
+      "sha256": "41f3d6e33fc286f6e17e3fe961761f0bd56ab8305b5f194189a8238d6fb3b01e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/dto/MemberWriteRequest.java",
+      "bytes": 2773,
+      "sha256": "09a2a4002c6f01262cfc2f611a0e9b9092a6b11156f1b2fa075f5ce1f3821fc4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/entity/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/entity/Dept.java",
+      "bytes": 611,
+      "sha256": "29174bfac580a56a806d7f3783dda1dd5d07e796da9a920ed138cba3e0d7b95e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/entity/Employee.java",
+      "bytes": 590,
+      "sha256": "9bbb1b08fb45fa66b52e4d1f0237f74f6c9a90f877652e390fe955abbe1d07b3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/entity/Member.java",
+      "bytes": 2306,
+      "sha256": "166ca4ae9c2e2c759da735894a7d063a3dc38d0e18c3fa44de205f029496ba24"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/entity/Reader.java",
+      "bytes": 507,
+      "sha256": "9571c15f00dbec7729a2b1fd218a01661c71b918b924e27f411d588140015da6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/mapper/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/mapper/DeptMapper.java",
+      "bytes": 1707,
+      "sha256": "2d1c6ef172b2676983ba628e6249af1ff1984d376c22d0c27a32a27f64d3f3ab"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/mapper/MemberMapper.java",
+      "bytes": 2345,
+      "sha256": "8a7cf792c948a4a7f788662c98e8cb5ca743e40aab961ed67416fad30b767367"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/quota/mapper/TemporaryQuotaMapper.java",
+      "bytes": 965,
+      "sha256": "20382801deab49722170061f73666989f75b2a0197e6b05146af6b8f8189b949"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/quota/service/TemporaryQuotaScheduler.java",
+      "bytes": 1236,
+      "sha256": "b15f90a56d9dafaeda66a36e2faa97c696454695fee6104a34949aa609daaafd"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/quota/service/TemporaryQuotaService.java",
+      "bytes": 1690,
+      "sha256": "21b3aff2b1b2ccce70bbbf4640a624401d9015e0adf4b929f910c39f2b6510b4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/DeptService.java",
+      "bytes": 565,
+      "sha256": "b334750e930291c7b21cca585b3dc8b243a1e155001397739037cec73f169633"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/MemberMaintenanceAccess.java",
+      "bytes": 4008,
+      "sha256": "75e740459ed52fcc411e773f5a9f8b2ab0391968ac1eabd7e9d577ca1b843b0d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/MemberService.java",
+      "bytes": 970,
+      "sha256": "60d4ca6eaf437c0172e493f9df67aa550e4f2816ddda003c3ccd53482348829b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/impl/DeptServiceImpl.java",
+      "bytes": 6156,
+      "sha256": "4aefb364d1cae90f9f9909881ab21c71f0bf774fd41666c310958bc7089d1484"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/identity/service/impl/MemberServiceImpl.java",
+      "bytes": 17135,
+      "sha256": "6aa65bccd1ab2fdf1761f00cc47e3b9ab5315a8206160ac1a859627c822d59e5"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/ImportRowWriter.java",
+      "bytes": 5682,
+      "sha256": "a04c39b9471bf59ec72ed9545ea02168e28708a334b3ae791d6df8daaf608a52"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationJob.java",
+      "bytes": 731,
+      "sha256": "34810f95766187f9d6763e08aa4b88377d984214f6e8f97983d32e639340b7c9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationJobMapper.java",
+      "bytes": 1236,
+      "sha256": "a6bb96ffdba159c9ea2ce4a367fb7f954787e8b80a8ddbe91986e2ebe562d72d"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationJobQuery.java",
+      "bytes": 322,
+      "sha256": "d3a043298ecdd25afd23a80a269f479dfb52a81026c254b17ca9e5e042e552e1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationsController.java",
+      "bytes": 1996,
+      "sha256": "7d61243827c72a20d0270afb1a1587b3438a7fa64b89751f68fd6bf7b2031836"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationsJobsService.java",
+      "bytes": 16078,
+      "sha256": "40aa5b7089831824cc343875fae4316599cb31ec2c2bbe739e00072231f25628"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/operations/OperationsReportService.java",
+      "bytes": 3784,
+      "sha256": "fb5f14f0c6b662cc3a3d1ceb2fa50bec7e47f454e36b40c9df4824a1608b3c07"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/controller/PolicyController.java",
+      "bytes": 1766,
+      "sha256": "93695a07f359963d038e009e69990ec1f09f5b0a613f155a3a410fe9497a29c6"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/AdmissionPolicyParameters.java",
+      "bytes": 687,
+      "sha256": "7172fb98e2e66d4ecabeca3bd42a890163535e610f6e1de4577c91df0c775fce"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/BorrowingPolicyParameters.java",
+      "bytes": 749,
+      "sha256": "32068760cdcc39c530965656e7bb1a962e8c5f081d5e4e4ac5ced73c5db23330"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/PolicyPublishRequest.java",
+      "bytes": 542,
+      "sha256": "2d0be4ad7ebc5a204140c8b2143988c8b2d504a89549e4ccbcaaee30e70ac72c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/PolicyQueryRequest.java",
+      "bytes": 443,
+      "sha256": "178c7c5b5a151ced8969f3479f6724d49574713deebdbc5b9e04b4cb0ada442b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/PolicyWriteRequest.java",
+      "bytes": 728,
+      "sha256": "3b08ddf035eadb5dc9044e64cbcaa2c05a44adcd2f5ee32a4b5eb08a36c4ed4b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/dto/RuleDecisionRequest.java",
+      "bytes": 283,
+      "sha256": "6e8e09d21c3b4241ca8d2b65861da455a3dbf0352cc08226db52d82a797fe0c4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/entity/PolicyVersion.java",
+      "bytes": 577,
+      "sha256": "7f73850984186c903dcef6a6db5dce40f67dff7175f646ab762d3be6fddfef1c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/interceptor/RuleConsentInterceptor.java",
+      "bytes": 1786,
+      "sha256": "d0c561f3775ac0f4a802cdf653ee21098f480f16bba475dda2b4d8a42ed018e7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/mapper/PolicyMapper.java",
+      "bytes": 1600,
+      "sha256": "b13dd6999a134ebd66f2982beb2c2bb9910f6207cccb3683c51b46643f534d73"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/service/PolicyService.java",
+      "bytes": 8199,
+      "sha256": "2a05734c7e2c3afa35e87faabc7b7e5ddcaecaecd33fdf75b6f05baa5a1eaf9c"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/service/PolicyState.java",
+      "bytes": 5323,
+      "sha256": "03a79de6bb69b08f9650b2989ba56c65d9b35f1f8fbf043bc1642c67c9d0801f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/policy/service/RuleConsentService.java",
+      "bytes": 3841,
+      "sha256": "53260f5ba60c949c18cdeeb89abcdcf2f55e93dee3f4714312bf87d5712c48d4"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/config/RecommendationMessaging.java",
+      "bytes": 2238,
+      "sha256": "5d5d7a7dbfbb759d49d2cc0e92393cd0db7aaabb60d93de25a9c77978cbc7e5e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/controller/RecommendationController.java",
+      "bytes": 2161,
+      "sha256": "e091a7f9d56ebe46f2f8948aa7e63824c01dfb5e7df1e3565f087626436e9b96"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/AiRerankResult.java",
+      "bytes": 277,
+      "sha256": "f7b723686530c7ccab61bf1b926d8db2fd7b47721afa376b9ee979076d4a2872"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/BookTagsRequest.java",
+      "bytes": 326,
+      "sha256": "e5b110212c37dd0d52035ada61120d1e3fc98652223083ee5800b51fc63f7e61"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/FeedbackRequest.java",
+      "bytes": 220,
+      "sha256": "f2c16599e54b0db8ea9a9552f3e7cd7ab1ed3426d7151b53a433b133b9209f73"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/RecommendationResponse.java",
+      "bytes": 916,
+      "sha256": "204516caf1941d22c5fff0a94540d73a5b7f505dcdc2391d61a6aa5afd408ffb"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/RecommendationSnapshot.java",
+      "bytes": 424,
+      "sha256": "e436aa833ed11cb262f0d9dfe8d7fdeb643831d1468315d68042ff3d9c76fcec"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/dto/TagsRequest.java",
+      "bytes": 248,
+      "sha256": "ffa11f19f4a4071ba35e76f414cb35d2225a75b70e487b3e1e004e57c351faed"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/entity/InterestTag.java",
+      "bytes": 278,
+      "sha256": "1fa497c81ce0c27f01465f9b0c14ad35262d4f30cd64c05b3cd0b158dfca9100"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/entity/RecommendationBatch.java",
+      "bytes": 478,
+      "sha256": "90d4d8b24d494b9d58f5804b8984a0a6f8b0c96ecbac857e2f118d0032e7098f"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/entity/RecommendationCandidate.java",
+      "bytes": 568,
+      "sha256": "dd98a8ccff14d8ca3b0dce7c4fbb1502a23ce6d98ae4d413fcaff3e02ff2ac0e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/entity/RecommendationFeedback.java",
+      "bytes": 440,
+      "sha256": "279d24fca8eda5d74df285f2c56de3964f0e4ac38a3ed4d091f5754c37d1985e"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/entity/RecommendationItem.java",
+      "bytes": 422,
+      "sha256": "5c22c8868fa3bfa919e6ce47f2c7756e35260913688684c4c84cb1d25b0beb89"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/mapper/RecommendationMapper.java",
+      "bytes": 1431,
+      "sha256": "c71802247f9bef71e2cdbe06d05ee46e0677d2ace3e69e94bc30784b681c2599"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/mapper/TagMapper.java",
+      "bytes": 1093,
+      "sha256": "13b24429444ee83e727907c7600033b046c34db3609b71b424c1f2216b2d0168"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/AiRecommendationClient.java",
+      "bytes": 3920,
+      "sha256": "fd918b62479d74979c1aff4dd3563f437b30d36b14a165936cc99c50e3eb66f9"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/RecommendationGeneration.java",
+      "bytes": 11874,
+      "sha256": "d10348b4d162a48d1bb90fee86d3b407acea19e1bea1ca0df03cc68e40e1443b"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/RecommendationService.java",
+      "bytes": 8301,
+      "sha256": "94014ccf0976679c2d957751d7286a7c6710713029f38a64bdecf7f2b54e6de7"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/RecommendationState.java",
+      "bytes": 2128,
+      "sha256": "bc234b3c8c0e8be0e6a43483d12ff5cbf4679b59079b3212eb5f517023284aac"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/RecommendationWarmPublisher.java",
+      "bytes": 1031,
+      "sha256": "66fba95d8c7d07358c64707bcf424456d1b2f1a5a7b689cd9e8bdf85006da4e1"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/RuleRecommendationAlgorithm.java",
+      "bytes": 6000,
+      "sha256": "361c76a6f5c6ff310a6cc51044c201a6ca24deccab922f245d7d01f2054c68b3"
+    },
+    {
+      "path": "src/main/java/com/yunfeil161/ailibrary/recommendation/service/TagService.java",
+      "bytes": 6705,
+      "sha256": "9d923f8302ffb9dd65d996fca2530868dfc8e0605988780e5b628fbb3a13998e"
+    },
+    {
+      "path": "src/main/resources/application-prod.yaml",
+      "bytes": 401,
+      "sha256": "184a66139c50718bb6931150bedea8ff9938cd2e4b71b4c6e9e4a3b06fe52e5c"
+    },
+    {
+      "path": "src/main/resources/application.yaml",
+      "bytes": 5019,
+      "sha256": "0ae6a6c74e60d693ed80d5b431f3a91a0e1dd189fa618a49a67c1941175d9456"
+    },
+    {
+      "path": "src/main/resources/db/migration/20260924_role_permission_v1.sql",
+      "bytes": 4295,
+      "sha256": "505b42ec1e30e59d812b8de3d6be6ce906c8d7249bbb800717f1111e1e3f2cc3"
+    },
+    {
+      "path": "src/main/resources/db/migration/20260927_borrow_v1.sql",
+      "bytes": 3045,
+      "sha256": "3bbfb93caa0edf6a69f75e2cb5ecc20c329535f9899ad16c8d296f5afb3eea6d"
+    },
+    {
+      "path": "src/main/resources/db/migration/20260930_member_type_v1.sql",
+      "bytes": 1895,
+      "sha256": "26e56c481e214b653ad257beb9ea080168b5ffabc32ece766df2579832e20813"
+    },
+    {
+      "path": "src/main/resources/db/migration/20261001_identity_role_permissions.sql",
+      "bytes": 2166,
+      "sha256": "1f23ce80f6641f14846a58548e21c1415ce764089c99829d9b569493af56b8c0"
+    },
+    {
+      "path": "src/main/resources/db/migration/20261001_member_change_application_v1.sql",
+      "bytes": 9137,
+      "sha256": "dcd1c0d75ee59229060bbaa2b58e9666bada0296e727932953dae24c58c363db"
+    },
+    {
+      "path": "src/main/resources/db/migration/20261004_borrow_renewal_v1.sql",
+      "bytes": 959,
+      "sha256": "265d2c9f71b90d69ebb447b3794a5403d100c9c95a5184e053bc6ec8fe24e6da"
+    },
+    {
+      "path": "src/main/resources/db/migration/20261007_business_notification.sql",
+      "bytes": 1412,
+      "sha256": "10d01956b8894cb6e4852c1f7429627ed0fd9b74e73bc512720824880088d668"
+    },
+    {
+      "path": "src/main/resources/db/migration/20261007_communication_v1.sql",
+      "bytes": 5509,
+      "sha256": "133923bcf7d9c63a68dc8fdb6f27d06f599baf0e647ca0aa5cc58044e53191ce"
+    },
+    {
+      "path": "src/main/resources/mapper/audit/OperationLogMapper.xml",
+      "bytes": 2025,
+      "sha256": "8127f24fd5fed4b05d0d057970013c35805f71d26cdd57f2c537f2c0764fc4a1"
+    },
+    {
+      "path": "src/main/resources/mapper/auth/LoginMapper.xml",
+      "bytes": 2209,
+      "sha256": "b5cb42b21915937f7fd69d06e5ccef9cc05460434a42be13fc78f092674d86e2"
+    },
+    {
+      "path": "src/main/resources/mapper/book/borrow/BorrowApplicationMapper.xml",
+      "bytes": 7128,
+      "sha256": "d53f16415ae7508c72cd375b73352ef79f9f529e04aad2476837cb6ebff2ce04"
+    },
+    {
+      "path": "src/main/resources/mapper/book/borrow/BorrowMemberMapper.xml",
+      "bytes": 2478,
+      "sha256": "6ef82d9754148f7f04380c2d934e6f6d2a88ad38274c530ccacc5f9367a7fcfb"
+    },
+    {
+      "path": "src/main/resources/mapper/book/borrow/BorrowRecordMapper.xml",
+      "bytes": 8244,
+      "sha256": "f43a3c1034ec782136bd048ed5a30d3f7bfcaeec31e55ec21ff01ee3529425ca"
+    },
+    {
+      "path": "src/main/resources/mapper/book/catalog/BookMapper.xml",
+      "bytes": 7379,
+      "sha256": "63f962bd7e4fc9fc09818b579f0971e7303d7358a03174ca50d4d28d56a4f102"
+    },
+    {
+      "path": "src/main/resources/mapper/book/category/BookCategoryMapper.xml",
+      "bytes": 3821,
+      "sha256": "085154d30d75924369f4d23fad8b318f065c5be6c66e2e65d79e31a33d1d61ee"
+    },
+    {
+      "path": "src/main/resources/mapper/book/copy/BookCopyMapper.xml",
+      "bytes": 5013,
+      "sha256": "a5655f15c95947c00f35da9dc7a29e3cda49dedba07cfc45878c7ea984bf14b6"
+    },
+    {
+      "path": "src/main/resources/mapper/book/reading/ReadingPlanItemMapper.xml",
+      "bytes": 6120,
+      "sha256": "d760129c3658a6ac9d15d30cd17016e474730ff3d299b882267e816b1f83d3ec"
+    },
+    {
+      "path": "src/main/resources/mapper/book/reading/ReadingPlanMapper.xml",
+      "bytes": 3795,
+      "sha256": "42441a9646e95f3b852976daef67ad49cd4e622aa3f8027540dabcb70be20bad"
+    },
+    {
+      "path": "src/main/resources/mapper/communication/ConversationMapper.xml",
+      "bytes": 3590,
+      "sha256": "3e2c387de073bb2da4f23de3f9fa434c4524b685f48fa82f037cbfc4c458a77b"
+    },
+    {
+      "path": "src/main/resources/mapper/communication/MessageMapper.xml",
+      "bytes": 5783,
+      "sha256": "bb03b67ef83a03d2e7636843ee3d6eff7f4c46e51899087f959ff98fda91578e"
+    },
+    {
+      "path": "src/main/resources/mapper/communication/OutboxMapper.xml",
+      "bytes": 1908,
+      "sha256": "f1e0ce035075813af674d27dbf04046002f2beee23aa0a1cc109b2db52bbe095"
+    },
+    {
+      "path": "src/main/resources/mapper/identity/DeptMapper.xml",
+      "bytes": 3612,
+      "sha256": "34950ddce53e0c3f8596e75eb0d43707740b872c303b6746985edcbe4f4dd9fb"
+    },
+    {
+      "path": "src/main/resources/mapper/identity/MemberMapper.xml",
+      "bytes": 15606,
+      "sha256": "e947838777f94c22c0b88e4ec536c6b00331e178e2eebbdfb715708e874b27fb"
+    },
+    {
+      "path": "src/main/resources/mapper/identity/application/MemberChangeApplicationMapper.xml",
+      "bytes": 15774,
+      "sha256": "cbe9dedb6afd355a41f30589dd64f0e58426ff24fb7bfceb93debdb5f40cb668"
+    },
+    {
+      "path": "src/main/resources/mapper/policy/PolicyMapper.xml",
+      "bytes": 2939,
+      "sha256": "5557039d567eaadd0d6d575509166079947d13ece5f2ec9f3582a4e508cde58d"
+    },
+    {
+      "path": "src/main/resources/mapper/recommendation/RecommendationMapper.xml",
+      "bytes": 5056,
+      "sha256": "f5950c404288934fa5c581965a0682a3cfaf94047b7a458291217e87d1dfbeb2"
+    },
+    {
+      "path": "src/main/resources/mapper/recommendation/TagMapper.xml",
+      "bytes": 2763,
+      "sha256": "809a26ba12c22e4a762bbb57366ee5fa8a4772b946c21eb11c9cad4c254c34c0"
+    },
+    {
+      "path": "src/main/resources/mapper/security/PermissionMapper.xml",
+      "bytes": 2711,
+      "sha256": "31fab84fcd6ac33caf1c1550b9ac3392d34f722ae20921196e69bf42834bd46d"
+    },
+    {
+      "path": "src/main/resources/mapper/security/RoleMapper.xml",
+      "bytes": 1197,
+      "sha256": "be7416f8e6717366323c4d583cf3bb65baf5a296797905dcf42ea369a1e8e83e"
+    },
+    {
+      "path": "src/main/resources/mapper/security/RolePermissionMapper.xml",
+      "bytes": 2011,
+      "sha256": "357485d5cbff7f456bc3d619d2293b73858735c69bb8b31067a76c95126990bc"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/AiLibraryApplicationTests.java",
+      "bytes": 22976,
+      "sha256": "4a33c8f280a5861a6ca339c09e3a364e4ccc0bdb92645d176bfbe37df816811a"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/AiChatIntegrationTests.java",
+      "bytes": 9388,
+      "sha256": "08ce5a7bd0a1dfa76570ae0bdfef8c3e64884c5b6ba2a03dccca0db56381adb7"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/AiGatewayClientTests.java",
+      "bytes": 3590,
+      "sha256": "25e4e4052a3bbf315cd2f853f067a08b4589beb7d8a34ddfe634a2e64f8cf17b"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/AiHandoffIntegrationTests.java",
+      "bytes": 5072,
+      "sha256": "39d410e76ddecb3a7c0bfa6304efa33d9e977d488902d8e862e4e9de6ae1b8cd"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/AiRuntimeIntegrationTests.java",
+      "bytes": 15208,
+      "sha256": "efad43b71037d54683fa8d58a0a40b7570fc945ce5d358795571053c9d073ac7"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/BoundedBusinessHttpTests.java",
+      "bytes": 3070,
+      "sha256": "a1ea25de54b79fe0da544e58e15e9b57a0bf22235e4c5ea46394b50c4cc6bb93"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/BusinessActionIntegrationTests.java",
+      "bytes": 10193,
+      "sha256": "48e8985ebfe078abb2b720618b733263b6571e55a555e54db10f9a0eced59d59"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/BusinessSkillContractTests.java",
+      "bytes": 3531,
+      "sha256": "4c927c736dda3fd7d2320237f279eb52491ab881d6d0c0b7b4548de19b0baac0"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/ai/KnowledgeManagementIntegrationTests.java",
+      "bytes": 6951,
+      "sha256": "0f10ebf6972b73407b867a3201a484a917f89e12030249a566a01621d075f499"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/audit/OperationAuditIntegrationTests.java",
+      "bytes": 14162,
+      "sha256": "6bdb3431749617b66f11203c00ceb481dcd2586c5de774c49d8153693c89cd14"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/auth/AuthHardeningIntegrationTests.java",
+      "bytes": 7279,
+      "sha256": "70d026fe467be0556fd5560ec4e815106df647bcb5af9ff07895158747ddb76a"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/auth/ResetPasswordIntegrationTests.java",
+      "bytes": 3184,
+      "sha256": "48ddec1b9827406cd03b2cb6326a5822da7dabbe951364b9a0eec016f23f25b4"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookBusinessIntegrationTests.java",
+      "bytes": 16134,
+      "sha256": "3c727eb1a89f0325198ec70612abd3c69d6607b31ab117b7d490094fbf60dc05"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookCatalogQueryCombinationTests.java",
+      "bytes": 15378,
+      "sha256": "d225a7389c2db040f9853fd1b7e5d3c5b39f56895e43c8f543878c56ab84d627"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookCoverIntegrationTests.java",
+      "bytes": 8732,
+      "sha256": "d74b5206175ed40dd8e6bd6e7065d314dd6e5ab1fc7f27486168be756f90a907"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookIdQueryCacheTests.java",
+      "bytes": 7449,
+      "sha256": "66ee2a0ea7119cdbb48dde67d46ad1bc7cd364f8de05dc7cdd4a2fade7914f74"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookModuleExtendedCacheIntegrationTests.java",
+      "bytes": 20199,
+      "sha256": "6bf2d4954ad70c2c651c0e35be2e0cad242a7b2dd6a8f06fa6aca77979473f39"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BookPermissionIntegrationTests.java",
+      "bytes": 8782,
+      "sha256": "25d7e033f7e6e29352023af99e49f5f41cf5fb207327e74d6b2488d8e92b7290"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BorrowLifecycleIntegrationTests.java",
+      "bytes": 38492,
+      "sha256": "92bdb709beaf836b0abe84fa9bc21ce69d6ad1faf18fb4a947033043ba6287b2"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BorrowOverdueSchedulerAutomaticTests.java",
+      "bytes": 2734,
+      "sha256": "dfed4edb32aac4d4ecef999f9688518b41bcfae790e7fa7f0bb6ae1b034ec156"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/BorrowReturnOutcomeIntegrationTests.java",
+      "bytes": 11647,
+      "sha256": "3a3159c36d61568985980b9588b6b48179a8795e45bca8b8291508092e9df51f"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/ReadingPlanBoundaryIntegrationTests.java",
+      "bytes": 12275,
+      "sha256": "12d1fae191dc736df71fe3d9b5b88e88fdf6a8021e957e35705fa8a74c230738"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/ReadingPlanIntegrationTests.java",
+      "bytes": 11641,
+      "sha256": "1da04a872ca4877161e0535afbfdf62f47890776eeef260ab605a9b4059eb114"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/ReadingPlanQueryUpdateCombinationTests.java",
+      "bytes": 14409,
+      "sha256": "2522118b818b9fca1c4b15b73bcbbb1ca91f95299646ec018c0828d2c7a2395f"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/book/borrow/service/impl/BorrowCancellationPermissionTests.java",
+      "bytes": 3253,
+      "sha256": "590705b9dc0dc94c00ef6bf0db9d32793ac2da03e559a98450340356e28d0dc4"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/common/exception/GlobalExceptionHandlerHttpTests.java",
+      "bytes": 1950,
+      "sha256": "7e34eaf62a6ed774428efac3f52679c3788061177656a68c667f3aaf10ef469a"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/common/redis/lock/DistributedLockIntegrationTests.java",
+      "bytes": 34696,
+      "sha256": "4afa92a267a10cb00d7cf63fdb02cd2af724a9c512b99df753bd82fc89b6fe41"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/common/redis/method/CacheClientTests.java",
+      "bytes": 5208,
+      "sha256": "1e301f73dd24cb908773f24113f6e99fe7c75eb85b3c77a08eee360cadfca0de"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/common/util/JsonUtilsTests.java",
+      "bytes": 1425,
+      "sha256": "109d055ccf33fc57e5f38b508f8a71cc2970c4933e6a806215c0d5cfff1ddb06"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/communication/CommunicationBusinessLiveHttpIT.java",
+      "bytes": 11819,
+      "sha256": "386a6172fc054ec5a8248b10ce752720497cf12588b0528601129a558dc03810"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/communication/CommunicationIntegrationTests.java",
+      "bytes": 30877,
+      "sha256": "7f4a5ba248113cc50dbb8742251f673fe46bf46fb90fde16b8cf5017fc07fc79"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/communication/CommunicationLiveHttpIT.java",
+      "bytes": 22714,
+      "sha256": "5845405e152163fc8762d0e1bed096a0f11d1f29cb82b0f4900a2d379a349412"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/communication/event/service/CommunicationMessagingTests.java",
+      "bytes": 3348,
+      "sha256": "4ae4fa2d4ec7ef7260510c4b123330816386144a434563f09335594c24f07f70"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/EndpointAuthenticationMatrixTests.java",
+      "bytes": 8923,
+      "sha256": "a957794c3d79d9c7b928b16290f1132e058a65f77390e05349559114093e3830"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/EndpointAuthorizationMatrixTests.java",
+      "bytes": 13705,
+      "sha256": "db0c04d4893d1078a0ac322ee73deef245dde8b7ecc11228d8251582b93b124a"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/ProductionSafetyChecksTests.java",
+      "bytes": 2387,
+      "sha256": "e2a27b7c3317c878162eb1decc8ba681ae0ae828c6574d9b7a5b7b8a1ee763c1"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/jwt/JwtInterceptorTests.java",
+      "bytes": 1265,
+      "sha256": "b32683fdddcbfb1274127e0855decc6267efd7f0ec2afe8ee16944ecfdfb9ea0"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/permission/CurrentPermissionsIntegrationTests.java",
+      "bytes": 3962,
+      "sha256": "5749b1b2cc9d9428e2eac64ef1cc85833d94fc37e71641658ca85ada35a9f557"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/permission/PermissionAccessTests.java",
+      "bytes": 964,
+      "sha256": "14048184786fde86eb16787dca6e218408b1b4c55059797da22315bf67ddefb9"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/config/security/permission/PermissionQueryServiceIntegrationTests.java",
+      "bytes": 1713,
+      "sha256": "26acece1eb7cda577ba3fb872c8829533b790b4c52c84998e1fc421dff664f14"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/documentation/ApiInventoryTests.java",
+      "bytes": 7367,
+      "sha256": "f9f4dad999deaeca3c07518a915220d3008a03e828283f3f33b212ed4ecbed1c"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberChangeApplicationIntegrationTests.java",
+      "bytes": 32357,
+      "sha256": "bf7ff09c2eae388ef11e6c51923d3109bbb342c471baf0ebdb895d67d0b28304"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberChangeExpirationAutomaticTests.java",
+      "bytes": 3875,
+      "sha256": "8b5b6c23ae57d1bb5320f2a9ffea6d0a35f477896ecc7feb5384b5ad41dc2d65"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberChangeExpirationIntegrationTests.java",
+      "bytes": 12185,
+      "sha256": "be2b200a1e07e0773e1a3f454a711e62ced4093365aacac9ee718d2e6d3f6bc5"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberChangeExpirationSchedulerTests.java",
+      "bytes": 1042,
+      "sha256": "a3fe4a5992fd0d68181fa5e188b6ec4b54af22880bf0e00fd4e1128d007e4174"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberMaintenanceIntegrationTests.java",
+      "bytes": 9858,
+      "sha256": "f4c250bf8b6c02c3996bb3124845bb8c627d1f0183edaeb2ba6f93c2f4cc388e"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/MemberSelfUpdateTests.java",
+      "bytes": 2223,
+      "sha256": "f0761485dd3961d79822d3202833e1bc4d8a585ba49097f4c758e7a4f5ebe03b"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/identity/TemporaryQuotaIntegrationTests.java",
+      "bytes": 6982,
+      "sha256": "1109dbd790c73bd5d3f7240889e878222a6e499f2edb356d6948d25f20332d5c"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/operations/OperationsIntegrationTests.java",
+      "bytes": 8299,
+      "sha256": "32574f72c4c07e53fc798c353977e75b12ed28dd9d7d9870a8c7932a468893f2"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/policy/PolicyIntegrationTests.java",
+      "bytes": 11195,
+      "sha256": "a7ab0c28df9ff7e08dbc55945da1af06a46be4988558b44eacb83d36ffb60b7e"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/AiRecommendationIntegrationTests.java",
+      "bytes": 16072,
+      "sha256": "45e52d5b33d4d61c044c0675a6cfa13b29c82e15cb07aebc58f6683ab2030f86"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/RecommendationAlgorithmTests.java",
+      "bytes": 5802,
+      "sha256": "6e624c7ed780e78a275971221755f3e97e1c6d6bdd4c6595c17628f36d1125e1"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/RecommendationIntegrationTests.java",
+      "bytes": 17320,
+      "sha256": "cdb9b0c77ceea130ef0ea3e4e0c50107313e8e126fd48baed60d9c1caf273b2f"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/RecommendationMessagingTests.java",
+      "bytes": 2506,
+      "sha256": "4562c07ec5b0080fbf74c97fb45e4007d1e69f3367b44d126b3934066313086b"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/service/AiRecommendationClientTests.java",
+      "bytes": 3210,
+      "sha256": "ccfccd4d85482694a431ad7afeb1ba70fa14385c39deafc0fb5269390ed7b79e"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/recommendation/service/AiRecommendationValidationTests.java",
+      "bytes": 3368,
+      "sha256": "cc6b98a2170c68ca55cfda8f40cd4e093026ca476a2dee6c44b7002a41356bd4"
+    },
+    {
+      "path": "src/test/java/com/yunfeil161/ailibrary/testsupport/TestMemberTypes.java",
+      "bytes": 569,
+      "sha256": "1660b3ec67d1f53543b09763ac7d20e4ef3bf7d49b438bb1c6c079845395d78f"
+    },
+    {
+      "path": "src/test/resources/application-mysql.yaml",
+      "bytes": 296,
+      "sha256": "833d4844dea1dbaef7180bdf4a9ab8bf84636ab9f5deab01174ac9699e926d28"
+    },
+    {
+      "path": "src/test/resources/application.yaml",
+      "bytes": 1482,
+      "sha256": "b8cd7b94dcd78d4e5afbb55918662c78f5d7d649d706ab74886e22d40d6acc9c"
+    },
+    {
+      "path": "src/test/resources/schema.sql",
+      "bytes": 45253,
+      "sha256": "0b3a8b7ca95590c3a6bb0bf5e744beae968c203273ed963a1d059ee01bf717ee"
+    },
+    {
+      "path": "start.ps1",
+      "bytes": 163,
+      "sha256": "baf8c12691a0d56f38edb81c2bc1b688499acd940f5024bbe45d38ad3056fb56"
+    },
+    {
+      "path": "演示脚本.md",
+      "bytes": 4316,
+      "sha256": "aafb6ad3745a5ad9855d5d3cbc95b70bc13f7093c6f10930b127ed1c3f16dc7c"
+    }
+  ],
+  "checks": {
+    "highConfidenceSecretMatches": 0,
+    "brokenDocumentLinks": 0,
+    "note": "规则扫描和白名单不是绝对安全证明；测试用固定密钥不用于生产。"
+  }
+}

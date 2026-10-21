@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.communication.event.mapper.OutboxMapper">
+    <insert id="insert">
+        insert into outbox_event(event_id,event_type,schema_version,message_id,recipient_member_id,payload_json)
+        values(#{eventId},#{eventType},#{schemaVersion},#{messageId},#{recipientMemberId},#{payloadJson})
+    </insert>
+    <select id="pending" resultType="com.yunfeil161.ailibrary.communication.event.entity.OutboxEvent">
+        select * from outbox_event
+        where (status='PENDING' and next_attempt_at &lt;= current_timestamp(3))
+           or (status='PROCESSING' and lease_until &lt; current_timestamp(3))
+        order by id limit 100
+    </select>
+    <update id="claim">
+        update outbox_event
+        set status='PROCESSING', lease_token=#{token}, lease_until=timestampadd(second,30,current_timestamp(3)),
+            attempt_count=attempt_count+1,updated_at=current_timestamp(3)
+        where id=#{id} and ((status='PENDING' and next_attempt_at &lt;= current_timestamp(3))
+            or (status='PROCESSING' and lease_until &lt; current_timestamp(3)))
+    </update>
+    <update id="published">
+        update outbox_event set status='PUBLISHED',published_at=current_timestamp(3),
+            lease_token=null,lease_until=null,last_error=null,updated_at=current_timestamp(3)
+        where id=#{id} and status='PROCESSING' and lease_token=#{token}
+    </update>
+    <update id="failed">
+        update outbox_event set status=case when attempt_count &gt;= 8 then 'FAILED' else 'PENDING' end,
+            next_attempt_at=#{next},last_error=#{error},lease_token=null,lease_until=null,updated_at=current_timestamp(3)
+        where id=#{id} and lease_token=#{token}
+    </update>
+</mapper>

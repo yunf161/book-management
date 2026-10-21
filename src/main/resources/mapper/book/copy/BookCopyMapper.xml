@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.book.copy.mapper.BookCopyMapper">
+    <resultMap id="CopyMap" type="com.yunfeil161.ailibrary.book.copy.entity.BookCopy">
+        <id column="id" property="id"/><result column="book_id" property="bookId"/><result column="book_title" property="bookTitle"/><result column="barcode" property="barcode"/>
+        <result column="call_number" property="callNumber"/><result column="location" property="location"/><result column="status" property="status"/>
+        <result column="acquired_at" property="acquiredAt"/><result column="price" property="price"/><result column="condition_note" property="conditionNote"/>
+        <result column="version" property="version"/><result column="created_at" property="createdAt"/><result column="updated_at" property="updatedAt"/>
+    </resultMap>
+    <sql id="Columns">id,book_id,barcode,call_number,location,status,acquired_at,price,condition_note,version,created_at,updated_at</sql>
+    <select id="find" resultMap="CopyMap">
+        SELECT bc.*, b.title AS book_title
+        FROM book_copy bc
+        LEFT JOIN book b ON b.id = bc.book_id
+        <where>
+            <if test="query.id != null">AND bc.id=#{query.id}</if>
+            <if test="query.bookId != null">AND bc.book_id=#{query.bookId}</if>
+            <if test="query.barcode != null and query.barcode != ''">AND bc.barcode LIKE CONCAT('%',#{query.barcode},'%')</if>
+            <if test="query.callNumber != null and query.callNumber != ''">AND bc.call_number LIKE CONCAT('%',#{query.callNumber},'%')</if>
+            <if test="query.location != null and query.location != ''">AND bc.location LIKE CONCAT('%',#{query.location},'%')</if>
+            <if test="query.status != null">AND bc.status=#{query.status}</if>
+            <if test="query.acquiredAt != null">AND bc.acquired_at=#{query.acquiredAt}</if>
+            <if test="query.price != null">AND bc.price=#{query.price}</if>
+            <if test="query.conditionNote != null and query.conditionNote != ''">AND bc.condition_note LIKE CONCAT('%',#{query.conditionNote},'%')</if>
+            <if test="query.version != null">AND bc.version=#{query.version}</if>
+            <if test="query.createdAt != null">AND bc.created_at=#{query.createdAt}</if>
+            <if test="query.updatedAt != null">AND bc.updated_at=#{query.updatedAt}</if>
+        </where>
+        ORDER BY bc.id DESC
+    </select>
+    <select id="findById" resultMap="CopyMap">SELECT <include refid="Columns"/> FROM book_copy WHERE id=#{id}</select>
+    <select id="countByBarcode" resultType="int">SELECT COUNT(*) FROM book_copy WHERE barcode=#{barcode}<if test="excludeId != null"> AND id != #{excludeId}</if></select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">INSERT INTO book_copy (book_id,barcode,call_number,location,status,acquired_at,price,condition_note,version) VALUES (#{bookId},#{barcode},#{callNumber},#{location},#{status},#{acquiredAt},#{price},#{conditionNote},#{version})</insert>
+    <update id="update">UPDATE book_copy <set>
+        <if test="request.barcode != null">barcode=#{request.barcode},</if>
+            <if test="request.callNumberProvided">call_number=#{request.callNumber},</if>
+        <if test="request.location != null">location=#{request.location},</if>
+            <if test="request.status != null">status=#{request.status},</if>
+        <if test="request.acquiredAtProvided">acquired_at=#{request.acquiredAt},</if>
+            <if test="request.priceProvided">price=#{request.price},</if>
+        <if test="request.conditionNoteProvided">condition_note=#{request.conditionNote},</if>version=version+1,updated_at=CURRENT_TIMESTAMP(3)
+    </set> WHERE id=#{id} AND version=#{request.expectedVersion}</update>
+    <update id="discard">
+        UPDATE book_copy
+        SET status='DISCARDED', version=version+1, updated_at=CURRENT_TIMESTAMP(3)
+        WHERE id=#{id} AND version=#{expectedVersion}
+          AND status NOT IN ('BORROWED','RESERVED','DISCARDED')
+    </update>
+    <select id="findAvailableByBookId" resultMap="CopyMap">SELECT <include refid="Columns"/> FROM book_copy WHERE book_id=#{bookId} AND status='AVAILABLE' ORDER BY id LIMIT 1</select>
+    <select id="findByBarcode" resultMap="CopyMap">SELECT <include refid="Columns"/> FROM book_copy WHERE barcode=#{barcode}</select>
+    <update id="borrow">UPDATE book_copy SET status='BORROWED',version=version+1,updated_at=CURRENT_TIMESTAMP(3) WHERE id=#{id} AND book_id=#{bookId} AND status='AVAILABLE' AND version=#{version}</update>
+    <update id="returnCopy">
+        update book_copy
+        set status = #{status},
+            condition_note = #{conditionNote},
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        where id = #{id}
+          and status = 'BORROWED'
+          and version = #{version}
+    </update>
+</mapper>
+

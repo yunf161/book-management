@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.recommendation.mapper.RecommendationMapper">
+    <select id="current" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationBatch">
+        SELECT * FROM recommendation_batch WHERE member_id = #{memberId} AND status = 'CURRENT'
+        ORDER BY id DESC LIMIT 1
+    </select>
+    <select id="byRequest" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationBatch">
+        SELECT * FROM recommendation_batch WHERE member_id = #{memberId} AND request_id = #{requestId}
+    </select>
+    <select id="batches" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationBatch">
+        SELECT * FROM recommendation_batch WHERE member_id = #{memberId} ORDER BY id DESC
+    </select>
+    <select id="items" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationItem">
+        SELECT id, batch_id, book_id, rank_order AS `rank`, score, reason, evidence_json
+        FROM recommendation_item WHERE batch_id = #{batchId} ORDER BY rank_order
+    </select>
+    <select id="recentBooks" resultType="long">
+        SELECT DISTINCT i.book_id FROM recommendation_item i
+        JOIN recommendation_batch b ON b.id = i.batch_id WHERE b.member_id = #{memberId}
+        AND b.status IN ('CURRENT', 'HISTORY')
+    </select>
+    <select id="feedback" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationFeedback">
+        SELECT * FROM recommendation_feedback WHERE member_id = #{memberId} ORDER BY id DESC
+    </select>
+    <select id="borrowedBooks" resultType="long">
+        SELECT DISTINCT c.book_id FROM borrow_record r JOIN book_copy c ON c.id = r.copy_id
+        WHERE r.member_id = #{memberId} AND r.status IN ('BORROWING', 'OVERDUE', 'LOST')
+    </select>
+    <select id="personalizationEnabled" resultType="boolean">
+        SELECT personalization_enabled FROM reader_settings WHERE member_id = #{memberId}
+    </select>
+    <!-- 优先召回标签相关书目，并保留热门与新书；库存和热度均来自真实业务记录。 -->
+    <select id="candidates" resultType="com.yunfeil161.ailibrary.recommendation.entity.RecommendationCandidate">
+        SELECT b.id, b.title, b.author, b.description, b.version, b.category_id, b.created_at,
+            (SELECT COUNT(*) FROM book_copy c WHERE c.book_id = b.id AND c.status = 'AVAILABLE') AS available_copies,
+            (SELECT COUNT(*) FROM borrow_record r JOIN book_copy rc ON rc.id = r.copy_id WHERE rc.book_id = b.id AND r.borrowed_at &gt;= #{cutoff}) AS popularity
+        FROM book b WHERE b.status = 'ACTIVE'
+        <!-- 关闭个性化时连候选召回也不能受个人标签影响。 -->
+        ORDER BY
+        <if test="personalized">CASE WHEN EXISTS (
+            SELECT 1 FROM book_tag bt JOIN reader_interest ri ON ri.tag_id = bt.tag_id
+            WHERE bt.book_id = b.id AND ri.member_id = #{memberId}
+        ) THEN 0 ELSE 1 END,</if>
+        popularity DESC, b.created_at DESC, b.id DESC LIMIT 200
+    </select>
+    <update id="archive">UPDATE recommendation_batch SET status = 'HISTORY' WHERE member_id = #{memberId} AND status = 'CURRENT'</update>
+    <update id="invalidate">UPDATE recommendation_batch SET status = 'INVALID' WHERE member_id = #{memberId} AND status = 'CURRENT'</update>
+    <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO recommendation_batch (member_id, request_id, source, algorithm_version, status, generated_at, expires_at)
+        VALUES (#{memberId}, #{requestId}, #{source}, #{algorithmVersion}, #{status}, #{generatedAt}, #{expiresAt})
+    </insert>
+    <insert id="insertItem" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO recommendation_item (batch_id, book_id, rank_order, score, reason, evidence_json)
+        VALUES (#{batchId}, #{bookId}, #{rank}, #{score}, #{reason}, #{evidenceJson})
+    </insert>
+    <insert id="insertFeedback" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO recommendation_feedback (member_id, batch_id, item_id, book_id, kind, historical, created_at)
+        VALUES (#{memberId}, #{batchId}, #{itemId}, #{bookId}, #{kind}, false, #{createdAt})
+    </insert>
+    <update id="archiveFeedback">UPDATE recommendation_feedback SET historical = true WHERE member_id = #{memberId} AND historical = false</update>
+    <select id="historicalFeedbackIds" resultType="long">
+        SELECT id FROM recommendation_feedback WHERE member_id = #{memberId} AND historical = true ORDER BY created_at DESC, id DESC
+    </select>
+    <delete id="deleteFeedback">DELETE FROM recommendation_feedback WHERE id = #{id}</delete>
+    <delete id="deleteItems">DELETE FROM recommendation_item WHERE batch_id = #{batchId}</delete>
+    <delete id="deleteBatch">DELETE FROM recommendation_batch WHERE id = #{batchId}</delete>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.recommendation.mapper.TagMapper">
+    <!-- 字段名称复用驼峰映射。兴趣名称保留兼容字段，实际推荐按 tag_id 关联。 -->
+    <select id="find" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT id, code, name, status FROM interest_tag
+        WHERE status = 'ACTIVE'
+        <if test="id != null">AND id = #{id}</if>
+        <if test="code != null and code != ''">AND code LIKE CONCAT('%', #{code}, '%')</if>
+        <if test="name != null and name != ''">AND name LIKE CONCAT('%', #{name}, '%')</if>
+        ORDER BY id
+    </select>
+    <select id="findById" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT id, code, name, status FROM interest_tag WHERE id = #{id}
+    </select>
+    <select id="findByName" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT id, code, name, status FROM interest_tag WHERE name = #{name}
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO interest_tag (code, name, status) VALUES (#{code}, #{name}, 'ACTIVE')
+        ON DUPLICATE KEY UPDATE name = interest_tag.name
+    </insert>
+    <select id="findByNameCurrent" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT id, code, name, status FROM interest_tag WHERE name = #{name} FOR UPDATE
+    </select>
+    <select id="memberTags" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT DISTINCT t.id, t.code, t.name, t.status
+        FROM reader_interest ri JOIN interest_tag t ON t.id = ri.tag_id
+        WHERE ri.member_id = #{memberId} AND t.status = 'ACTIVE' ORDER BY t.id
+    </select>
+    <select id="bookTags" resultType="com.yunfeil161.ailibrary.recommendation.entity.InterestTag">
+        SELECT t.id, t.code, t.name, t.status FROM book_tag bt
+        JOIN interest_tag t ON t.id = bt.tag_id
+        WHERE bt.book_id = #{bookId} AND t.status = 'ACTIVE' ORDER BY t.id
+    </select>
+    <delete id="deleteMemberTags">DELETE FROM reader_interest WHERE member_id = #{memberId}</delete>
+    <insert id="insertMemberTag">
+        INSERT INTO reader_interest (member_id, tag_id, interest_name)
+        VALUES (#{memberId}, #{tag.id}, #{tag.name})
+    </insert>
+    <delete id="deleteBookTags">DELETE FROM book_tag WHERE book_id = #{bookId}</delete>
+    <insert id="insertBookTag">
+        INSERT INTO book_tag (book_id, tag_id) VALUES (#{bookId}, #{tagId})
+    </insert>
+</mapper>

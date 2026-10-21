@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.policy.mapper.PolicyMapper">
+    <select id="find" resultType="com.yunfeil161.ailibrary.policy.entity.PolicyVersion">
+        select * from policy_version where id = #{id}
+    </select>
+    <select id="current" resultType="com.yunfeil161.ailibrary.policy.entity.PolicyVersion">
+        select p.* from policy_current c join policy_version p on p.id = c.policy_id
+        where c.type = #{type} and p.status = 'ACTIVE'
+    </select>
+    <select id="lockCurrent" resultType="java.lang.Long">
+        select policy_id from policy_current where type = #{type} for update
+    </select>
+    <select id="currentLocked" resultType="com.yunfeil161.ailibrary.policy.entity.PolicyVersion">
+        select p.* from policy_current c join policy_version p on p.id = c.policy_id
+        where c.type = #{type} and p.status = 'ACTIVE'
+        for update
+    </select>
+    <select id="sequence" resultType="java.lang.Long">
+        select sequence_value from policy_current where type = #{type}
+    </select>
+    <select id="query" resultType="com.yunfeil161.ailibrary.policy.entity.PolicyVersion">
+        select * from policy_version
+        <where>
+            <if test="id != null">and id = #{id}</if>
+            <if test="type != null">and type = #{type}</if>
+            <if test="status != null">and status = #{status}</if>
+            <if test="title != null">and title like concat('%',#{title},'%')</if>
+            <if test="policyVersion != null">and policy_version = #{policyVersion}</if>
+        </where>
+        order by id desc
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into policy_version(type,title,content,parameters_json,status,version)
+        values(#{type},#{title},#{content},#{parametersJson},'DRAFT',0)
+    </insert>
+    <update id="update">
+        update policy_version set title=#{title},content=#{content},parameters_json=#{parametersJson},
+            version=version+1,updated_at=current_timestamp(3)
+        where id=#{id} and version=#{version} and status='DRAFT'
+    </update>
+    <update id="retire">
+        update policy_version set status='RETIRED',version=version+1,updated_at=current_timestamp(3)
+        where id=#{id} and status='ACTIVE'
+    </update>
+    <update id="activate">
+        update policy_version set status='ACTIVE',policy_version=#{policyVersion},
+            published_by=#{memberId},published_at=current_timestamp(3),
+            updated_at=current_timestamp(3),version=version+1
+        where id=#{id} and status='DRAFT' and version=#{expectedVersion}
+    </update>
+    <update id="point">
+        update policy_current set policy_id=#{id},sequence_value=#{sequence},updated_at=current_timestamp(3)
+        where type=#{type}
+    </update>
+</mapper>
+

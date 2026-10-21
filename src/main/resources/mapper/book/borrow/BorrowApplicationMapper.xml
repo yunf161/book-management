@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunfeil161.ailibrary.book.borrow.mapper.BorrowApplicationMapper">
+
+    <resultMap id="A" type="com.yunfeil161.ailibrary.book.borrow.entity.BorrowApplication">
+        <id column="id" property="id"/>
+        <result column="application_type" property="applicationType"/>
+        <result column="member_id" property="memberId"/>
+        <result column="book_id" property="bookId"/>
+        <result column="borrow_record_id" property="borrowRecordId"/>
+        <result column="borrowing_policy_id" property="borrowingPolicyId"/>
+        <result column="borrowing_policy_version" property="borrowingPolicyVersion"/>
+        <result column="requested_days" property="requestedDays"/>
+        <result column="reason" property="reason"/>
+        <result column="status" property="status"/>
+        <result column="submitted_at" property="submittedAt"/>
+        <result column="expires_at" property="expiresAt"/>
+        <result column="processed_at" property="processedAt"/>
+        <result column="processed_by" property="processedBy"/>
+        <result column="approved_copy_id" property="approvedCopyId"/>
+        <result column="approved_days" property="approvedDays"/>
+        <result column="decision_remark" property="decisionRemark"/>
+        <result column="version" property="version"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <resultMap id="D" type="com.yunfeil161.ailibrary.book.borrow.entity.BorrowApplicationDetailVO" extends="A">
+        <result column="member_name" property="memberName"/>
+        <result column="book_title" property="bookTitle"/>
+        <result column="book_author" property="bookAuthor"/>
+        <result column="isbn" property="isbn"/>
+        <result column="cover_object_key" property="coverObjectKey"/>
+        <result column="approved_copy_barcode" property="approvedCopyBarcode"/>
+    </resultMap>
+
+    <sql id="cols">
+        a.id, a.application_type, a.member_id, a.book_id, a.borrow_record_id,
+        a.borrowing_policy_id, a.borrowing_policy_version, a.requested_days, a.reason, a.status,
+        a.submitted_at, a.expires_at, a.processed_at, a.processed_by,
+        a.approved_copy_id, a.approved_days, a.decision_remark, a.version,
+        a.created_at, a.updated_at
+    </sql>
+
+    <select id="find" resultMap="D">
+        select
+            <include refid="cols"/>,
+            m.name member_name,
+            b.title book_title,
+            b.author book_author,
+            b.isbn,
+            b.cover_object_key,
+            bc.barcode approved_copy_barcode
+        from borrow_application a
+        join member m on m.id = a.member_id
+        join book b on b.id = a.book_id
+        left join book_copy bc on bc.id = a.approved_copy_id
+        <where>
+            <if test="q.id != null">and a.id = #{q.id}</if>
+            <if test="q.applicationType != null">and a.application_type = #{q.applicationType}</if>
+            <if test="q.borrowRecordId != null">and a.borrow_record_id = #{q.borrowRecordId}</if>
+            <if test="q.memberId != null">and a.member_id = #{q.memberId}</if>
+            <if test="q.status != null">and a.status = #{q.status}</if>
+            <if test="q.memberName != null and q.memberName != ''">and m.name like concat('%', #{q.memberName}, '%')</if>
+            <if test="q.bookId != null">and a.book_id = #{q.bookId}</if>
+            <if test="q.bookTitle != null and q.bookTitle != ''">and b.title like concat('%', #{q.bookTitle}, '%')</if>
+            <if test="q.isbn != null and q.isbn != ''">and b.isbn like concat('%', #{q.isbn}, '%')</if>
+            <if test="q.submittedFrom != null">and a.submitted_at &gt;= #{q.submittedFrom}</if>
+            <if test="q.submittedTo != null">and a.submitted_at &lt;= #{q.submittedTo}</if>
+            <if test="q.processedBy != null">and a.processed_by = #{q.processedBy}</if>
+        </where>
+        order by
+            case a.application_type when 'RENEW' then 0 else 1 end,
+            a.submitted_at asc,
+            a.id asc
+    </select>
+
+    <select id="findById" resultMap="A">
+        select <include refid="cols"/>
+        from borrow_application a
+        where a.id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into borrow_application(application_type, member_id, book_id, borrow_record_id,
+                                       borrowing_policy_id, borrowing_policy_version, requested_days, reason, status, submitted_at, expires_at, version)
+        values(#{applicationType}, #{memberId}, #{bookId}, #{borrowRecordId},
+               #{borrowingPolicyId}, #{borrowingPolicyVersion}, #{requestedDays}, #{reason}, #{status},
+               #{submittedAt}, #{expiresAt}, #{version})
+    </insert>
+
+    <select id="findPendingActive" resultMap="A">
+        select <include refid="cols"/>
+        from borrow_application a
+        where a.status = 'PENDING'
+          and a.expires_at &gt; #{now}
+        order by a.id
+    </select>
+
+    <update id="expire">
+        update borrow_application
+        set status = 'EXPIRED',
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status = 'PENDING'
+          and version = #{version}
+          and expires_at &lt;= #{now}
+    </update>
+
+    <select id="findPendingExpired" resultMap="A">
+        select <include refid="cols"/>
+        from borrow_application a
+        where a.status = 'PENDING' and a.expires_at &lt;= #{now}
+        order by a.id
+        limit #{limit}
+    </select>
+
+    <update id="cancel">
+        update borrow_application
+        set status = 'CANCELLED',
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and member_id = #{memberId}
+          and status = 'PENDING'
+          and expires_at &gt; #{now}
+          and version = #{version}
+    </update>
+
+    <update id="approve">
+        update borrow_application
+        set status = 'APPROVED',
+            processed_at = #{now},
+            processed_by = #{processor},
+            approved_copy_id = #{copyId},
+            approved_days = #{days},
+            decision_remark = #{remark},
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status = 'PENDING'
+          and version = #{version}
+    </update>
+
+    <update id="reject">
+        update borrow_application
+        set status = 'REJECTED',
+            processed_at = #{now},
+            processed_by = #{processor},
+            decision_remark = #{remark},
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status = 'PENDING'
+          and version = #{version}
+    </update>
+
+</mapper>

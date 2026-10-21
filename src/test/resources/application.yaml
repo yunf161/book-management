@@ -1,0 +1,52 @@
+spring:
+  config:
+    import: "optional:file:./local-secrets.properties"
+  datasource:
+    url: jdbc:h2:mem:ai_library_test;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: "${REDIS_PASSWORD:}"
+      # 测试缓存与本地开发会话隔离，避免复用自增 ID 时读到旧对象。
+      database: 15
+      timeout: 3s
+  sql:
+    init:
+      mode: always
+  ai:
+    model:
+      chat: none
+  mail:
+    host: localhost
+    port: 2525
+    username: test@example.com
+    password: test
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    # 与正式环境一致：数据库下划线字段自动映射Java驼峰属性。
+    map-underscore-to-camel-case: true
+
+jwt:
+  secret: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+  expiration-millis: 7200000
+  interceptor-enabled: false
+
+# 每次测试进程使用独立待审批索引，避免真实Redis保留的上次测试键干扰自增ID。
+library:
+  member:
+    # 普通测试由用例控制过期时刻；独立自动调度测试会显式覆盖此配置。
+    change-application-expire-cron: "-"
+  recommendation:
+    ai-enabled: false
+    mq-enabled: false
+  communication:
+    mq-enabled: false
+    namespace: "communication-test-${random.uuid}"
+  borrow:
+    pending-key-namespace: "test-${random.uuid}"

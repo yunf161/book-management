@@ -1,0 +1,26 @@
+{
+  "name": "ai-library-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules --test --test-isolation=none tests/communication.test.mjs tests/permissions.test.mjs tests/rules.test.mjs tests/quota.test.mjs tests/book-cover.test.mjs tests/recommendation.test.mjs tests/ai.test.mjs tests/http-session.test.mjs tests/resource-desk.test.mjs tests/knowledge-import.test.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:communication": "node --experimental-vm-modules --test --test-isolation=none tests/communication.test.mjs"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
+    "axios": "^1.12.2",
+    "element-plus": "^2.11.4",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "prettier": "^3.9.9",
+    "prettier-plugin-java": "^2.11.0",
+    "vite": "^7.1.7"
+  }
+}

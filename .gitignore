@@ -1,0 +1,55 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# 仅供本机使用的账号、授权码等敏感配置。
+local-secrets.properties
+
+# AI源码随项目管理；私有索引、运行凭据与测试产物不提交。
+ai-service/data/
+ai-service/**/__pycache__/
+ai-service/**/*.pyc
+ai-service/.venv/
+ai-service/.env
+ai-service/.pytest_cache/
+
+# 运行环境、日志和导出的发布材料不进入源码提交。
+.env
+.env.*
+!.env.example
+*.log
+*.pid
+*.pem
+*.key
+*.p12
+*.pfx

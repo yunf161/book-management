@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.identity.mapper.DeptMapper">
+
+    <!-- Department 表字段清单，避免列表查询使用 select *。 -->
+    <sql id="BaseColumnList">
+        id, code, name, description, status, version, created_at, updated_at
+    </sql>
+
+    <resultMap id="DeptResultMap" type="com.yunfeil161.ailibrary.identity.entity.Dept">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status"/>
+        <result property="version" column="version"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <!-- PageHelper 在该普通查询后自动追加分页和总数统计 SQL。 -->
+    <select id="getDepartments" resultMap="DeptResultMap">
+        select <include refid="BaseColumnList"/>
+        from department
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!-- 名称为空时查询全部部门；有值时才拼接模糊查询条件。 -->
+    <select id="getDepartmentById" resultMap="DeptResultMap">
+        select <include refid="BaseColumnList"/>
+        from department
+        where id = #{id}
+    </select>
+
+    <!-- 仅用于更新失败后的并发删除判断，使用当前读绕过可重复读事务快照。 -->
+    <select id="getDepartmentByIdForUpdate" resultMap="DeptResultMap">
+        select <include refid="BaseColumnList"/>
+        from department
+        where id = #{id}
+        for update
+    </select>
+
+    <!-- 只更新提交的字段，并以 version 防止并发覆盖。 -->
+    <update id="updateDepartment">
+        update department
+        <set>
+            <if test="request.name != null">
+                name = #{request.name},
+            </if>
+            <if test="request.descriptionProvided">
+                description = #{request.description},
+            </if>
+            <if test="request.status != null">
+                status = #{request.status},
+            </if>
+            updated_at = current_timestamp(3),
+            version = version + 1
+        </set>
+        where id = #{id}
+          and version = #{request.expectedVersion}
+    </update>
+
+    <!-- 部门编码和名称均为业务唯一值，用于新增前的冲突校验。 -->
+    <select id="countByCodeOrName" resultType="int">
+        select count(1)
+        from department
+        where code = #{code}
+           or name = #{name}
+    </select>
+
+    <select id="countEmployeesByDepartmentId" resultType="int">
+        select count(1)
+        from employee_profile
+        where department_id = #{departmentId}
+    </select>
+
+    <!-- 由数据库生成主键；创建时间、更新时间和版本使用表定义的默认值。 -->
+    <insert id="addDepartment" useGeneratedKeys="true" keyProperty="dept.id">
+        insert into department (code, name, description, status)
+        values (#{dept.code}, #{dept.name}, #{dept.description}, #{dept.status})
+    </insert>
+
+    <delete id="deleteDepartment">
+        delete from department
+        where id = #{id}
+    </delete>
+</mapper>

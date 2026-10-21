@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunfeil161.ailibrary.book.borrow.mapper.BorrowRecordMapper">
+
+    <resultMap id="R" type="com.yunfeil161.ailibrary.book.borrow.entity.BorrowRecord">
+        <id column="id" property="id"/>
+        <result column="application_id" property="applicationId"/>
+        <result column="member_id" property="memberId"/>
+        <result column="copy_id" property="copyId"/>
+        <result column="borrowed_at" property="borrowedAt"/>
+        <result column="due_at" property="dueAt"/>
+        <result column="returned_at" property="returnedAt"/>
+        <result column="status" property="status"/>
+        <result column="overdue_days" property="overdueDays"/>
+        <result column="approved_by" property="approvedBy"/>
+        <result column="returned_by" property="returnedBy"/>
+        <result column="return_condition_note" property="returnConditionNote"/>
+        <result column="return_outcome" property="returnOutcome"/>
+        <result column="renew_count" property="renewCount"/>
+        <result column="last_renewed_at" property="lastRenewedAt"/>
+        <result column="version" property="version"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <resultMap id="D" type="com.yunfeil161.ailibrary.book.borrow.entity.BorrowRecordDetailVO" extends="R">
+        <result column="member_name" property="memberName"/>
+        <result column="book_id" property="bookId"/>
+        <result column="title" property="title"/>
+        <result column="author" property="author"/>
+        <result column="isbn" property="isbn"/>
+        <result column="cover_object_key" property="coverObjectKey"/>
+        <result column="barcode" property="barcode"/>
+        <result column="location" property="location"/>
+        <result column="current_overdue_days" property="currentOverdueDays"/>
+    </resultMap>
+
+    <sql id="cols">
+        r.id, r.application_id, r.member_id, r.copy_id, r.borrowed_at, r.due_at,
+        r.returned_at, r.status, r.overdue_days, r.approved_by, r.returned_by,
+        r.return_condition_note, r.return_outcome, r.renew_count, r.last_renewed_at,
+        r.version, r.created_at, r.updated_at
+    </sql>
+
+    <select id="find" resultMap="D">
+        select
+            <include refid="cols"/>,
+            m.name member_name,
+            b.id book_id,
+            b.title,
+            b.author,
+            b.isbn,
+            b.cover_object_key,
+            bc.barcode,
+            bc.location,
+            case when r.returned_at is null and r.due_at &lt; #{now}
+                 then greatest(1, ceiling(timestampdiff(second, r.due_at, #{now}) / 86400.0))
+                 else r.overdue_days end current_overdue_days
+        from borrow_record r
+        join member m on m.id = r.member_id
+        join book_copy bc on bc.id = r.copy_id
+        join book b on b.id = bc.book_id
+        <where>
+            <if test="q.id != null">and r.id = #{q.id}</if>
+            <if test="q.memberId != null">and r.member_id = #{q.memberId}</if>
+            <if test="q.memberName != null and q.memberName != ''">and m.name like concat('%', #{q.memberName}, '%')</if>
+            <if test="q.bookId != null">and b.id = #{q.bookId}</if>
+            <if test="q.bookTitle != null and q.bookTitle != ''">and b.title like concat('%', #{q.bookTitle}, '%')</if>
+            <if test="q.isbn != null and q.isbn != ''">and b.isbn like concat('%', #{q.isbn}, '%')</if>
+            <if test="q.copyBarcode != null and q.copyBarcode != ''">and bc.barcode like concat('%', #{q.copyBarcode}, '%')</if>
+            <if test="q.status != null">and r.status = #{q.status}</if>
+            <if test="q.returnOutcome != null">and r.return_outcome = #{q.returnOutcome}</if>
+            <if test="q.currentOnly != null and q.currentOnly">and r.status in ('BORROWING', 'OVERDUE') and r.returned_at is null</if>
+            <if test="q.overdueOnly != null and q.overdueOnly">and r.status in ('BORROWING', 'OVERDUE') and r.returned_at is null and r.due_at &lt; #{now}</if>
+            <if test="q.borrowedFrom != null">and r.borrowed_at &gt;= #{q.borrowedFrom}</if>
+            <if test="q.borrowedTo != null">and r.borrowed_at &lt;= #{q.borrowedTo}</if>
+            <if test="q.dueFrom != null">and r.due_at &gt;= #{q.dueFrom}</if>
+            <if test="q.dueTo != null">and r.due_at &lt;= #{q.dueTo}</if>
+        </where>
+        order by r.id desc
+    </select>
+
+    <select id="countOpenByCopyId" resultType="int">
+        select count(*)
+        from borrow_record
+        where copy_id = #{copyId}
+          and status in ('BORROWING', 'OVERDUE')
+          and returned_at is null
+    </select>
+
+    <select id="findById" resultMap="R">
+        select <include refid="cols"/>
+        from borrow_record r
+        where r.id = #{id}
+    </select>
+
+    <select id="findOpenByCopyId" resultMap="R">
+        select <include refid="cols"/>
+        from borrow_record r
+        where r.copy_id = #{copyId}
+          and r.status in ('BORROWING', 'OVERDUE')
+          and r.returned_at is null
+        order by r.id desc
+        limit 1
+    </select>
+
+    <select id="countOpenByMemberBook" resultType="int">
+        select count(*)
+        from borrow_record r
+        join book_copy bc on bc.id = r.copy_id
+        where r.member_id = #{memberId}
+          and bc.book_id = #{bookId}
+          and r.status in ('BORROWING', 'OVERDUE')
+          and r.returned_at is null
+    </select>
+
+    <select id="countOverdue" resultType="int">
+        select count(*)
+        from borrow_record
+        where member_id = #{memberId}
+          and status in ('BORROWING', 'OVERDUE')
+          and returned_at is null
+          and due_at &lt; #{now}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into borrow_record(application_id, member_id, copy_id, borrowed_at, due_at,
+                                  status, overdue_days, approved_by, renew_count, version)
+        values(#{applicationId}, #{memberId}, #{copyId}, #{borrowedAt}, #{dueAt},
+               #{status}, #{overdueDays}, #{approvedBy}, coalesce(#{renewCount}, 0), #{version})
+    </insert>
+
+    <update id="renew">
+        update borrow_record
+        set due_at = #{dueAt},
+            renew_count = renew_count + 1,
+            last_renewed_at = #{now},
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status = 'BORROWING'
+          and returned_at is null
+          and due_at &gt; #{now}
+          and version = #{version}
+    </update>
+
+    <update id="finishReturn">
+        update borrow_record
+        set returned_at = #{now},
+            status = #{status},
+            return_outcome = #{returnOutcome},
+            overdue_days = #{overdueDays},
+            returned_by = #{returnedBy},
+            return_condition_note = #{note},
+            version = version + 1,
+            updated_at = #{now}
+        where id = #{id}
+          and status in ('BORROWING', 'OVERDUE')
+          and returned_at is null
+          and version = #{version}
+    </update>
+
+    <update id="synchronizeOverdue">
+        update borrow_record
+        set status = 'OVERDUE',
+            version = version + 1,
+            updated_at = #{now}
+        where status = 'BORROWING'
+          and returned_at is null
+          and due_at &lt; #{now}
+    </update>
+
+    <select id="findIdsToMarkOverdue" resultType="long">
+        select id
+        from borrow_record
+        where status = 'BORROWING'
+          and returned_at is null
+          and due_at &lt; #{now}
+    </select>
+
+    <update id="markOverdue">
+        update borrow_record
+        set status = 'OVERDUE', version = version + 1, updated_at = #{now}
+        where id = #{id} and status = 'BORROWING'
+          and returned_at is null and due_at &lt; #{now}
+    </update>
+</mapper>

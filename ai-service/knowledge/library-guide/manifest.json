@@ -1,0 +1,15 @@
+{
+  "current_policies": {},
+  "documents": [
+    {
+      "id": "ai-consultation-guide",
+      "file": "ai-consultation.md",
+      "title": "AI咨询与当前推荐使用说明",
+      "source": "library-guide://ai-consultation-v1",
+      "kind": "general",
+      "version": "v1",
+      "status": "ACTIVE",
+      "demo": false
+    }
+  ]
+}

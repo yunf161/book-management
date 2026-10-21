@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunfeil161.ailibrary.identity.mapper.MemberMapper">
+    <resultMap id="MemberMap" type="com.yunfeil161.ailibrary.identity.entity.Member">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="memberType" column="member_type"/>
+        <result property="roleId" column="role_id"/>
+        <result property="accountStatus" column="account_status"/>
+        <result property="qualificationStatus" column="qualification_status"/>
+        <result property="emailVerifiedAt" column="email_verified_at"/>
+        <result property="acceptedRuleVersion" column="accepted_rule_version"/>
+        <result property="borrowedBookCount" column="borrowed_book_count"/>
+        <result property="permanentBorrowLimit" column="permanent_borrow_limit"/>
+        <result property="temporaryBorrowLimit" column="temporary_borrow_limit"/>
+        <result property="temporaryQuotaExpiresAt" column="temporary_quota_expires_at"/>
+        <result property="version" column="version"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="findMemberById" resultMap="MemberMap">
+        select id, name, email, phone, password_hash, member_type, role_id,
+               account_status, qualification_status, email_verified_at,
+               accepted_rule_version, borrowed_book_count, permanent_borrow_limit,
+               temporary_borrow_limit, temporary_quota_expires_at,
+               version, created_at, updated_at
+        from member
+        where id = #{id}
+    </select>
+
+    <resultMap id="ReaderMap" type="com.yunfeil161.ailibrary.identity.entity.Reader" extends="MemberMap">
+        <result property="readerInterestId" column="reader_interest_id"/>
+        <result property="interests" column="interests"/>
+        <result property="readerSettingsId" column="reader_settings_id"/>
+        <result property="personalizationEnabled" column="personalization_enabled"/>
+        <result property="recommendationNotificationsEnabled" column="recommendation_notifications"/>
+    </resultMap>
+
+    <resultMap id="EmployeeMap" type="com.yunfeil161.ailibrary.identity.entity.Employee" extends="MemberMap">
+        <result property="employeeProfileId" column="employee_profile_id"/>
+        <result property="employeeNo" column="employee_no"/>
+        <result property="departmentId" column="department_id"/>
+        <result property="positionName" column="position_name"/>
+        <result property="employmentStatus" column="employment_status"/>
+        <result property="hiredOn" column="hired_on"/>
+        <result property="leftOn" column="left_on"/>
+    </resultMap>
+
+
+
+    <sql id="MemberColumns">
+        m.id, m.name, m.email, m.phone, m.member_type, m.role_id,
+        m.account_status, m.qualification_status, m.email_verified_at,
+        m.accepted_rule_version, m.borrowed_book_count, m.permanent_borrow_limit,
+        m.temporary_borrow_limit, m.temporary_quota_expires_at,
+        m.version, m.created_at, m.updated_at
+    </sql>
+
+    <sql id="MemberConditions">
+        <if test="member.id != null">and m.id = #{member.id}</if>
+        <if test="member.roleId != null">and m.role_id = #{member.roleId}</if>
+        <if test="member.accountStatus != null">and m.account_status = #{member.accountStatus}</if>
+        <if test="member.qualificationStatus != null">and m.qualification_status = #{member.qualificationStatus}</if>
+        <if test="member.emailVerifiedAt != null">and m.email_verified_at = #{member.emailVerifiedAt}</if>
+        <if test="member.acceptedRuleVersion != null and member.acceptedRuleVersion != ''">and m.accepted_rule_version = #{member.acceptedRuleVersion}</if>
+        <if test="member.permanentBorrowLimit != null">and m.permanent_borrow_limit = #{member.permanentBorrowLimit}</if>
+        <if test="member.temporaryBorrowLimit != null">and m.temporary_borrow_limit = #{member.temporaryBorrowLimit}</if>
+        <if test="member.temporaryQuotaExpiresAt != null">and m.temporary_quota_expires_at = #{member.temporaryQuotaExpiresAt}</if>
+        <if test="member.borrowedBookCount != null">and m.borrowed_book_count = #{member.borrowedBookCount}</if>
+        <if test="member.version != null">and m.version = #{member.version}</if>
+        <if test="member.name != null and member.name != ''">and m.name like concat('%', #{member.name}, '%')</if>
+        <if test="member.phone != null and member.phone != ''">and m.phone like concat('%', #{member.phone}, '%')</if>
+        <if test="member.email != null and member.email != ''">and m.email like concat('%', #{member.email}, '%')</if>
+    </sql>
+
+    <select id="getReadersByPage" resultMap="ReaderMap">
+        select
+            <include refid="MemberColumns"/>,
+            (select min(ri.id) from reader_interest ri where ri.member_id = m.id) as reader_interest_id,
+            (select group_concat(ri.interest_name order by ri.id separator ',') from reader_interest ri where ri.member_id = m.id) as interests,
+            rs.id as reader_settings_id,
+            rs.personalization_enabled,
+            rs.recommendation_notifications
+        from member m
+        left join reader_settings rs on rs.member_id = m.id
+        <where>
+            m.member_type = 'READER'
+            <include refid="MemberConditions"/>
+            <if test="member.readerInterestId != null or (member.interestName != null and member.interestName != '')">
+                and exists (
+                    select 1 from reader_interest ri_filter
+                    where ri_filter.member_id = m.id
+                    <if test="member.readerInterestId != null">and ri_filter.id = #{member.readerInterestId}</if>
+                    <if test="member.interestName != null and member.interestName != ''">and ri_filter.interest_name like concat('%', #{member.interestName}, '%')</if>
+                )
+            </if>
+            <if test="member.readerSettingsId != null">and rs.id = #{member.readerSettingsId}</if>
+            <if test="member.personalizationEnabled != null">and rs.personalization_enabled = #{member.personalizationEnabled}</if>
+            <if test="member.recommendationNotificationsEnabled != null">and rs.recommendation_notifications = #{member.recommendationNotificationsEnabled}</if>
+        </where>
+        order by m.id desc
+    </select>
+
+    <select id="getEmployeesByPage" resultMap="EmployeeMap">
+        select
+            <include refid="MemberColumns"/>,
+            e.id as employee_profile_id,
+            e.employee_no, e.department_id, e.position_name,
+            e.employment_status, e.hired_on, e.left_on
+        from member m
+        inner join employee_profile e on e.member_id = m.id
+        <where>
+            m.member_type = 'EMPLOYEE'
+            <include refid="MemberConditions"/>
+            <if test="member.employeeProfileId != null">and e.id = #{member.employeeProfileId}</if>
+            <if test="member.employeeNo != null and member.employeeNo != ''">and e.employee_no = #{member.employeeNo}</if>
+            <if test="member.departmentId != null">and e.department_id = #{member.departmentId}</if>
+            <if test="member.positionName != null and member.positionName != ''">and e.position_name like concat('%', #{member.positionName}, '%')</if>
+            <if test="member.employmentStatus != null">and e.employment_status = #{member.employmentStatus}</if>
+            <if test="member.hiredOn != null">and e.hired_on = #{member.hiredOn}</if>
+            <if test="member.leftOn != null">and e.left_on = #{member.leftOn}</if>
+        </where>
+        order by m.id desc
+    </select>
+
+
+
+    <select id="countByIdentity" resultType="int">
+        select count(*) from member
+        where (name = #{name} or email = #{email} or phone = #{phone})
+        <if test="excludeId != null">and id != #{excludeId}</if>
+    </select>
+
+    <insert id="insertMember" useGeneratedKeys="true" keyProperty="member.id">
+        insert into member
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            name, email, phone, password_hash, member_type, role_id,
+            <if test="member.accountStatus != null">account_status,</if>
+            <if test="member.qualificationStatus != null">qualification_status,</if>
+            <if test="member.emailVerifiedAt != null">email_verified_at,</if>
+            <if test="member.acceptedRuleVersion != null">accepted_rule_version,</if>
+            <if test="member.borrowedBookCount != null">borrowed_book_count,</if>
+            <if test="member.permanentBorrowLimit != null">permanent_borrow_limit,</if>
+            version, created_at, updated_at
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{member.name}, #{member.email}, #{member.phone}, #{member.passwordHash},
+            #{member.memberType}, #{member.roleId},
+            <if test="member.accountStatus != null">#{member.accountStatus},</if>
+            <if test="member.qualificationStatus != null">#{member.qualificationStatus},</if>
+            <if test="member.emailVerifiedAt != null">#{member.emailVerifiedAt},</if>
+            <if test="member.acceptedRuleVersion != null">#{member.acceptedRuleVersion},</if>
+            <if test="member.borrowedBookCount != null">#{member.borrowedBookCount},</if>
+            <if test="member.permanentBorrowLimit != null">#{member.permanentBorrowLimit},</if>
+            0, now(), now()
+        </trim>
+    </insert>
+
+    <update id="updateMember">
+        update member
+        <set>
+            <if test="member.name != null">name = #{member.name},</if>
+            <if test="member.email != null">email = #{member.email},</if>
+            <if test="member.phone != null">phone = #{member.phone},</if>
+            <if test="member.passwordHash != null">password_hash = #{member.passwordHash},</if>
+            <if test="member.roleId != null">role_id = #{member.roleId},</if>
+            <if test="member.accountStatus != null">account_status = #{member.accountStatus},</if>
+            <if test="member.qualificationStatus != null">qualification_status = #{member.qualificationStatus},</if>
+            <if test="member.emailVerifiedAt != null">email_verified_at = #{member.emailVerifiedAt},</if>
+            <if test="member.acceptedRuleVersion != null">accepted_rule_version = #{member.acceptedRuleVersion},</if>
+            <if test="member.permanentBorrowLimit != null">permanent_borrow_limit = #{member.permanentBorrowLimit},</if>
+            version = version + 1, updated_at = now()
+        </set>
+        where id = #{id} and member_type = #{member.memberType}
+          and version = #{expectedVersion}
+          <if test="member.permanentBorrowLimit != null">
+              and #{member.permanentBorrowLimit} &gt;= borrowed_book_count
+          </if>
+    </update>
+
+    <!-- 验证码已由认证服务校验，此处只更新密码摘要并推进成员版本。 -->
+    <update id="updatePassword">
+        update member
+        set password_hash = #{passwordHash},
+            version = version + 1,
+            updated_at = current_timestamp
+        where id = #{id}
+    </update>
+
+    <update id="disableMember">
+        update member
+        set account_status = 'DISABLED', version = version + 1, updated_at = now()
+        where id = #{id} and version = #{expectedVersion}
+          and account_status != 'DISABLED'
+    </update>
+
+    <insert id="insertReaderSettings">
+        insert into reader_settings(member_id, personalization_enabled, recommendation_notifications)
+        values(#{memberId}, coalesce(#{reader.personalizationEnabled}, false),
+               coalesce(#{reader.recommendationNotificationsEnabled}, false))
+    </insert>
+    <insert id="insertReaderInterest">
+        insert into reader_interest(member_id, interest_name) values(#{memberId}, #{interest})
+    </insert>
+    <delete id="deleteReaderInterests">delete from reader_interest where member_id = #{memberId}</delete>
+    <update id="updateReaderSettings">
+        update reader_settings
+        <set>
+            <if test="reader.personalizationEnabled != null">personalization_enabled = #{reader.personalizationEnabled},</if>
+            <if test="reader.recommendationNotificationsEnabled != null">recommendation_notifications = #{reader.recommendationNotificationsEnabled},</if>
+            member_id = member_id,
+        </set>
+        where member_id = #{memberId}
+    </update>
+    <delete id="deleteReaderSettings">delete from reader_settings where member_id = #{memberId}</delete>
+
+    <insert id="insertEmployeeProfile">
+        insert into employee_profile
+        (member_id, employee_no, department_id, position_name, employment_status,
+         hired_on, left_on)
+        values(#{memberId}, #{employee.employeeNo}, #{employee.departmentId},
+         #{employee.positionName}, #{employee.employmentStatus}, #{employee.hiredOn},
+         #{employee.leftOn})
+    </insert>
+    <update id="updateEmployeeProfile">
+        update employee_profile
+        <set>
+            <if test="employee.employeeNo != null">employee_no = #{employee.employeeNo},</if>
+            <if test="employee.departmentId != null">department_id = #{employee.departmentId},</if>
+            <if test="employee.positionName != null">position_name = #{employee.positionName},</if>
+            <if test="employee.employmentStatus != null">employment_status = #{employee.employmentStatus},</if>
+            <if test="employee.hiredOn != null">hired_on = #{employee.hiredOn},</if>
+            <if test="employee.leftOn != null">left_on = #{employee.leftOn},</if>
+            member_id = member_id,
+        </set>
+        where member_id = #{memberId}
+    </update>
+    <delete id="deleteEmployeeProfile">delete from employee_profile where member_id = #{memberId}</delete>
+
+
+
+
+    <!-- 联系人返回字段白名单；数据范围条件与发送前复查共用。 -->
+    <select id="findContacts" resultType="com.yunfeil161.ailibrary.communication.contact.dto.ContactBrief">
+        select m.id, m.name, m.member_type, d.name as department_name
+        from member m
+        join `role` r on r.id = m.role_id and r.status = 'ACTIVE'
+        left join employee_profile ep on ep.member_id = m.id
+        left join department d on d.id = ep.department_id
+        where m.id &lt;&gt; #{memberId}
+          and m.account_status = 'ACTIVE'
+          and m.member_type in ('READER', 'EMPLOYEE')
+        <if test="q.id != null">and m.id = #{q.id}</if>
+        <if test="q.name != null and q.name != ''">and m.name like concat('%', #{q.name}, '%')</if>
+        <if test="q.memberType != null">and m.member_type = #{q.memberType}</if>
+        <if test="q.departmentId != null">and ep.department_id = #{q.departmentId}</if>
+        <if test="scopeDepartmentId != null">and ep.department_id = #{scopeDepartmentId}</if>
+        order by m.id desc
+    </select>
+    <select id="findDepartmentByMemberId" resultType="long">
+        select department_id from employee_profile where member_id = #{id}
+    </select>
+</mapper>
+

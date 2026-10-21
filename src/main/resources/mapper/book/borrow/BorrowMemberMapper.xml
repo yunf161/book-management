@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunfeil161.ailibrary.book.borrow.mapper.BorrowMemberMapper">
+
+    <resultMap id="M" type="com.yunfeil161.ailibrary.identity.entity.Member">
+        <id column="id" property="id"/>
+        <result column="member_type" property="memberType"/>
+        <result column="role_id" property="roleId"/>
+        <result column="name" property="name"/>
+        <result column="account_status" property="accountStatus"/>
+        <result column="qualification_status" property="qualificationStatus"/>
+        <result column="borrowed_book_count" property="borrowedBookCount"/>
+        <result column="permanent_borrow_limit" property="permanentBorrowLimit"/>
+        <result column="temporary_borrow_limit" property="temporaryBorrowLimit"/>
+        <result column="temporary_quota_expires_at" property="temporaryQuotaExpiresAt"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <select id="findById" resultMap="M">
+        select id, member_type, role_id, name, account_status,
+               qualification_status, borrowed_book_count, permanent_borrow_limit,
+               temporary_borrow_limit, temporary_quota_expires_at, version
+        from member
+        where id = #{id}
+    </select>
+
+    <update id="incrementBorrowed">
+        update member
+        set borrowed_book_count = borrowed_book_count + 1,
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        where id = #{id}
+          and account_status = 'ACTIVE'
+          and qualification_status = 'APPROVED'
+          <!-- 临时额度可能在预检查后到期，真正增加已借数量时必须再次原子判断。 -->
+          and borrowed_book_count &lt; case
+              when temporary_borrow_limit is not null
+                and temporary_quota_expires_at &gt; #{now}
+              then temporary_borrow_limit else permanent_borrow_limit end
+          and version = #{version}
+    </update>
+
+    <update id="decrementBorrowed">
+        update member
+        set borrowed_book_count = borrowed_book_count - 1,
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        where id = #{id}
+          and borrowed_book_count &gt; 0
+          and version = #{version}
+    </update>
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yunfeil161.ailibrary.auth.mapper.LoginMapper">
+
+    <resultMap id="LoginMemberMap" type="com.yunfeil161.ailibrary.identity.entity.Member">
+        <id property="id" column="id"/>
+        <result property="memberType" column="member_type"/>
+        <result property="roleId" column="role_id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="passwordHash" column="password_hash"/>
+        <result property="accountStatus" column="account_status"/>
+        <result property="qualificationStatus" column="qualification_status"/>
+        <result property="emailVerifiedAt" column="email_verified_at"/>
+        <result property="acceptedRuleVersion" column="accepted_rule_version"/>
+        <result property="borrowedBookCount" column="borrowed_book_count"/>
+        <result property="permanentBorrowLimit" column="permanent_borrow_limit"/>
+        <result property="temporaryBorrowLimit" column="temporary_borrow_limit"/>
+        <result property="temporaryQuotaExpiresAt" column="temporary_quota_expires_at"/>
+        <result property="version" column="version"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="findByEmail" resultMap="LoginMemberMap">
+        select
+            id,
+            member_type,
+            role_id,
+            name,
+            email,
+            phone,
+            password_hash,
+            account_status,
+            qualification_status,
+            email_verified_at,
+            accepted_rule_version,
+            borrowed_book_count,
+            permanent_borrow_limit,
+            temporary_borrow_limit,
+            temporary_quota_expires_at,
+            version,
+            created_at,
+            updated_at
+        from member
+        where email = #{email}
+        limit 1
+    </select>
+
+</mapper>
+

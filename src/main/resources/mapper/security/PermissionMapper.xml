@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunfeil161.ailibrary.config.security.permission.mapper.PermissionMapper">
+    <sql id="BaseColumnList">id, code, name, module, description, version, created_at, updated_at</sql>
+
+    <resultMap id="PermissionResultMap" type="com.yunfeil161.ailibrary.config.security.permission.entity.Permission">
+        <id property="id" column="id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="module" column="module"/>
+        <result property="description" column="description"/>
+        <result property="version" column="version"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <select id="getPermissionsByPages" resultMap="PermissionResultMap">
+        select <include refid="BaseColumnList"/> from permission
+        <where>
+            <if test="param.id != null">and id = #{param.id}</if>
+            <if test="param.code != null and param.code != ''">and code like concat('%', #{param.code}, '%')</if>
+            <if test="param.name != null and param.name != ''">and name like concat('%', #{param.name}, '%')</if>
+            <if test="param.module != null and param.module != ''">and module = #{param.module}</if>
+        </where>
+        order by id desc
+    </select>
+    <select id="getPermissionById" resultMap="PermissionResultMap">
+        select <include refid="BaseColumnList"/> from permission where id = #{id}
+    </select>
+    <select id="getPermissionByCode" resultMap="PermissionResultMap">
+        select <include refid="BaseColumnList"/> from permission where code = #{code}
+    </select>
+    <select id="countByCode" resultType="int">select count(1) from permission where code = #{code}</select>
+    <insert id="addPermission" useGeneratedKeys="true" keyProperty="permission.id">
+        insert into permission (code, name, module, description)
+        values (#{permission.code}, #{permission.name}, #{permission.module}, #{permission.description})
+    </insert>
+    <update id="updatePermission">
+        update permission
+        <set>
+            name = #{request.name},
+            module = #{request.module},
+            description = #{request.description},
+            version = version + 1,
+            updated_at = current_timestamp(3)
+        </set>
+        where id = #{id}
+          and version = #{request.expectedVersion}
+    </update>
+    <delete id="deletePermission">delete from permission where id = #{id}</delete>
+</mapper>
